@@ -1,0 +1,52 @@
+body{
+    background-color: #000125 !important;
+}
+.home{
+    margin-left:7rem;
+    margin-right:30rem;
+}
+.navig1{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: solid 2px;
+}
+.navig2{
+    border-bottom: solid 1px;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+.title{
+margin-right: 2rem;
+}
+.round{
+border-radius: 50%;
+}
+.bg-light{
+    background-color: #000125 !important;
+}
+.white{
+    color: #fff !important;
+}
+.about-us-text{
+margin-left:10rem;
+width:25rem;
+font-size: larger;
+}
+.mt-8{
+    margin-top: 8rem;
+}
+.mt-6{
+    margin-top: 6rem;
+}
+.mb-8{
+    margin-bottom: 8rem;
+}
+.mb-6{
+    margin-bottom: 6rem;
+}
+.neg-mt{
+    margin-top:-1rem;
+}
+.centered{
+    text-align: center;
+}

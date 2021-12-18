@@ -1,0 +1,63 @@
+@extends('admin.base')
+@section('admincontent')
+
+<div class="main-content container-fluid">
+    <div class="page-title">
+        <h3>Vlogs</h3>
+        <p class="text-subtitle text-muted">Add a new vlog</p>
+    </div>
+    <section class="section">
+        <div class="row mb-2">
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <form action="insert_vlog" method="POST">
+                                @csrf
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="basicInput">Vlog Title</label>
+                                        <input type="text" class="form-control" id="title" name="title"
+                                            placeholder="Enter name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="basicInput">Vlog URL</label>
+                                        <input type="text" class="form-control" id="url" name="url"
+                                            placeholder="Enter name">
+                                    </div>
+                                </div>
+
+
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="exampleFormControlTextarea1"
+                                                class="form-label">Description</label>
+                                            <textarea class="form-control" id="description" name="description"
+                                                rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-success round mt-4">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+
+<!-- dashboard end -->
+
+@endsection
