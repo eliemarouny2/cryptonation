@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form action="/update_product" method="POST">
+                        <form action="/update_product" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <input type="hidden" class="form-control" id="id" name="id" value="{{$product->prod_id}}">
@@ -61,6 +61,17 @@
                                             rows=" 5">{{$product->prod_description}}</textarea>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <input type="file" class="image" id="image" name="image">                                     
+                                    </div>
+                                    @if($product->prod_img_url)
+                                    @endif
+                                </div>
+                                <div class="col-md-4"><img width="200" src="/products/{{$product->prod_img_url }}" alt="image product"></div>
                             </div>
 
                             <li class="d-inline-block me-2 mb-1">

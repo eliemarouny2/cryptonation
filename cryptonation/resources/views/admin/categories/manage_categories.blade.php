@@ -1,9 +1,6 @@
 @extends('admin.base')
 @section('admincontent')
 
-
-
-
 <div class="main-content container-fluid">
     <div class="page-title">
         <h3>Categories</h3>
@@ -37,8 +34,9 @@
                                             <a class="badge bg-danger nodec"
                                                 href={{"delete_category/".$category->cat_id}}>Delete</a>
                                         </td>
-                                        @endforeach
                                     </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>

@@ -1,9 +1,6 @@
 @extends('admin.base')
 @section('admincontent')
 
-
-
-
 <div class="main-content container-fluid">
     <div class="page-title">
         <h3>Settings</h3>
@@ -17,8 +14,6 @@
                 <div class="card">
                     <div class="card-body px-0 pb-0">
                         <div class="table-responsive">
-
-
                         </div>
                     </div>
                 </div>

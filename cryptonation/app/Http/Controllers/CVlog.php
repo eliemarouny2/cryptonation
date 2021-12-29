@@ -12,11 +12,18 @@ class CVlog extends Controller
         }else{
             $status=0;
         }
-    Vlog::insert([
+    $result=Vlog::insert([
         'vlog_title'=>$req->title,
         'vlog_description'=>$req->description,
         'vlog_status'=>$status,
     ]);
+        if($result==1){
+    session(['res' => 'success']);
+    session(['result' => "Successfully added"]);
+    }else{
+    session(['res' => 'danger']);
+    session(['result' => "Problem deleting data"]);
+    }
    return redirect('manage_products');
     }
 
@@ -34,18 +41,32 @@ function update_vlog(Request $req){
         }else{
             $status=0;
         }
-   Vlog::where('vlog_id', $req->id)
+   $result=Vlog::where('vlog_id', $req->id)
             ->update([
                     'vlog_title'=>$req->title,
                     'vlog_description'=>$req->description,
                     'vlog_video_url'=>$req->url,
                     'vlog_status'=>$status,
             ]);
+    if($result==1){
+    session(['res' => 'success']);
+    session(['result' => "Successfully edited"]);
+    }else{
+    session(['res' => 'danger']);
+    session(['result' => "Problem editing data"]);
+    }
    return redirect('/manage_vlogs');
 }
 
     function delete_vlog(Request $req){
-    Vlog::where('vlog_id',$req->id)->delete();
+   $result= Vlog::where('vlog_id',$req->id)->delete();
+       if($result==1){
+    session(['res' => 'success']);
+    session(['result' => "Successfully deleted"]);
+    }else{
+    session(['res' => 'danger']);
+    session(['result' => "Problem deleting data"]);
+    }
    return redirect('manage_vlogs');
 }
 

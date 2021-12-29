@@ -1,9 +1,6 @@
 @extends('admin.base')
 @section('admincontent')
 
-
-
-
 <div class="main-content container-fluid">
     <div class="page-title">
         <h3>Products</h3>
@@ -53,8 +50,9 @@
                                             <a class="badge bg-danger nodec mt-1"
                                                 href={{"delete_product/".$product->prod_id}}>Delete</a>
                                         </td>
-                                        @endforeach
                                     </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
