@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Exception;
 use Illuminate\Http\Request;
 
 class CBlog extends Controller
@@ -29,4 +30,38 @@ class CBlog extends Controller
     }
    return redirect('manage_products');
     }
+    function delete_blog(Request $req){
+    $result=Blog::where('blog_id',$req->id)->delete();
+    if($result==1){
+    session(['res' => 'success']);
+    session(['result' => "Successfully deleted"]);
+    }else{
+    session(['res' => 'danger']);
+    session(['result' => "Problem deleting data"]);
+    }
+   return redirect('manage_blogs');
+ }
+
+function edit_blog($id){
+   $blog=Blog::where('blog_id',$id)->first();
+   return view('admin/blogs/edit_blog',[
+       'blog'=>$blog
+   ]);
+}
+
+function update_blog(Request $req){
+    try{
+   $result=Blog::where('blog_id', $req->id)
+            ->update(['blog_name'=> $req->blog_name]);
+    if($result==1){
+    session(['res' => 'success']);
+    session(['result' => "Successfully edited"]);
+    }
+    }
+    catch(Exception $ex){
+    session(['res' => 'danger']);
+    session(['result' => "Problem editing data"]);
+    }
+   return redirect('/manage_blogs');
+}
 }

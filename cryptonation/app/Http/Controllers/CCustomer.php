@@ -12,6 +12,7 @@ class CCustomer extends Controller
     'firstname' => $req->firstname,
     'lastname' => $req->lastname,
     'email' => $req->email,
+    'phone' => $req->phone,
 ]);
    return redirect('manage_customers');
 }
@@ -41,6 +42,7 @@ function update_customer(Request $req){
                 'firstname'=> $req->firstname,
                 'lastname'=> $req->lastname,
                 'email'=> $req->email,
+                'phone'=> $req->phone
             ]);
                 if($result==1){
     session(['res' => 'success']);

@@ -39,6 +39,14 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="basicInput">Vlog URL</label>
+                                    <input type="text" class="form-control" id="url" name="url"
+                                        value="{{$vlog->vlog_video_url}}">
+                                </div>
+                            </div>
+
                             <li class="d-inline-block me-2 mb-1">
                                 <div class='form-check'>
                                     <div class="custom-control custom-checkbox">

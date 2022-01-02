@@ -41,6 +41,14 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="basicInput">Phone</label>
+                                        <input type="number" class="form-control" id="phone" name="phone"
+                                            placeholder="Enter phone number">
+                                    </div>
+                                </div>
+
                                 <div class="col-md-4">
                                     <button type="submit" href="#" class="btn btn-success round mt-4">Add</button>
                                 </div>

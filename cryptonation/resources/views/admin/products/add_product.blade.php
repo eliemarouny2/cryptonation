@@ -47,22 +47,32 @@
                                 </fieldset>
                             </div>
 
+                            <div class=" col-md-6 mb-4">
+                                <label for="category">Type</label>
+                                <fieldset class="form-group">
+                                    <select class="form-select" id="trending" name="trending">
+                                        <option value="0">normal</option>
+                                        <option value="1">trending</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+
+                            <div class=" col-md-6 mb-4">
+                                <label for="category">Status</label>
+                                <fieldset class="form-group">
+                                    <select class="form-select" id="status" name="status">
+                                        <option value="1">active</option>
+                                        <option value="0">inactive</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
                                         <textarea class="form-control" id="description" name="description"
                                             rows="5"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-inline-block me-2 mb-1">
-                                <div class='form-check'>
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="form-check-input form-check-secondary" checked
-                                            name="status" id="status">
-                                        <label class="form-check-label" for="status">Active</label>
                                     </div>
                                 </div>
                             </div>

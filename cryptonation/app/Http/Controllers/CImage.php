@@ -13,7 +13,7 @@ class CImage extends Controller
     $req->validate([
             'image'=>'mimes:jpg,png,jpeg|max:5048'
         ]);
-         $imagename=time(). '-'.$req->name . '.' .$req->image->extension();
+         $imagename=time(). '-'.$req->product . '.' .$req->image->extension();
         $req->image->move(public_path('image_gallery'),$imagename);
         $result= Image_gallery::insert([
        'product_id'=>$req->product,
@@ -58,35 +58,37 @@ class CImage extends Controller
     }
    return redirect('manage_images');
 }
-function update_image(Request $req){
-        $req->validate([
-            'image'=>'mimes:jpg,png,jpeg|max:5048'
-        ]);
-        $imagename=time(). '-'.$req->name . '.' .$req->image->extension();
-        $req->image->move(public_path('image_gallery'),$imagename);
-            if($req->status=='on'){
-            $status=1;
-        }else{
-            $status=0;
-        }
-        $oldimage=Image_gallery::where('image_gallery_id',$req->id)->first('img_url');
-        $result=Image_gallery::where('image_gallery_id', $req->id)
-            ->update([
-                    'product_id'=>$req->product,
-                    'img_url'=>$imagename ? : $oldimage,
+// function update_image(Request $req){
+//     if($req->hasFile('image')){
+//         $req->validate([
+//             'image'=>'mimes:jpg,png,jpeg|max:5048'
+//         ]);
+//         $imagename=time(). '-'.$req->product . '.' .$req->image->extension();
+//         $req->image->move(public_path('image_gallery'),$imagename);
+//     }
+//             if($req->status=='on'){
+//             $status=1;
+//         }else{
+//             $status=0;
+//         }
+//         $oldimage=Image_gallery::where('image_gallery_id',$req->id)->first('img_url');
+//         $result=Image_gallery::where('image_gallery_id', $req->id)
+//             ->update([
+//                     'product_id'=>$req->product,
+//                     'img_url'=>(!empty($imagename) ? $imagename : $oldimage),
 
-            ]);
-                if($result==1){
-                    if($oldimage->img_url){
-    unlink(public_path('image_gallery/'.$oldimage->img_url));
-                    }
-    session(['res' => 'success']);
-    session(['result' => "Successfully added"]);
-    }else{
-    session(['res' => 'danger']);
-    session(['result' => "Problem editing data"]);
-    }
-   return redirect('/manage_images');
-}
+//             ]);
+//                 if($result==1){
+//                     if($oldimage->img_url){
+//     unlink(public_path('image_gallery/'.$oldimage->img_url));
+//                     }
+//     session(['res' => 'success']);
+//     session(['result' => "Successfully added"]);
+//     }else{
+//     session(['res' => 'danger']);
+//     session(['result' => "Problem editing data"]);
+//     }
+//    return redirect('/manage_images');
+// }
 
 }

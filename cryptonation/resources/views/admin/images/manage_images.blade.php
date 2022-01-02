@@ -32,8 +32,8 @@
                                         <td><img src="/image_gallery/{{$image->img_url}}" width="100" alt="image">
                                         </td>
                                         <td>
-                                            <a class="badge bg-success nodec"
-                                                href={{"edit_image/".$image->image_gallery_id}}>Edit</a>
+                                            <!-- <a class="badge bg-success nodec"
+                                                href={{"edit_image/".$image->image_gallery_id}}>Edit</a> -->
                                             <a class="badge bg-danger nodec"
                                                 href={{"delete_image/".$image->image_gallery_id}}>Delete</a>
                                         </td>

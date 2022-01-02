@@ -20,6 +20,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -30,6 +31,7 @@
                                         <td>{{$customer->cust_id }}</td>
                                         <td>{{$customer->firstname }} {{$customer->lastname }}</td>
                                         <td>{{$customer->email }}</td>
+                                        <td>{{$customer->phone }}</td>
                                         <td>
                                             <a class="badge bg-success nodec"
                                                 href={{"edit_customer/".$customer->cust_id}}>Edit</a>

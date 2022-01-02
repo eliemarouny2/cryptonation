@@ -46,7 +46,7 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
                                 <span>Categories</span>
                             </a>
                             <ul class="submenu">
-                                <li><a href="/manage_categories">Manage Categories</a></li>
+                                <li class=""><a href="/manage_categories">Manage Categories</a></li>
                                 <li><a href="/add_category">Add Category</a></li>
                             </ul>
                         </li>

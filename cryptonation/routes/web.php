@@ -10,15 +10,15 @@ use App\Http\Controllers\CImage;
 use App\Http\Controllers\CMission;
 use App\Http\Controllers\COrder;
 use App\Http\Controllers\CProduct;
+use App\Http\Controllers\CReport;
 use App\Http\Controllers\CSubscribers;
 use App\Http\Controllers\CVlog;
+use App\Http\Controllers\website\CHome;
 use App\Models\Admin;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Customer;
-use App\Models\Image_gallery;
 use App\Models\Mission;
-use App\Models\Order;
 use App\Models\Product;
 use App\Models\Subscriber;
 use App\Models\Vlog;
@@ -36,9 +36,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[CHome::class,'homepage']);
+Route::get('/blogs',[CHome::class,'blogs']);
+Route::get('/vlogs',[CHome::class,'vlogs']);
+Route::get('/about',[CHome::class,'about']);
+Route::get('/merch',[CHome::class,'merch']);
+Route::get('/checkout',[CHome::class,'checkout']);
+Route::post('/add_new_subscriber', [CHome::class, 'add_new_subscriber'])->name('add_new_subscriber');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -148,14 +152,18 @@ Route::group(['middleware'=>['AuthCheck']], function(){
             ]);
         });
         Route::post('/insert_category', [CCategory::class,'insert_category']);
+        Route::post('/insert_subscriber', [CSubscribers::class,'insert_subscriber']);
+        Route::post('/report', [CReport::class,'report']);
 
         Route::get('delete_order/{id}', [COrder::class,'delete_order']);
+        Route::get('delete_blog/{id}', [CBlog::class,'delete_blog']);
         Route::get('delete_image/{id}', [CImage::class,'delete_image']);
         Route::get('view_order/{id}', [COrder::class,'view_order']);
 
         Route::get('delete_category/{id}', [CCategory::class,'delete_category']);
         Route::get('delete_subscriber/{id}', [CSubscribers::class,'delete_subscriber']);
         Route::post('/update_subscriber', [CSubscribers::class,'update_subscriber']);
+        Route::post('/update_blog', [CBlog::class,'update_blog']);
         Route::post('/update_adminpassword', [AuthController::class,'update_password']);
         Route::post('/update_admin', [AuthController::class,'update_admin']);
 
@@ -163,6 +171,10 @@ Route::group(['middleware'=>['AuthCheck']], function(){
 
         Route::get('delete_vlog/{id}', [CVlog::class,'delete_vlog']);
         Route::get('edit_category/{id}', [CCategory::class,'edit_category']);
+        Route::get('product/{id}', [CHome::class,'view_product']);
+
+        Route::get('edit_blog/{id}', [CBlog::class,'edit_blog']);
+
         Route::post('/update_category', [CCategory::class,'update_category']);
         Route::post('/update_vlog', [CVlog::class,'update_vlog']);
 
