@@ -193,6 +193,7 @@
 				</div>
 			</div>
 			<div class="foot col-12 mt-4">
+				ghida
 				<div class="trademark">
 					<p class="copyright">
 						Crypto Nations<sup>TM</sup>, All Rights Reserved, 2022 &copy;
