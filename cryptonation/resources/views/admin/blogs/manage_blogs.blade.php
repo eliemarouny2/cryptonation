@@ -20,6 +20,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Description</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -28,8 +29,16 @@
                                     @foreach($blogs as $blog)
                                     <tr>
                                         <td>{{$blog->blog_id }}</td>
-                                        <td>{{$blog->blog_name }}</td>
+                                        <td>{{$blog->blog_title }}</td>
                                         <td>{{$blog->blog_description }}</td>
+                                         <td>
+                                            <?php  if($blog->blog_status==0){
+                                                    echo 'inactive';
+                                                }else{
+                                                    echo 'active';
+                                                }
+                                        ?>
+                                        </td>
                                         <td>
                                             <a class="badge bg-success nodec"
                                                 href={{"edit_blog/".$blog->blog_id}}>Edit</a>

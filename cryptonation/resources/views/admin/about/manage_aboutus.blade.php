@@ -12,7 +12,7 @@
         <div class="row mb-4">
 
             <div class="col-md-12">
-                <div class="card">
+                <div class="card padd">
                     <div class="card-body px-0 pb-0">
                         <div class="table-responsive">
                             <h1>About</h1>

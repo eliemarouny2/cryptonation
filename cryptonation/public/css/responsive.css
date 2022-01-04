@@ -1,0 +1,48 @@
+@media only screen and (max-width: 1400px) {
+    .righter {
+        margin-right: 5rem;
+    }
+    .foot {
+        margin-top: 3rem;
+    }
+    .pad-topper {
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .righter {
+        margin-right: 2rem;
+    }
+    .foot {
+        margin-top: 5rem;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .ml-2 {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .hero-banner .slider .slide .image .content {
+        left: 0%;
+    }
+    .righter {
+        margin-right: 0rem;
+    }
+    .img-logo {
+        width: 8rem;
+    }
+    .foot {
+        margin-top: 7rem;
+    }
+}
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    .item .content3 {
+        right: 12%;
+    }
+}

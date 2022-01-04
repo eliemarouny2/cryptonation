@@ -12,12 +12,20 @@ class CCustomer extends Controller
     'firstname' => $req->firstname,
     'lastname' => $req->lastname,
     'email' => $req->email,
+    'phone' => $req->phone,
 ]);
    return redirect('manage_customers');
 }
 
 function delete_customer(Request $req){
-    Customer::where('cust_id',$req->id)->delete();
+    $result=Customer::where('cust_id',$req->id)->delete();
+        if($result==1){
+    session(['res' => 'success']);
+    session(['result' => "Successfully added"]);
+    }else{
+    session(['res' => 'danger']);
+    session(['result' => "Problem adding data"]);
+    }
    return redirect('/manage_customers');
 }
 
@@ -29,13 +37,20 @@ function edit_customer($id){
 }
 
 function update_customer(Request $req){
-   Customer::where('cust_id', $req->id)
+   $result=Customer::where('cust_id', $req->id)
             ->update([
                 'firstname'=> $req->firstname,
                 'lastname'=> $req->lastname,
                 'email'=> $req->email,
-            
+                'phone'=> $req->phone
             ]);
+                if($result==1){
+    session(['res' => 'success']);
+    session(['result' => "Successfully added"]);
+    }else{
+    session(['res' => 'danger']);
+    session(['result' => "Problem adding data"]);
+    }
    return redirect('/manage_customers');
 }
 }

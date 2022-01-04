@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/admin/css/backend.css">
     <link rel="stylesheet" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" href="/admin/vendors/chartjs/Chart.min.css">
     <link rel="stylesheet" href="/admin/vendors/perfect-scrollbar/perfect-scrollbar.css">
@@ -18,16 +19,22 @@
 </head>
 
 <body>
+    <?php
+
+use App\Models\Admin;
+
+$data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first()];
+    ?>
     <div id="app">
         <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active">
+            <div class="sidebar-wrapper">
                 <div class="sidebar-header">
                     <img src="assets/images/logo.svg" alt="" srcset="">
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class='sidebar-title'>Main Menu</li>
-                        <li class="sidebar-item active ">
+                        <li class="sidebar-item">
                             <a href="/panel" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i>
                                 <span>Dashboard</span>
@@ -39,8 +46,18 @@
                                 <span>Categories</span>
                             </a>
                             <ul class="submenu">
-                                <li><a href="/manage_categories">Manage Categories</a></li>
+                                <li class=""><a href="/manage_categories">Manage Categories</a></li>
                                 <li><a href="/add_category">Add Category</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="circle" width="20"></i>
+                                <span>Orders</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li><a href="/manage_orders">Manage orders</a></li>
+                                <li><a href="/add_customer">Add order</a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item  has-sub">
@@ -99,6 +116,15 @@
                                 <span>Bidding</span>
                             </a>
                         </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="grid" width="20"></i>
+                                <span>Reports</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="/sales_reports">Sales Reports</a></li>
+                            </ul>
+                        </li>
                         <li class='sidebar-title'>Web Settings</li>
                         <li class="sidebar-item  ">
                             <a href="/manage_aboutus" class='sidebar-link'>
@@ -111,6 +137,16 @@
                                 <i data-feather="layers" width="20"></i>
                                 <span>Our Mission</span>
                             </a>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="user" width="20"></i>
+                                <span>Subscribers</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li><a href="/manage_subscribers">Manage Subscribers</a></li>
+                                <li><a href="/add_subscriber">Add Subscriber</a></li>
+                            </ul>
                         </li>
                         <li class="sidebar-item  ">
                             <a href="/manage_settings" class='sidebar-link'>
@@ -137,19 +173,35 @@
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="d-none d-md-block d-lg-inline-block">Hi, Saugi</div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hi,
+                                    <?php echo $data['LoggedUserInfo']['name'] ?>
+                                </div>
                             </a>
+
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <a class="dropdown-item" href="/adminuser"><i data-feather="user"></i> Account</a>
                                 <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
                                 <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="{{ route('adminauth.logout') }}"><i
+                                        data-feather="log-out"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </nav>
+
+            <?php
+            $result = session()->get('result'); 
+            $res = session()->get('res');
+
+            if($result!=''){ ?>
+            <div class="alert alert-{{$res}}" id="result1">{{$result}}</div>
+            <?php
+            session()->forget('result');
+            session()->forget('res');
+            }
+             ?>
 
             @yield('admincontent')
 
@@ -169,6 +221,13 @@
     <script src="/admin/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="/admin/js/pages/dashboard.js"></script>
     <script src="/admin/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        setTimeout(function () {
+            $('#result1').fadeOut('fast');
+        }, 3000); // <-- time in milliseconds
+    </script>
 </body>
 
 

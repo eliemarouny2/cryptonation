@@ -31,7 +31,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="basicInput">First Name</label>
+                                        <label for="basicInput">Last Name</label>
                                         <input type="text" class="form-control" id="lastname" name="lastname"
                                             placeholder="Enter name" value={{ $customer->lastname }}>
                                     </div>
@@ -39,9 +39,17 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="basicInput">First Name</label>
+                                        <label for="basicInput">Email</label>
                                         <input type="text" class="form-control" id="email" name="email"
                                             placeholder="Enter name" value={{ $customer->email }}>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="basicInput">Phone</label>
+                                        <input type="phone" class="form-control" id="phone" name="phone"
+                                            placeholder="Enter phone number" value={{ $customer->phone }}>
                                     </div>
                                 </div>
 

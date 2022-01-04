@@ -10,6 +10,16 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\Auth\AAuthenticatedSessionController;
+use App\Http\Controllers\Auth\AConfirmablePasswordController;
+use App\Http\Controllers\Auth\AEmailVerificationNotificationController;
+use App\Http\Controllers\Auth\AEmailVerificationPromptController;
+use App\Http\Controllers\Auth\ANewPasswordController;
+use App\Http\Controllers\Auth\APasswordResetLinkController;
+use App\Http\Controllers\Auth\ARegisteredUserController;
+use App\Http\Controllers\Auth\AVerifyEmailController;
+
 Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
                 ->name('register');
@@ -62,3 +72,59 @@ Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
+
+
+
+
+Route::get('/admin-register', [ARegisteredUserController::class, 'create'])
+                ->middleware('aguest')
+                ->name('aregister');
+
+Route::post('/admin-register', [ARegisteredUserController::class, 'store'])
+                ->middleware('aguest');
+
+Route::get('/admin-login', [AAuthenticatedSessionController::class, 'create'])
+                ->middleware('aguest')
+                ->name('alogin');
+
+Route::post('/admin-login', [AAuthenticatedSessionController::class, 'store'])
+                ->middleware('aguest');
+
+Route::get('/admin-forgot-password', [APasswordResetLinkController::class, 'create'])
+                ->middleware('aguest')
+                ->name('apassword.request');
+
+Route::post('/admin-forgot-password', [APasswordResetLinkController::class, 'store'])
+                ->middleware('aguest')
+                ->name('apassword.email');
+
+Route::get('/admin-reset-password/{token}', [ANewPasswordController::class, 'create'])
+                ->middleware('aguest')
+                ->name('apassword.reset');
+
+Route::post('/admin-admin-reset-password', [ANewPasswordController::class, 'store'])
+                ->middleware('aguest')
+                ->name('apassword.update');
+
+Route::get('/admin-verify-email', [AEmailVerificationPromptController::class, '__invoke'])
+                ->middleware('aauth')
+                ->name('averification.notice');
+
+Route::get('/admin-verify-email/{id}/{hash}', [AVerifyEmailController::class, '__invoke'])
+                ->middleware(['aauth', 'asigned', 'athrottle:6,1'])
+                ->name('averification.verify');
+
+Route::post('/admin-email/verification-notification', [AEmailVerificationNotificationController::class, 'store'])
+                ->middleware(['aauth', 'athrottle:6,1'])
+                ->name('averification.send');
+
+Route::get('/admin-confirm-password', [AConfirmablePasswordController::class, 'show'])
+                ->middleware('aauth')
+                ->name('apassword.confirm');
+
+Route::post('/admin-confirm-password', [AConfirmablePasswordController::class, 'store'])
+                ->middleware('aauth');
+
+Route::post('/admin-logout', [AAuthenticatedSessionController::class, 'destroy'])
+                ->middleware('aauth')
+                ->name('alogout');

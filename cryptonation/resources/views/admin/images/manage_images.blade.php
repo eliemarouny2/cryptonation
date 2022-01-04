@@ -3,8 +3,8 @@
 
 <div class="main-content container-fluid">
     <div class="page-title">
-        <h3>Customers</h3>
-        <p class="text-subtitle text-muted">manage your customers</p>
+        <h3>Image Gallery</h3>
+        <p class="text-subtitle text-muted">manage your product images</p>
     </div>
     <section class="section">
         <div class="row mb-2">
@@ -18,7 +18,6 @@
                                 <thead>
                                     <tr>
                                         <th>image ID</th>
-                                        <th>Product ID</th>
                                         <th>Product Name</th>
                                         <th>Image</th>
                                         <th>Action</th>
@@ -28,15 +27,15 @@
 
                                     @foreach($images as $image)
                                     <tr>
-                                        <td>{{$image->image_id }}</td>
-                                        <td>{{$image->prod_id }}</td>
+                                        <td>{{$image->image_gallery_id }}</td>
                                         <td>{{$image->prod_name }}</td>
-                                        <td><img src="" alt=""></td>
+                                        <td><img src="/image_gallery/{{$image->img_url}}" width="100" alt="image">
+                                        </td>
                                         <td>
-                                            <a class="badge bg-success nodec"
-                                                href={{"edit_image/".$image->image_id}}>Edit</a>
+                                            <!-- <a class="badge bg-success nodec"
+                                                href={{"edit_image/".$image->image_gallery_id}}>Edit</a> -->
                                             <a class="badge bg-danger nodec"
-                                                href={{"delete_image/".$image->image_id}}>Delete</a>
+                                                href={{"delete_image/".$image->image_gallery_id}}>Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
