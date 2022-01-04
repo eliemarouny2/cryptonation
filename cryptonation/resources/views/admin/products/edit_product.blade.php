@@ -91,7 +91,7 @@
                                     @if($product->prod_img_url)
                                     @endif
                                 </div>
-                                <div class="col-md-4"><img width="200" src="/products/{{$product->prod_img_url }}" alt="image product"></div>
+                                <div class="col-md-4"><img width="200" src="/images/products/{{$product->prod_img_url }}" alt="image product"></div>
                             </div>
             
                             <div class="col-md-4">

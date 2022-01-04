@@ -100,7 +100,7 @@ jQuery(document).ready(function ($) {
         autoplayTimeout: 4000,
         autoplayHoverPause: true,
 
-        items: 3,
+        items: 3.5,
         loop: true,
         center: false,
         rewind: false,
@@ -138,7 +138,7 @@ jQuery(document).ready(function ($) {
                 loop: false,
             },
             992: {
-                items: 3,
+                items: 3.5,
                 nav: true,
                 loop: false,
             },

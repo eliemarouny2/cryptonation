@@ -13,7 +13,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body px-0 pb-0">
-                        <div class="table-responsive">
+                        <div class="px-3">
+                            <h2>main page video URL:</h2>
+                            <label>{{$video->video_url}}</label>
+                            <a class="badge bg-success nodec" href={{"edit_video/".$video->id}}>Edit</a>
                         </div>
                     </div>
                 </div>

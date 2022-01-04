@@ -10,11 +10,11 @@ class CartController extends Controller
 {
     public function store(Request $request){
         Cart::add(
-            '293ad',
+            '1234',
             'product 1',
             1,
             9.99
             );
-            return redirect('/')->with('message','product added to cart');
+            return redirect('/merch')->with('message','product added to cart');
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\CMission;
 use App\Http\Controllers\COrder;
 use App\Http\Controllers\CProduct;
 use App\Http\Controllers\CReport;
+use App\Http\Controllers\CSettings;
 use App\Http\Controllers\CSubscribers;
 use App\Http\Controllers\CVlog;
 use App\Http\Controllers\website\CHome;
@@ -41,6 +42,8 @@ Route::get('/blogs',[CHome::class,'blogs']);
 Route::get('/vlogs',[CHome::class,'vlogs']);
 Route::get('/about',[CHome::class,'about']);
 Route::get('/merch',[CHome::class,'merch']);
+Route::get('view_product/{id}', [CHome::class,'view_product']);
+
 Route::get('/checkout',[CHome::class,'checkout']);
 Route::post('/add_new_subscriber', [CHome::class, 'add_new_subscriber'])->name('add_new_subscriber');
 
@@ -177,9 +180,10 @@ Route::group(['middleware'=>['AuthCheck']], function(){
 
         Route::post('/update_category', [CCategory::class,'update_category']);
         Route::post('/update_vlog', [CVlog::class,'update_vlog']);
+        Route::post('/update_video_url', [CSettings::class,'update_video']);
 
         Route::get('/manage_products', function () {
-            $products=DB::select('select prod_id,prod_name, cat_name,prod_description,prod_status,prod_price from categories,products where cat_id=fk_cat_id'); 
+            $products=DB::select('* from categories,products where cat_id=fk_cat_id'); 
             return view('admin/products/manage_products',[
                 'products'=>$products,
             ]);
@@ -215,9 +219,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         });
 
 
-        Route::get('/manage_settings', function () {
-            return view('admin/settings/manage_settings');
-        });
+        Route::get('/manage_settings',[CSettings::class,'edit_settings'] );
 
         Route::get('/manage_biddings', function () {
             return view('admin/bidding/manage_biddings');
@@ -233,6 +235,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
         Route::post('/insert_product', [CProduct::class,'insert_product']);
 
         Route::get('edit_product/{id}', [CProduct::class,'edit_product']);
+        Route::get('edit_video/{id}', [CSettings::class,'edit_video_url']);
         Route::get('edit_image/{id}', [CImage::class,'edit_image']);
         Route::get('edit_subscriber/{id}', [CSubscribers::class,'edit_subscriber']);
 

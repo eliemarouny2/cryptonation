@@ -11,13 +11,9 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
 		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-		/>
-
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/responsive.css">
+	
     <title>Crypto Nation</title>
 </head>
 
@@ -25,13 +21,23 @@
 
         <!-- Header bar start -->
         <header>
-			<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+		<div id="mySidenav" class="sidenav">
+			<div class="wrapper">
+			<a href="javascript:void(0)" class="closebtn exit" onclick="closeNav()"
 				>&times;</a
 			>
-			<h4 class="mariner">Shopping bag</h4>
-			<div class="row mariner mt-5">
-				<div class="col-12">dasdasd</div>
+			<h4 class="mariner2">Shopping bag</h4>
+			<div class="row mariner mt-2">
+				<div class="col-12">lorem ipsum</div>
+			</div>
+			<div class="subtotal">
+			<label>Subtotal</label>
+			<label class="subtotal-amount">60$</label>
+			</div>
+			<div class="buttons">
+				<a href="/checkout" class="checkout">Go to Checkout</a>
+				<a href="/merch" class="continue">Continue Shopping</a>
+			</div>
 			</div>
 		</div>
             <nav class="navbar navbar-expand-lg navbar-dark">
@@ -116,6 +122,7 @@
             </div>
         </nav>
         <!-- Stocks chart end -->
+		
 
     <!-- Main page start -->
     <main>
@@ -195,11 +202,23 @@
 		</footer>
     <!-- footer content end -->
 @csrf
-    	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+			integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+			crossorigin="anonymous"
+		></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+        <script src="js/carouselshome.js"></script>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    	
+		
         <script src="js/cart.js"></script>
 		<script>
         $('body').on('click', '#sub_btn', function() {
@@ -217,8 +236,7 @@
         $.ajax({
             type: "post",
             async: true,
-        dataType:'json',
-
+        	dataType:'json',
             url: '/add_new_subscriber',
             data: {email:email,
 			},
@@ -231,6 +249,7 @@
         });
     });
 		</script>
+	
 
 </body>
 

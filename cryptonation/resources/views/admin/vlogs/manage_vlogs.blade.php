@@ -20,6 +20,7 @@
                                         <th>ID</th>
                                         <th>Title</th>
                                         <th>Description</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -30,6 +31,14 @@
                                         <td>{{$vlog->vlog_id }}</td>
                                         <td>{{$vlog->vlog_title }}</td>
                                         <td>{{$vlog->vlog_description }}</td>
+                                          <td>
+                                            <?php  if($vlog->vlog_status==0){
+                                                    echo 'inactive';
+                                                }else{
+                                                    echo 'active';
+                                                }
+                                        ?>
+                                        </td>
                                         <td>
                                             <a class="badge bg-success nodec"
                                                 href={{"edit_vlog/".$vlog->vlog_id}}>Edit</a>

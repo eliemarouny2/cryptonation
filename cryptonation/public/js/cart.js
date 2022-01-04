@@ -1,5 +1,5 @@
 function openNav() {
-    document.getElementById("mySidenav").style.width = "600px";
+    document.getElementById("mySidenav").style.width = "400px";
     document.getElementById("main").style.marginLeft = "250px";
     document.body.style.backgroundColor = "#fff";
 }
