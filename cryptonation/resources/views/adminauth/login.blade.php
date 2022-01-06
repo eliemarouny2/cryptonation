@@ -16,7 +16,9 @@
 </head>
 
 <body>
-    @if(Session::get('success'))
+    
+    <div id="auth">
+      @if(Session::get('success'))
     <div class="alert alert-success">
         {{ Session::get('success') }}
     </div>
@@ -27,8 +29,8 @@
         {{ Session::get('fail') }}
     </div>
     @endif
-    <div id="auth">
         <div class="row">
+              
             <div class="col-md-5 col-sm-12 mx-auto pt-5">
                 <div class="card pt-4">
                     <div class="card-body">

@@ -154,6 +154,16 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
                                 <span>Settings</span>
                             </a>
                         </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="triangle" width="20"></i>
+                                <span>Language</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class=""><a href="/manage_language">Manage Languages</a></li>
+                                <li><a href="/add_language">Add language</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -224,9 +234,9 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
-        setTimeout(function () {
-            $('#result1').fadeOut('fast');
-        }, 3000); // <-- time in milliseconds
+    setTimeout(function() {
+        $('#result1').fadeOut('fast');
+    }, 3000); // <-- time in milliseconds
     </script>
 </body>
 
