@@ -11,6 +11,7 @@ use App\Models\Subscriber;
 use App\Models\Mission;
 use App\Models\Vlog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class CHome extends Controller

@@ -2,7 +2,7 @@
 @section('content')
 <section class="mission">
 			<div class="container">
-				<h1 class="bluish">{{ __('laravel')}}</h1>
+				<h1 class="bluish">{{ __('msg.hello')}}</h1>
 				<p class="mission-par">
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
 					sunt minus vel quibusdam! Illum unde molestiae sequi! Quas voluptates,

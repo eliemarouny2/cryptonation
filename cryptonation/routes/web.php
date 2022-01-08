@@ -38,29 +38,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+Route::group(['middleware' => ['LangCheck']], function () {
+    Route::get('/', [CHome::class, 'homepage']);
+    Route::get('/blogs', [CHome::class, 'blogs']);
+    Route::get('/vlogs', [CHome::class, 'vlogs']);
+    Route::get('/about', [CHome::class, 'about']);
+    Route::get('/merch', [CHome::class, 'merch']);
+    Route::get('view_product/{id}', [CHome::class, 'view_product']);
+    Route::get('/lang', [CSettings::class, 'lang']);
+    
+    Route::get('/checkout', [CHome::class, 'checkout']);
+    Route::post('/add_new_subscriber', [CHome::class, 'add_new_subscriber'])->name('add_new_subscriber');
+    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+    
+    require __DIR__ . '/auth.php';
+    
+    Route::post('/', [CartController::class, 'store'])->name('cart.store');
+    
+    Route::get('/adminlogin', [AuthController::class, 'login'])->name('adminauth.login');
+    Route::get('/adminregister', [AuthController::class, 'register'])->name('adminauth.register');
+    Route::post('/adminsave', [AuthController::class, 'save'])->name('adminauth.save');
+    Route::post('/admincheck', [AuthController::class, 'check'])->name('adminauth.check');
+    
+});
 
-Route::get('/', [CHome::class, 'homepage']);
-Route::get('/blogs', [CHome::class, 'blogs']);
-Route::get('/vlogs', [CHome::class, 'vlogs']);
-Route::get('/about', [CHome::class, 'about']);
-Route::get('/merch', [CHome::class, 'merch']);
-Route::get('view_product/{id}', [CHome::class, 'view_product']);
-
-Route::get('/checkout', [CHome::class, 'checkout']);
-Route::post('/add_new_subscriber', [CHome::class, 'add_new_subscriber'])->name('add_new_subscriber');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__ . '/auth.php';
-
-Route::post('/', [CartController::class, 'store'])->name('cart.store');
-
-Route::get('/adminlogin', [AuthController::class, 'login'])->name('adminauth.login');
-Route::get('/adminregister', [AuthController::class, 'register'])->name('adminauth.register');
-Route::post('/adminsave', [AuthController::class, 'save'])->name('adminauth.save');
-Route::post('/admincheck', [AuthController::class, 'check'])->name('adminauth.check');
 
 
 Route::group(['middleware' => ['AuthCheck']], function () {
