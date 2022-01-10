@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Image_gallery;
 use App\Models\Product;
+use App\Models\Roadmap;
 use App\Models\Subscriber;
+use App\Models\Mission;
 use App\Models\Vlog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class CHome extends Controller
@@ -18,7 +21,6 @@ class CHome extends Controller
         $blogs=Blog::where('blog_status',1)->get();
         $vlogs=Vlog::where('vlog_status',1)->get();
         $video_url=DB::table('video_url')->where('id',1)->first();
-
         
 
         return view('home',[
@@ -43,8 +45,12 @@ class CHome extends Controller
         ]);
     }
     public function about(){
-
-        return view('about');
+        $mission=Mission::where('id',1)->first();
+        $roadmap=Roadmap::all();
+        return view('about',[
+            'missions'=>$mission,
+            'roadmap'=>$roadmap
+        ]);
     }
     public function merch(){
 

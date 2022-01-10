@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @section('content')
 <section class="hero-banner">
+
 			<div class="slider">
 				<div class="slide">
 					<div class="image">
@@ -11,11 +12,12 @@
 			</div>
 		</section>
 
-		<section class="merchsection mt-5">
-			<div class="container">
-				<h1 class="uniqueshirts">Unique T-shirts</h1>
-			</div>
-		</section>
+
+<section class="merchsection mt-5">
+    <div class="container">
+        <h1 class="uniqueshirts">Unique T-shirts</h1>
+    </div>
+</section>
 
 		<section>
 			Cart({{Cart::content()->count()}})
@@ -43,16 +45,17 @@
             async: true,
         dataType:'json',
 
-            url: '/add_new_subscriber',
-            data: {email:email,
-			},
-            success: function(data) {
-				swal("Success!", "You subscribed to our newsletter", "success");
-            },
-            error: function() {
-               swal("Good job!", "You clicked the button!", "success");
-            }
-        });
+        url: '/add_new_subscriber',
+        data: {
+            email: email,
+        },
+        success: function(data) {
+            swal("Success!", "You subscribed to our newsletter", "success");
+        },
+        error: function() {
+            swal("Good job!", "You clicked the button!", "success");
+        }
     });
-		</script>
+});
+</script>
 @endsection
