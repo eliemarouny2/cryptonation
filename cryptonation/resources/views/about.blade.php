@@ -41,7 +41,23 @@
 				<div class="slide2">
 					<div class="imageroad">
 						<div class="contentroad">
-							<div class="shopbtn"></div>
+							<div class="shopbtn">
+								<p class="road-par"> Lorem ipsum </p>
+								<p class="road-par second-roadPar"> Lorem ipsum </p>
+							</div>
+							<div class="second-roadmap">
+								<p class="road-par"> Lorem ipsum </p>
+								<p class="road-par "> Lorem ipsum </p>
+								<p class="road-par"> Lorem ipsum </p>
+							</div>
+							<div class="second-roadmap">
+								<p class="road-par thirdrow-roadmap"> Lorem ipsum </p>
+								<p class="road-par-grey "> Lorem ipsum </p>
+							</div>
+							<div class="second-roadmap">
+								<p class="road-par-grey roadmap-margin"> Lorem ipsum </p>
+								<p class="road-par-grey roadmap-margin2"> Lorem ipsum </p>
+							</div>
 						</div>
 					</div>
 				</div>
