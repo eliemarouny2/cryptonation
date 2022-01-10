@@ -45,6 +45,20 @@ class CSettings extends Controller
             'languages'=>$attributes
         ]);
     }
+    function edit_phrases($lang){
+        $phrases=language::select('id','phrase',"$lang")->get();
+        return view('admin/language/edit_phrases',[
+            'phrases'=>$phrases,
+            'lang'=>$lang
+        ]);
+    }
+    function update_phrase(Request $req){
+       $result= DB::table('languages')->where('id', $req->id)
+        ->update([
+            "french"=>$req->value
+                ]);
+                return $result;
+    }
     function insert_language(Request $req){
         $lang=$req->language;
         try{

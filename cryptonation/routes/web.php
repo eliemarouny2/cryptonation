@@ -49,6 +49,7 @@ Route::group(['middleware' => ['LangCheck']], function () {
     
     Route::get('/checkout', [CHome::class, 'checkout']);
     Route::post('/add_new_subscriber', [CHome::class, 'add_new_subscriber'])->name('add_new_subscriber');
+    Route::post('/update_phrase', [CSettings::class, 'update_phrase'])->name('update_phrase');
     
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -257,8 +258,10 @@ Route::group(['middleware' => ['AuthCheck']], function () {
         ]);
     });
     Route::post('/insert_product', [CProduct::class, 'insert_product']);
+    
 
     Route::get('edit_product/{id}', [CProduct::class, 'edit_product']);
+    Route::get('edit_phrases/{id}', [CSettings::class, 'edit_phrases']);
     Route::get('edit_video/{id}', [CSettings::class, 'edit_video_url']);
     Route::get('edit_image/{id}', [CImage::class, 'edit_image']);
     Route::get('edit_subscriber/{id}', [CSubscribers::class, 'edit_subscriber']);
