@@ -113,4 +113,12 @@ class CSettings extends Controller
         else
         return 2;
     }
+    function update_status(Request $req){
+        $result=DB::table('order_status')->where('order_id',$req->id)->update([
+            'order_status'=>$req->status
+        ]);
+        session(['res' => 'success']);
+        session(['result' => "order status changed"]);
+        return redirect('manage_orders');
+    }
 }

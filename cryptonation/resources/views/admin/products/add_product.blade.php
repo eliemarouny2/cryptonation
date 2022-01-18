@@ -30,8 +30,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="basicInput">Product Price</label>
-                                        <input type="number" min="1" class="form-control" id="price" name="price" required
-                                            placeholder="price">
+                                        <input type="number" min="1" class="form-control" id="price" name="price"
+                                            required placeholder="price">
                                     </div>
                                 </div>
                             </div>
@@ -77,10 +77,36 @@
                                 </div>
                             </div>
 
+                           <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select class="choices form-select" multiple="multiple" id="variants"
+                                            name="variants[]">
+                                            @foreach($variants as $variant)
+                                            <option value="{{$variant->variant_id}}">{{$variant->variant_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div iv>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select class="choices form-select" multiple="multiple" id="colors"
+                                            name="colors[]">
+                                            @foreach($colors as $color)
+                                            <option value="{{$color->color_id}}">{{$color->color}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div iv>
+                                </div>
+                            </div>
+
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <input type="file" class="image" id="image" name="image">                                     
+                                        <input type="file" class="image" id="image" name="image">
                                     </div>
                                 </div>
                             </div>
