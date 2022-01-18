@@ -147,12 +147,43 @@ h1 {
 .mt-big {
     margin-top: 8rem;
 }
+.display-tshirts{
+    display:flex;
+}
+.card{
+    display:block;
+}
+.tshirt-name{
+    padding-left: 12rem;
+    padding-top: 3rem;
+    font: normal normal 900 23px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.add-to-cart{
+    background: #2DE86B 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+    margin-left:12.5rem;
+    width: 8rem;
+    height: 3rem;
+    color: white;
+    font-size: 18px;
+}
+.price{
+    text-align: center;
+    font: normal normal normal 24px/33px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
 .item {
     background-image: url(/images/icons/background.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 450px;
-    height: 675px;
+    height: 32rem;
     position: relative;
 }
 .item .content2 {
@@ -260,7 +291,7 @@ footer nav ul a {
 }
 .bluish {
     color: #08f0fc;
-    font-size: 60px;
+    font-size: 70px;
 }
 .imageblog {
     background-image: url("../images/icons/welcometoblogs.png");
@@ -462,7 +493,7 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     height: 12rem;
-    width: 54rem;
+    width: 57rem;
     position: relative;
     margin-left: -3em;
 }
@@ -501,13 +532,13 @@ button {
     margin-left: 64.2%;
 }
 .withbckreverse {
-    margin-left:51.3rem;
-    background-image: url("../images/icons/bck-title-reverse.png");
+    margin-left: 48.3rem;
+    background-image: url(../images/icons/bck-title-reverse.png);
     display: inline-block;
     background-position: center;
     background-repeat: no-repeat;
     height: 12rem;
-    width: 54rem;
+    width: 57rem;
     position: relative;
 }
 .withbckreverse:after {
@@ -594,4 +625,180 @@ footer {
     color: black;
     margin-top: 22rem;
     margin-left: 45rem;
+}
+.left-arrow{
+    margin-top: 14rem;
+    width: 7rem;
+    height: 6rem;
+    transform: rotate(180deg);
+}
+.right-arrow{
+    margin-top: 14rem;
+    width: 7rem;
+    height: 6rem;
+}
+.center-tshirt{
+    width: 27rem;
+    height: 32rem;
+}
+.shirt-details-component{
+    margin-top:5rem;
+    display:inline-flex;
+}
+.zoomed-tshirts{
+    width:6rem;
+    height:6rem;
+    border: 4px solid white;
+    margin-right:0.3rem;
+}
+.small-tshirts{
+    margin-left:8rem;
+    margin-top:2rem;
+}
+.tshirt-title{
+    text-align: left;
+    font: normal normal 900 40px/55px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.leftDiv{
+    max-width: 45rem;
+    margin-left: 8rem;
+    margin-right: 6rem;
+}
+.tshirt-description{
+    text-align: left;
+    font: normal normal 300 28px Acumin Variable Concept;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top:2rem;
+    max-width: 39rem;
+}
+.td-price{
+    text-align: left;
+    font: normal normal 900 24px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    padding-left: 0px;
+}
+.price-row{
+    margin-top:4rem;
+}
+.nb-price{
+    text-align: center;
+    font: normal normal normal 24px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    padding-right:9rem;
+}
+.size-btns{
+    width: unset;
+    margin-top:4px;
+    height: 1.7rem;
+    width: 1.7rem;
+    background-color: white;
+}
+.size-btns {
+    border: 1px solid #fff;
+    padding: 0.5em;
+    -webkit-appearance: none;
+    z-index: -1;
+  }
+  .size-btns:checked {
+    background-color: #010124;
+    background-size: 11px 11px;
+  }
+  .size-btns:checked ~ label{
+    color:white;
+  }
+.size-letter{
+    position: absolute;
+    margin-left: -1.5rem;
+    font-size: 1.2rem;
+    color:#010124;
+}
+.sizes{
+    padding-left:0px;
+}
+.color-btns{
+    border: 1px solid #fff;
+    padding: 0.5em;
+    -webkit-appearance: none;
+    z-index: -1;
+    width: 2rem;
+    height: 2rem;
+}
+#tshirt-white{
+    background-color: white;
+}
+#tshirt-green{
+    background-color: green;
+}
+#tshirt-red{
+    background-color: red;
+}
+
+.operator{
+    border: none;
+    background-color: transparent;
+    color:white;
+}
+.buy-now{
+    margin-left: 0px;
+    margin-top: 2rem;
+}
+.hyperlink-addToCart{
+    text-align: center;
+    text-decoration: underline;
+    font: normal normal 900 19px Avenir;
+    letter-spacing: 0px;
+    color: #5AEE1A;
+    opacity: 1;
+    padding-top:3rem;
+}
+.limited{
+    margin-top:4rem;
+    border-top:2px white solid;
+}
+.bet-to-own{
+    text-align: left;
+    font: normal normal 900 30px Avenir;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+.stocks-bet{
+    max-width: -webkit-fill-available;
+}
+.price-of-bet{
+    text-align: center;
+    font: normal normal 900 30px Avenir;
+    letter-spacing: 0px;
+    color: #08F0FC;
+    opacity: 1;
+}
+.bet-now-btn{
+    background: #08F0FC 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+    width: 9rem;
+    height: 3rem;
+    margin-left:14rem;
+}
+.element-to-bet{
+    height: 37rem;
+    width: 53rem;
+    margin-left: 15rem;
+    margin-top: 4rem;
+}
+.merch-titles{
+    max-width:15rem;
+}
+
+.title-margin{
+    margin-top:2rem;
 }
