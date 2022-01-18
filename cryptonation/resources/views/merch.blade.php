@@ -13,7 +13,7 @@
 
 		<section class="hero-banner2">
 			<div class="container-fluid">
-				<h1>Unique T-shirts</h1>
+				<h1 class="bluish merch-titles">Unique T-shirts</h1>
 				<div id="owl-demo-1" class="owl-carousel owl-theme">
 					<div class="card">
 						<div class="item" >
@@ -131,7 +131,7 @@
 
 		<section class="limited">
 			<div class="container sizes">
-				<h1 class="row bluish ">Limited edition</h1>
+				<h1 class="row bluish title-margin">Limited edition</h1>
 				<div class="row">
 					<p class="bet-to-own stocks-bet price-row"> Bet on this item to own it </p>
 				</div>
@@ -152,9 +152,98 @@
 						<img class="element-to-bet col-12" src="images/products/1641123148.png">
 					</div>
 			</div>
+		</section>
+		<section >
+			<div class="container">
+				<h1 class="row bluish merch-titles">Caps Collection</h1>
+				<div class="row">
+					<div class="card col-6">
+								<div class="item" >
+									<div class="content2 mt-5">
+										<img src="images/products/1641123182.png" />
+									</div>
+									<div class="content3">
+										<img src="images/icons/ellipse.png"/>
+									</div>
+								</div>
+								<p class="tshirt-name">
+										Lorem ipsum
+								</p>
+								<p class="price"> 60$ </p>
+								<button class="add-to-cart"> Add to cart </button>
+					</div>
+					<div class="card col-6">
+							<div class="item" >
+								<div class="content2 mt-5">
+									<img src="images/products/1641123182.png" />
+								</div>
+								<div class="content3">
+									<img src="images/icons/ellipse.png"/>
+								</div>
+							</div>
+							<p class="tshirt-name">
+									Lorem ipsum
+							</p>
+							<p class="price"> 60$ </p>
+							<button class="add-to-cart"> Add to cart </button>
+						</div>
+					</div>
+				</div>
+		
+		</section>
 
-		<</section>
-
+		<section class="hero-banner2">
+			<div class="container-fluid">
+				<h1 class="bluish merch-titles">Unique T-shirts</h1>
+				<div id="owl-demo-1" class="owl-carousel owl-theme">
+					<div class="card">
+						<div class="item" >
+							<div class="content2 mt-5">
+								<img src="images/products/1641123160.png" />
+							</div>
+							<div class="content3">
+								<img src="images/icons/ellipse.png"/>
+							</div>
+						</div>
+						<p class="tshirt-name">
+							Lorem ipsum
+						</p>
+						<p class="price"> 60$ </p>
+						<button class="add-to-cart"> Add to cart </button>
+					</div>
+					<div class="card">
+						<div class="item" >
+							<div class="content2 mt-5">
+								<img src="images/products/1641123182.png" />
+							</div>
+							<div class="content3">
+								<img src="images/icons/ellipse.png"/>
+							</div>
+						</div>
+						<p class="tshirt-name">
+								Lorem ipsum
+						</p>
+						<p class="price"> 60$ </p>
+						<button class="add-to-cart"> Add to cart </button>
+					</div>
+					<div class="card">
+						<div class="item" >
+							<div class="content2 mt-5">
+								<img src="images/products/1641123148.png" />
+							</div>
+							<div class="content3">
+								<img src="images/icons/ellipse.png"/>
+							</div>
+						</div>
+						<p class="tshirt-name">
+								Lorem ipsum
+						</p>
+						<p class="price"> 60$ </p>
+						<button class="add-to-cart"> Add to cart </button>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section>
 			Cart({{Cart::content()->count()}})
 				@csrf

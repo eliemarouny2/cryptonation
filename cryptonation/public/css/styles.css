@@ -291,7 +291,7 @@ footer nav ul a {
 }
 .bluish {
     color: #08f0fc;
-    font-size: 60px;
+    font-size: 70px;
 }
 .imageblog {
     background-image: url("../images/icons/welcometoblogs.png");
@@ -794,4 +794,11 @@ footer {
     width: 53rem;
     margin-left: 15rem;
     margin-top: 4rem;
+}
+.merch-titles{
+    max-width:15rem;
+}
+
+.title-margin{
+    margin-top:2rem;
 }
