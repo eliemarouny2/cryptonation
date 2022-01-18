@@ -5,6 +5,7 @@ use App\Http\Controllers\CAbout;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CBlog;
 use App\Http\Controllers\CCategory;
+use App\Http\Controllers\CColors;
 use App\Http\Controllers\CCustomer;
 use App\Http\Controllers\CImage;
 use App\Http\Controllers\CMission;
@@ -13,17 +14,20 @@ use App\Http\Controllers\CProduct;
 use App\Http\Controllers\CReport;
 use App\Http\Controllers\CSettings;
 use App\Http\Controllers\CSubscribers;
+use App\Http\Controllers\CVariant;
 use App\Http\Controllers\CVlog;
 use App\Http\Controllers\website\CHome;
 use App\Models\Admin;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Customer;
 use App\Models\Mission;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Roadmap;
 use App\Models\Subscriber;
+use App\Models\Variant;
 use App\Models\Vlog;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -135,6 +139,22 @@ Route::group(['middleware' => ['AuthCheck']], function () {
             'categories' => $categories,
         ]);
     });
+    Route::get('/manage_colors', function () {
+        $colors = Color::select(DB::raw('*'))
+            ->orderBy('color_id')
+            ->get();
+        return view('admin/colors/manage_colors', [
+            'colors' => $colors,
+        ]);
+    });
+    Route::get('/manage_variants', function () {
+        $variants = Variant::select(DB::raw('variant_name,variant_id'))
+            ->orderBy('variant_id')
+            ->get();
+        return view('admin/variants/manage_variants', [
+            'variants' => $variants,
+        ]);
+    });
 
     Route::get('/sales_reports', function () {
 
@@ -143,8 +163,9 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/manage_orders', function () {
         $orders = DB::table('orders')
             ->join('customers', 'orders.customer_id', '=', 'customers.cust_id')
-            ->select('customers.firstname', 'customers.lastname', 'orders.*')
-            ->orderBy('orders.date')
+            ->join('order_status', 'orders.order_id', '=', 'order_status.order_id')
+            ->select('customers.firstname', 'customers.lastname', 'orders.*','order_status.*')
+            ->orderBy('orders.date','desc')
             ->get();
         return view('admin/orders/manage_orders', [
             'orders' => $orders,
@@ -152,6 +173,11 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     });
     Route::get('/add_category', function () {
         return view('admin/categories/add_category');
+    });    Route::get('/add_color', function () {
+        return view('admin/colors/add_color');
+    });
+    Route::get('/add_variant', function () {
+        return view('admin/variants/add_variant');
     });
     Route::get('/add_language', function () {
         return view('admin/language/add_language');
@@ -182,6 +208,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     });
     Route::post('/insert_category', [CCategory::class, 'insert_category']);
     Route::post('/insert_language', [CSettings::class, 'insert_language']);
+    Route::post('/insert_color', [CColors::class, 'insert_color']);
     Route::post('/insert_subscriber', [CSubscribers::class, 'insert_subscriber']);
     Route::post('/report', [CReport::class, 'report']);
 
@@ -193,6 +220,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('view_order/{id}', [COrder::class, 'view_order']);
 
     Route::get('delete_category/{id}', [CCategory::class, 'delete_category']);
+    Route::get('delete_color/{id}', [CColors::class, 'delete_color']);
     Route::get('delete_subscriber/{id}', [CSubscribers::class, 'delete_subscriber']);
     Route::post('/update_subscriber', [CSubscribers::class, 'update_subscriber']);
     Route::post('/update_blog', [CBlog::class, 'update_blog']);
@@ -201,11 +229,13 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
     Route::get('delete_vlog/{id}', [CVlog::class, 'delete_vlog']);
     Route::get('edit_category/{id}', [CCategory::class, 'edit_category']);
+    Route::get('edit_variant/{id}', [CVariant::class, 'edit_variant']);
     Route::get('product/{id}', [CHome::class, 'view_product']);
 
     Route::get('edit_blog/{id}', [CBlog::class, 'edit_blog']);
 
     Route::post('/update_category', [CCategory::class, 'update_category']);
+    Route::post('/update_variant', [CVariant::class, 'update_variant']);
     Route::post('/update_vlog', [CVlog::class, 'update_vlog']);
     Route::post('/update_video_url', [CSettings::class, 'update_video']);
 
@@ -238,6 +268,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     });
 
     Route::post('/insert_customer', [CCustomer::class, 'insert_customer']);
+    Route::post('/update_status', [CSettings::class, 'update_status']);
     Route::post('/insert_image', [CImage::class, 'insert_image']);
 
     Route::get('/add_customer', function () {
@@ -253,8 +284,12 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
     Route::get('/add_product', function () {
         $categories = Category::all();
+        $variants=Variant::all();
+        $colors=Color::all();
         return view('admin/products/add_product', [
             'categories' => $categories,
+            'variants'=>$variants,
+            'colors'=>$colors
         ]);
     });
     Route::post('/insert_product', [CProduct::class, 'insert_product']);
@@ -271,12 +306,14 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::post('/update_product', [CProduct::class, 'update_product']);
     Route::post('/update_image', [CImage::class, 'update_image']);
     Route::get('delete_product/{id}', [CProduct::class, 'delete_product']);
+    Route::get('delete_variant/{id}', [CVariant::class, 'delete_variant']);
     Route::get('delete_customer/{id}', [CCustomer::class, 'delete_customer']);
 
     Route::get('/add_blog', function () {
         return view('admin/blogs/add_blog');
     });
     Route::post('/insert_blog', [CBlog::class, 'insert_blog']);
+    Route::post('/insert_variant', [CVariant::class, 'insert_variant']);
     Route::post('/insert_vlog', [CVlog::class, 'insert_vlog']);
 
     Route::get('/add_vlog', function () {

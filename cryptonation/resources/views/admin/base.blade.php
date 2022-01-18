@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="/admin/css/backend.css">
     <link rel="stylesheet" href="/admin/css/bootstrap.css">
     <link rel="stylesheet" href="/admin/vendors/chartjs/Chart.min.css">
+
     <link rel="stylesheet" href="/admin/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="/admin/css/app.css">
     <link rel="stylesheet" href="/admin/css/styles.css">
     <link rel="shortcut icon" href="/admin/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/admin/vendors/choices.js/choices.min.css" />
 
+    
     <title>Admin</title>
 </head>
 
@@ -72,7 +75,27 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
                         </li>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i data-feather="file-plus" width="20"></i>
+                                <i data-feather="user" width="20"></i>
+                                <span>Variants</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li><a href="/manage_variants">Manage variants</a></li>
+                                <li><a href="/add_variant">Add variant</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="pen-tool" width="20"></i>
+                                <span>Colors</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li><a href="/manage_colors">Manage Colors</a></li>
+                                <li><a href="/add_color">Add Color</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="pen-tool" width="20"></i>
                                 <span>Blogs</span>
                             </a>
                             <ul class="submenu ">
@@ -230,8 +253,12 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
     <script src="/admin/vendors/chartjs/Chart.min.js"></script>
     <script src="/admin/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="/admin/js/pages/dashboard.js"></script>
+
     <script src="/admin/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/admin/vendors/choices.js/choices.min.js"></script>
+
+    
 
 
     <script>

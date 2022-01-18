@@ -8,11 +8,11 @@
 				<div class="slide">
 					<div class="image">
 						<div class="contenttitle">
-							<h1>Get supreme shirts</h1>
+							<h1>{{ __('msg.get_supreme_shirts')}}</h1>
 						</div>
 						<div class="content">
 							<div class="shopbtn">
-								<a href="/merch">Shop now > > ></a>
+								<a href="/merch">{{ __('msg.shop_now')}} > > ></a>
 							</div>
 						</div>
 					</div>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
+use App\Models\Variant;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -11,6 +13,8 @@ class CProduct extends Controller
 {
 
     public function insert_product(Request $req){
+        $variants=$req->variants;
+        $colors=$req->colors;
         if($req->hasFile('image')){
         $req->validate([
             'image'=>'mimes:jpg,png,jpeg|max:5048'
@@ -25,8 +29,10 @@ class CProduct extends Controller
         'prod_name'=>$req->name,
         'prod_price'=>$req->price,
         'prod_description'=>$req->description,
-        'prod_img_url'=>$filename,
+        'prod_img_url'=>(!empty($filename) ? $filename : ''),
         'prod_status'=>$req->status,
+        'variants'=>implode(",", (array)$variants),
+        'colors'=>implode(",", (array)$colors),
         'trending'=>$req->trending,
         'fk_cat_id'=>$req->category
     ]);
@@ -57,17 +63,22 @@ class CProduct extends Controller
 }
 
 function edit_product($id){
-   $product=Product::where('prod_id',$id)->first();
-      $categories=Category::all();
+        $variants=Variant::all();
+        $product=Product::where('prod_id',$id)->first();
+        $categories=Category::all();
+        $colors=Color::all();
    return view('admin/products/edit_product',[
        'product'=>$product,
-       'categories'=>$categories
+       'categories'=>$categories,
+       'variants'=>$variants,
+       'colors'=>$colors
    ]);
 }
 
 function update_product(Request $req){
     $oldimage=Product::where('prod_id',$req->id)->first('prod_img_url');
-
+    $variants=$req->variants;
+    $colors=$req->colors;
     if($req->hasFile('image')){
         $req->validate([
             'image'=>'mimes:jpg,png,jpeg|max:5048'
@@ -89,6 +100,8 @@ function update_product(Request $req){
                             'prod_price'=>$req->price,
                             'prod_description'=>$req->description,
                             'prod_img_url'=>(!empty($filename) ? $filename : $oldimage->prod_img_url),
+                            'variants'=>implode(",", (array)$variants),
+                            'colors'=>implode(",", (array)$colors),
                             'prod_status'=>$req->status,
                             'trending'=>$req->trending,
                             'fk_cat_id'=>$req->category
