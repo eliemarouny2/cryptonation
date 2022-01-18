@@ -12,7 +12,6 @@
 						all while selling crypto apparel.
 					</p>
 				</div>
-		
 
 			<div class="vision">
 					<div class="withbck">

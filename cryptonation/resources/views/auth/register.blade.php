@@ -13,7 +13,7 @@
     <div class="mariner2">
          <x-auth-validation-errors class="mb-4" :errors="$errors" />
 <div class="center">
-<h1 class="bluish">Get started</h1>
+<h1 class="bluish">{{ __('laravel')}}</h1>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
