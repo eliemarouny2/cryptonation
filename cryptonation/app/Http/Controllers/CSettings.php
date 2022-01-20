@@ -53,9 +53,10 @@ class CSettings extends Controller
         ]);
     }
     function update_phrase(Request $req){
+        
        $result= DB::table('languages')->where('id', $req->id)
         ->update([
-            "french"=>$req->value
+            $req->language=>$req->value
                 ]);
                 return $result;
     }

@@ -56,7 +56,7 @@
 					<div class="card">
 						<img src="/images/vlogs/{{$vlog->vlog_image_url}}" class="card-img-top imgblog" alt="vlog image" />
 						<div class="card-body">
-							<h5 class="card-title">{{$vlog->vlog_image_url}}</h5>
+							<h5 class="card-title">{{$vlog->vlog_title}}</h5>
 							<p class="card-text">
 								{{$vlog->vlog_description}}
 							</p>
@@ -87,7 +87,7 @@
 					<div class="card">
 						<img src="/images/blogs/{{$blog->blog_image_url}}" class="card-img-top imgblog" alt="blog image" />
 						<div class="card-body">
-							<h5 class="card-title">{{$blog->blog_image_url}}</h5>
+							<h5 class="card-title">{{$blog->blog_title}}</h5>
 							<p class="card-text">
 								{{$blog->blog_description}}
 							</p>
