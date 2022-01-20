@@ -802,3 +802,51 @@ footer {
 .title-margin{
     margin-top:2rem;
 }
+.welcome-title{
+    padding-left: 7rem;
+    padding-top: 16rem;
+}
+.welcome-to{
+    color: #010124;
+    font-size:3rem;
+}
+.blogs-title{
+    color: #010124;
+    font-size:9rem;
+    margin-top: -6.01rem;
+}
+.album-border{
+    background: transparent linear-gradient(196deg, #0505056F 0%, #000000FD 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 0.8;
+    max-width: fit-content;
+}
+.row1{
+    display: -webkit-box;
+}
+.row2{
+    display: -webkit-box;
+}
+.div1-1{
+    margin-left: 8.6rem;
+}
+.img1-2{
+    height: 25rem;
+    width: 21rem;
+}
+.img1-3{
+    height: 25rem;
+    width: 21rem;
+}
+
+.img2-1{
+    height: 25rem;
+    width: 21rem;
+}
+.div2-1{
+    margin-top:-5rem;
+}
+.img2-3{
+    width:35.1rem;
+    max-height: 20rem;
+}
