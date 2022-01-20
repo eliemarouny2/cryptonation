@@ -14,14 +14,14 @@
                 <div class="card">
                     <div class="card-body px-0 pb-0">
                         <div class="table-responsive">
-                            <table class='table mb-0' id="table1">
+                            <table class='table table-bordered table-striped table-hover' id="table1">
                                 <thead>
                                     <tr>
-                                        <th>Order ID</th>
-                                        <th>Customer Name</th>
+                                        <th>ID</th>
+                                        <th class>Name</th>
                                         <th>Date</th>
-                                        <th>Total Amount</th>
-                                        <th>Details</th>
+                                        <th>Total</th>
+                                        <th class="w-30">Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -33,8 +33,25 @@
                                         <td>{{$order->firstname }} {{$order->lastname}}</td>
                                         <td>{{$order->date }}</td>
                                         <td>USD {{$order->total_amount }}</td>
-                                        <td>{{$order->details }}</td>
 
+                                        <td>
+                                            <div class="col-md-6 mb-2">
+                                                <form action="/update_status" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" value="{{$order->order_id}}" id="id" name="id">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="status" name="status">
+                                                            <option value="pending">pending</option>
+                                                            <option value="processing">processing</option>
+                                                            <option value="shipped">shipped</option>
+                                                            <option value="completed">completed</option>
+                                                            <option value="cancelled">cancelled</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    <button type="submit" class="btn btn-secondary">Update</button>
+                                                </form>
+                                            </div>
+                                        </td>
                                         <td>
                                             <a class="badge bg-success nodec"
                                                 href={{"view_order/".$order->order_id}}>view</a>

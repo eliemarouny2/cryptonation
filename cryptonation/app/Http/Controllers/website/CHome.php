@@ -10,14 +10,14 @@ use App\Models\Roadmap;
 use App\Models\Subscriber;
 use App\Models\Mission;
 use App\Models\Vlog;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class CHome extends Controller
 {
     public function homepage(){
-        $trendings=Product::where('trending',1)->where('prod_status',1)->get();
+        $trendings=Product::where('trending',1)->where('prod_status',1)->where('fk_cat_id',1)->get();
         $blogs=Blog::where('blog_status',1)->get();
         $vlogs=Vlog::where('vlog_status',1)->get();
         $video_url=DB::table('video_url')->where('id',1)->first();
@@ -53,8 +53,14 @@ class CHome extends Controller
         ]);
     }
     public function merch(){
-
-        return view('merch');
+        $shirts=Product::where('fk_cat_id',1)->where('prod_status',1)->get();
+        $posters=Product::where('fk_cat_id',2)->where('prod_status',1)->get();
+        $caps=Product::where('fk_cat_id',3)->where('prod_status',1)->get();
+        return view('merch',[
+        'shirts'=>$shirts,
+        'posters'=>$posters,
+        'caps'=>$caps
+        ]);
     }
     public function checkout(){
 
@@ -75,4 +81,14 @@ class CHome extends Controller
         ]);
         return $result;
     }
+    function add_to_cart(Request $req){
+        $product=Product::where('prod_id',$req->id)->first();
+     // Cart::add(['id'=>$req->id,'name'=>$product->prod_name,'price'=>$product->prod_price,'qty'=>$req->quantity,'options'=>['variant'=>$req->variant,'color'=>$req->color]]);
+       Cart::add(['id' => $req->id, 'name' => $product->prod_name, 'qty' => $req->quantity, 'price' => $product->prod_price,'weight'=>0, 'options' => ['variant' => $req->variant,'color'=>$req->color,'image_url'=>$product->prod_img_url]]);
+        return $product;
+    }
+    function delete_cart(){
+        Cart::destroy();
+    }
+
 }

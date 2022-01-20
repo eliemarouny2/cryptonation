@@ -1,6 +1,6 @@
 @font-face {
     font-family: gos;
-    src: url(../fonts/gos.ttf);
+    src: url(../fonts/gameofsquids.otf);
 }
 
 .righter {
@@ -24,6 +24,11 @@ a {
     font-size: 1.5rem;
     padding-right: 2rem !important;
     display: inline-block;
+    color: #ffffff;
+
+}
+.white-color{
+    color:#fff !important;
 }
 .mrgbg {
     margin-right: 15rem;
@@ -80,8 +85,8 @@ header nav ul li a {
 .last {
     margin-right: 60px;
 }
-.shopbtn{
-    display:flex;
+.shopbtn {
+    display: flex;
 }
 .hero-banner .slider .slide .image .content .shopbtn a {
     background-color: #010124;
@@ -100,7 +105,7 @@ header nav ul li a {
 }
 .hero-banner .slider .slide .image {
     flex: 1;
-    background-image: url("../images/backgrounds/supreme.png");
+    background-image: url("../images/backgrounds/supreme2.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -116,6 +121,9 @@ header nav ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.stocks-betimg{
+    height:30rem;
 }
 .hero-banner .slider .slide .image .contenttitle {
     position: absolute;
@@ -147,35 +155,35 @@ h1 {
 .mt-big {
     margin-top: 8rem;
 }
-.display-tshirts{
-    display:flex;
+.display-tshirts {
+    display: flex;
 }
-.card{
-    display:block;
+.card {
+    display: block;
 }
-.tshirt-name{
-    padding-left: 12rem;
+.tshirt-name {
     padding-top: 3rem;
     font: normal normal 900 23px Avenir;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
+    margin-bottom: 0;
     opacity: 1;
 }
-.add-to-cart{
-    background: #2DE86B 0% 0% no-repeat padding-box;
+.add-to-cart {
+    background: #2de86b 0% 0% no-repeat padding-box;
     border-radius: 10px;
     opacity: 1;
-    margin-left:12.5rem;
     width: 8rem;
     height: 3rem;
     color: white;
     font-size: 18px;
+    z-index: 9999;
 }
-.price{
+.price {
     text-align: center;
     font: normal normal normal 24px/33px Avenir;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
 }
 .item {
@@ -185,6 +193,47 @@ h1 {
     background-size: 450px;
     height: 32rem;
     position: relative;
+}
+.cartitemname{
+    color:#010124;
+}
+.item2 {
+    background-image: url(/images/icons/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 450px;
+    height: 60rem;
+    position: relative;
+}
+.item23 {
+    background-image: url(/images/icons/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 400px;
+    height: 40rem;
+    position: relative;
+}
+.item24 {
+    background-image: url(/images/icons/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 400px;
+    height: 50rem;
+    position: relative;
+}
+.price-name{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:72%;
+    bottom: 0;
+}
+.price-name2{
+    position: absolute;
+    left: 35%;
+    right: 0;
+    top:85%;
+    bottom: 0;
 }
 .item .content2 {
     position: absolute;
@@ -207,6 +256,93 @@ h1 {
     left: 20%;
     right: 10%;
     top: 82%;
+    width: 280px;
+    bottom: 0;
+    z-index: 200;
+}
+.item2 .content2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    bottom: 0;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+.item2 .content2 img {
+    max-height: 500px;
+    width: 300px;
+}
+.item2 .content23 img {
+    padding-top: 15rem;
+}
+.item2 .content3 {
+    position: absolute;
+    left: 20%;
+    right: 10%;
+    top: 68%;
+    width: 280px;
+    bottom: 0;
+    z-index: 200;
+}
+.custom001{
+    margin-left:3rem;
+}
+.item23 .content2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    bottom: 0;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+.item23 .content2 img {
+    max-height: 500px;
+    width: 300px;
+}
+.item23 .content23 img {
+    padding-top: 5rem;
+}
+.item23 .content3 {
+    position: absolute;
+    left: 20%;
+    right: 10%;
+    top: 68%;
+    width: 280px;
+    bottom: 0;
+    z-index: 200;
+}
+.item24 .content2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20%;
+    bottom: 0;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+.item24 .content2 img {
+    max-height: 500px;
+    width: 300px;
+}
+.item24 .content23 img {
+    padding-top: 3rem;
+}
+.item24 .content3 {
+    position: absolute;
+    left: 20%;
+    right: 10%;
+    top: 68%;
     width: 280px;
     bottom: 0;
     z-index: 200;
@@ -251,7 +387,9 @@ footer nav ul a {
 }
 .newsletter {
     border-radius: 10px;
-    width: 20rem;
+    width: 17rem;
+    padding-top:.35rem;
+    padding-bottom: .35rem;
 }
 .social {
     display: grid;
@@ -292,6 +430,9 @@ footer nav ul a {
 .bluish {
     color: #08f0fc;
     font-size: 70px;
+}
+.bluish2 {
+    color: #08f0fc;
 }
 .imageblog {
     background-image: url("../images/icons/welcometoblogs.png");
@@ -408,9 +549,17 @@ button {
     width: 100%;
     height: 20px;
 }
+.cartitemtitle{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.cartitemvariant{
+background-color: #010124;
+color:#fff;
+}
 .buttons {
     text-align: center;
-    margin-top: 13rem;
+    margin-top: 5rem;
 }
 .checkout {
     padding-top: 1rem;
@@ -445,20 +594,23 @@ button {
 .hundred {
     width: 100%;
 }
-.mission-vision-container{
-    display:flex;
+.cartitemimage{
+    width:100%;
+}
+.mission-vision-container {
+    display: flex;
 }
 .mission-par {
     margin-top: 4rem;
     margin-left: 9rem;
     width: 33rem;
-    font-size:23px;
+    font-size: 23px;
 }
-.vision-par{
-    margin-left:10.5rem;
-    width:33rem;
-    font-size:23px;
-    margin-top:3rem;
+.vision-par {
+    margin-left: 10.5rem;
+    width: 33rem;
+    font-size: 23px;
+    margin-top: 3rem;
 }
 .mariner {
     color: #010124;
@@ -470,9 +622,9 @@ button {
 .mission {
     position: absolute;
     width: fit-content;
-    margin-left:3rem;
+    margin-left: 3rem;
 }
-.vision{
+.vision {
     padding-top: 10rem;
 }
 .suit {
@@ -482,10 +634,10 @@ button {
     width: 51.2rem;
     background-size: 50rem;
 }
-.suitImg{
-    height:200px;
-    width:200px;
-    z-index:-1;
+.suitImg {
+    height: 200px;
+    width: 200px;
+    z-index: -1;
 }
 .withbck {
     background-image: url("../images/icons/title-bck.png");
@@ -497,10 +649,11 @@ button {
     position: relative;
     margin-left: -3em;
 }
-.withbck:before{
-    content: '';
+.withbck:before {
+    content: "";
     position: absolute;
-    top: 0; right: 0;
+    top: 0;
+    right: 0;
     border-top: 12rem solid #010124;
     border-left: 10rem solid transparent;
 }
@@ -509,13 +662,13 @@ button {
     height: 300px;
 }
 .titlem {
-    padding-top:3.5rem;
-    padding-left:14rem;
+    padding-top: 3.5rem;
+    padding-left: 14rem;
     right: 0;
     bottom: 0;
     color: #010124;
 }
-.titlemission{
+.titlemission {
     font-size: 60px;
 }
 .roadmap {
@@ -542,21 +695,22 @@ button {
     position: relative;
 }
 .withbckreverse:after {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     border-top: 12rem solid #010124;
     border-right: 10rem solid transparent;
 }
 .titler {
     color: #010124;
-    padding-top:3rem;
-    padding-left:13rem;
+    padding-top: 3rem;
+    padding-left: 13rem;
 }
 .navbar-toggler-icon {
     width: 2.2em;
 }
-.hero-banner{
+.hero-banner {
     margin-bottom: 5rem;
 }
 .hero-banner .slider .slide2 .imageroad {
@@ -584,7 +738,7 @@ button {
     position: relative;
     width: 100%;
 }
-.road-par{
+.road-par {
     font: normal normal 900 32px/38px Acumin Variable Concept;
     letter-spacing: 0px;
     color: #010124;
@@ -592,112 +746,121 @@ button {
     margin-left: 16rem;
     margin-top: 0.4rem;
 }
-.second-roadPar{
+.second-roadPar {
     margin-left: 34rem;
 }
-.second-roadmap{
+.second-roadmap {
     display: flex;
     margin-top: 5.5rem;
 }
-.thirdrow-roadmap{
-    margin-left:26rem;
+.thirdrow-roadmap {
+    margin-left: 26rem;
 }
 footer {
     border-top: 1px solid #fff;
 }
-.road-par-grey{
+.road-par-grey {
     margin-top: 0.4rem;
     font: normal normal 900 32px/38px Acumin Variable Concept;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 0.3;
     margin-left: 27rem;
 }
-.roadmap-margin{
+.roadmap-margin {
     margin-left: 41rem;
 }
-.roadmap-margin2{
+.roadmap-margin2 {
     margin-left: 19rem;
 }
-.supreme-title{
-    font-size: 7rem;
-    width: 45rem;
+.inside{
+    margin-left:-52px;
+    margin-bottom: 0.2rem;
+}
+.inside img{
+    margin-bottom: 0.2rem;
+}
+.supreme-title {
+    font-size: 5rem;
+    width: 35rem;
     color: black;
-    margin-top: 22rem;
-    margin-left: 45rem;
+    margin-top: 27rem;
+    margin-left: 40rem;
 }
-.left-arrow{
+.left-arrow {
+    margin-right: 0.6rem;
     margin-top: 14rem;
-    width: 7rem;
-    height: 6rem;
-    transform: rotate(180deg);
-}
-.right-arrow{
-    margin-top: 14rem;
-    width: 7rem;
+    width: 4.2rem;
     height: 6rem;
 }
-.center-tshirt{
-    width: 27rem;
-    height: 32rem;
+.right-arrow {
+    margin-left: 0.6rem;
+    margin-top: 14rem;
+    width: 4.2rem;
+    height: 6rem;
 }
-.shirt-details-component{
-    margin-top:5rem;
-    display:inline-flex;
+.center-tshirt {
+    width: 22rem;
+    background-color: #fff;
 }
-.zoomed-tshirts{
-    width:6rem;
-    height:6rem;
+.shirt-details-component {
+    margin-top: 5rem;
+    display: inline-flex;
+}
+.zoomed-tshirts {
+    width: 5.3rem;
+    height: 5.3rem;
     border: 4px solid white;
-    margin-right:0.3rem;
+    margin-right: 0.3rem;
+    background-color: #fff;
 }
-.small-tshirts{
-    margin-left:8rem;
-    margin-top:2rem;
+.small-tshirts {
+    margin-left: 8rem;
+    margin-top: 2rem;
 }
-.tshirt-title{
+.tshirt-title {
     text-align: left;
     font: normal normal 900 40px/55px Avenir;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
 }
-.leftDiv{
+.leftDiv {
     max-width: 45rem;
     margin-left: 8rem;
     margin-right: 6rem;
 }
-.tshirt-description{
+.tshirt-description {
     text-align: left;
     font: normal normal 300 28px Acumin Variable Concept;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
-    margin-top:2rem;
+    margin-top: 2rem;
     max-width: 39rem;
 }
-.td-price{
+.td-price {
     text-align: left;
     font: normal normal 900 24px Avenir;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
     padding-left: 0px;
 }
-.price-row{
-    margin-top:4rem;
+.price-row {
+    margin-top: 4rem;
 }
-.nb-price{
+.nb-price {
     text-align: center;
     font: normal normal normal 24px Avenir;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
-    padding-right:9rem;
+    padding-right: 9rem;
 }
-.size-btns{
+.size-btns {
     width: unset;
-    margin-top:4px;
+    margin-top: 4px;
     height: 1.7rem;
     width: 1.7rem;
     background-color: white;
@@ -707,24 +870,24 @@ footer {
     padding: 0.5em;
     -webkit-appearance: none;
     z-index: -1;
-  }
-  .size-btns:checked {
+}
+.size-btns:checked {
     background-color: #010124;
     background-size: 11px 11px;
-  }
-  .size-btns:checked ~ label{
-    color:white;
-  }
-.size-letter{
+}
+.size-btns:checked ~ label {
+    color: white;
+}
+.size-letter {
     position: absolute;
     margin-left: -1.5rem;
     font-size: 1.2rem;
-    color:#010124;
+    color: #010124;
 }
-.sizes{
-    padding-left:0px;
+.sizes {
+    padding-left: 0px;
 }
-.color-btns{
+.color-btns {
     border: 1px solid #fff;
     padding: 0.5em;
     -webkit-appearance: none;
@@ -732,71 +895,71 @@ footer {
     width: 2rem;
     height: 2rem;
 }
-#tshirt-white{
+#tshirt-white {
     background-color: white;
 }
-#tshirt-green{
+#tshirt-green {
     background-color: green;
 }
-#tshirt-red{
+#tshirt-red {
     background-color: red;
 }
 
-.operator{
+.operator {
     border: none;
     background-color: transparent;
-    color:white;
+    color: white;
 }
-.buy-now{
+.buy-now {
     margin-left: 0px;
     margin-top: 2rem;
 }
-.hyperlink-addToCart{
+.hyperlink-addToCart {
     text-align: center;
     text-decoration: underline;
     font: normal normal 900 19px Avenir;
     letter-spacing: 0px;
-    color: #5AEE1A;
+    color: #5aee1a;
     opacity: 1;
-    padding-top:3rem;
+    padding-top: 3rem;
 }
-.limited{
-    margin-top:4rem;
-    border-top:2px white solid;
+.limited {
+    margin-top: 4rem;
+    border-top: 2px white solid;
 }
-.bet-to-own{
+.bet-to-own {
     text-align: left;
     font: normal normal 900 30px Avenir;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
 }
-.stocks-bet{
+.stocks-bet {
     max-width: -webkit-fill-available;
 }
-.price-of-bet{
+.price-of-bet {
     text-align: center;
     font: normal normal 900 30px Avenir;
     letter-spacing: 0px;
-    color: #08F0FC;
+    color: #08f0fc;
     opacity: 1;
 }
-.bet-now-btn{
-    background: #08F0FC 0% 0% no-repeat padding-box;
+.bet-now-btn {
+    background: #08f0fc 0% 0% no-repeat padding-box;
     border-radius: 10px;
     opacity: 1;
     width: 9rem;
     height: 3rem;
-    margin-left:14rem;
+    margin-left: 14rem;
 }
-.element-to-bet{
-    height: 37rem;
+.element-to-bet {
+    height: 45rem;
     width: 53rem;
     margin-left: 15rem;
     margin-top: 4rem;
 }
-.merch-titles{
-    max-width:15rem;
+.merch-titles {
+    max-width: 15rem;
 }
 
 .title-margin{
@@ -849,4 +1012,13 @@ footer {
 .img2-3{
     width:35.1rem;
     max-height: 20rem;
+.title-margin {
+    margin-top: 2rem;
+}
+.light-blue{
+    background-color: #08F0FC;
+    color:#fff;
+}
+.img-astro{
+    width: 120%;
 }

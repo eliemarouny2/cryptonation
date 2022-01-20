@@ -53,9 +53,10 @@ class CSettings extends Controller
         ]);
     }
     function update_phrase(Request $req){
+        
        $result= DB::table('languages')->where('id', $req->id)
         ->update([
-            "french"=>$req->value
+            $req->language=>$req->value
                 ]);
                 return $result;
     }
@@ -112,5 +113,13 @@ class CSettings extends Controller
         return 1;
         else
         return 2;
+    }
+    function update_status(Request $req){
+        $result=DB::table('order_status')->where('order_id',$req->id)->update([
+            'order_status'=>$req->status
+        ]);
+        session(['res' => 'success']);
+        session(['result' => "order status changed"]);
+        return redirect('manage_orders');
     }
 }

@@ -1,4 +1,8 @@
 @media only screen and (max-width: 1400px) {
+    .supreme-title{
+        font-size: 4rem;
+        margin-left:20rem;
+    }
     .righter {
         margin-right: 5rem;
     }
@@ -10,6 +14,11 @@
     }
 }
 @media only screen and (max-width: 1300px) {
+            .supreme-title{
+                font-size: 4rem;
+       margin-left: 20rem;
+       width:20rem;
+    }
     .righter {
         margin-right: 2rem;
     }
@@ -25,6 +34,10 @@
     .hero-banner .slider .slide .image .content {
         left: 0%;
     }
+        .supreme-title{
+       margin-left: 10rem;
+
+    }
     .righter {
         margin-right: 0rem;
     }
@@ -38,6 +51,9 @@
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
+    }
+            .supreme-title{
+       margin-left: 5rem;
     }
     .sidenav a {
         font-size: 18px;

@@ -82,6 +82,36 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $pvariants = explode(',', $product->variants);
+                            $pcolors = explode(',', $product->colors);
+                                  
+                            ?>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select class="choices form-select" multiple="multiple" id="variants"
+                                            name="variants[]">
+                                            @foreach($variants as $variant)
+                                            <option <?php foreach($pvariants as $pvariant){ if($variant->variant_id==$pvariant){ echo 'selected'; }} ?>  value="{{$variant->variant_id}}">{{$variant->variant_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div iv>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select class="choices form-select" multiple="multiple" id="colors"
+                                            name="colors[]">
+                                            @foreach($colors as $color)
+                                            <option <?php foreach($pcolors as $pcolor){ if($color->color_id==$pcolor){ echo 'selected'; }} ?>  value="{{$color->color_id}}">{{$color->color}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div iv>
+                                </div>
+                            </div>
 
                             <div class="row mt-3">
                                 <div class="col-md-6">
