@@ -15,33 +15,76 @@
 				</div>
 			</div>
 </section>
-<section class="blogs2 mb-4">
-	<div class="centered">
-			<a class="readmore" href="">read more</a>
-	</div>
-</section>
 <section class="container album">
 	<div class="row1">
 		<div class="div1-1 album-border">
 			<img class="img1-1" src="images/vlogs/1641127816.png">
+			<div class="img-container">
+				<p class='img-title'> Lorem ipsum </p>
+				<p class="img-parag"> Lorem ipsum dolor sit amet, 
+					consectetur adipiscing elit. 
+					Integer gravida sapien in iaculis ultricies. </p>
+				<p class='read-more'> Read more </p>
+			</div>
 		</div>
 		<div class="div1-2 album-border">
 			<img class="img1-2" src="images/vlogs/1641127816.png">
+			<div class="img-container">
+				<p class='img-title'> Lorem ipsum </p>
+				<p class="img-parag"> Lorem ipsum dolor sit amet, 
+					consectetur adipiscing elit. 
+					Integer gravida sapien in iaculis ultricies. </p>
+				<p class='read-more'> Read more </p>
+			</div>
 		</div><div class="div1-3 album-border">
 			<img class="img1-3" src="images/vlogs/1641127816.png">
+			<div class="img-container">
+				<p class='img-title'> Lorem ipsum </p>
+				<p class="img-parag"> Lorem ipsum dolor sit amet, 
+					consectetur adipiscing elit. 
+					Integer gravida sapien in iaculis ultricies. </p>
+				<p class='read-more'> Read more </p>
+			</div>
 		</div>
 	</div>
 	<div class="row2">
 	<div class="div2-1 album-border">
 			<img class="img2-1" src="images/vlogs/1641127816.png">
+			<div class="img-container">
+				<p class='img-title'> Lorem ipsum </p>
+				<p class="img-parag"> Lorem ipsum dolor sit amet, 
+					consectetur adipiscing elit. 
+					Integer gravida sapien in iaculis ultricies. </p>
+				<p class='read-more'> Read more </p>
+			</div>
 		</div>
 		<div class="div2-1 album-border">
 			<img class="img2-1" src="images/vlogs/1641127816.png">
+			<div class="img-container">
+				<p class='img-title'> Lorem ipsum </p>
+				<p class="img-parag"> Lorem ipsum dolor sit amet, 
+					consectetur adipiscing elit. 
+					Integer gravida sapien in iaculis ultricies. </p>
+				<p class='read-more'> Read more </p>
+			</div>
+			</img>
+			
 		</div>
 		<div class="div2-3 album-border">
-			<img class="img2-3" src="images/vlogs/1641127816.png">
+			<img class="img1-1" src="images/vlogs/1641127816.png">
+			<div class="img-container">
+				<p class='img-title'> Lorem ipsum </p>
+				<p class="img-parag"> Lorem ipsum dolor sit amet, 
+					consectetur adipiscing elit. 
+					Integer gravida sapien in iaculis ultricies. </p>
+				<p class='read-more'> Read more </p>
+			</div>
 		</div>
 	</div>
 </section>
-
+<section class="blogs2 mb-4">
+	<div class="centered">
+			<a class="readmore" href="">read more</a>
+	</div>
+</section>
 @endsection
