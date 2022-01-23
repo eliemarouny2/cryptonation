@@ -44,21 +44,28 @@ use Illuminate\Support\Facades\Route;
  */
 Route::group(['middleware' => ['LangCheck']], function () {
     Route::get('/', [CHome::class, 'homepage']);
-    Route::get('/blogs', [CHome::class, 'blogs']);
-    Route::get('/vlogs', [CHome::class, 'vlogs']);
+    Route::get('/welcome',function(){
+        return view('welcome');
+    });
+    // Route::get('/blogs', [CHome::class, 'blogs']);
+    Route::get('/blogs', [CHome::class, 'coming_soon_blogs']);
+    Route::get('/vlogs', [CHome::class, 'coming_soon_vlogs']);
+    // Route::get('/vlogs', [CHome::class, 'vlogs']);
     Route::get('/about', [CHome::class, 'about']);
     Route::get('/merch', [CHome::class, 'merch']);
     Route::post('/add_to_cart', [CHome::class, 'add_to_cart'])->name('add_to_cart');
     Route::get('view_product/{id}', [CHome::class, 'view_product']);
     Route::get('/lang', [CSettings::class, 'lang']);
     
-    Route::get('/checkout', [CHome::class, 'checkout']);
     Route::post('/add_new_subscriber', [CHome::class, 'add_new_subscriber'])->name('add_new_subscriber');
     Route::post('/update_phrase', [CSettings::class, 'update_phrase'])->name('update_phrase');
     
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
+        Route::get('/orders', function () {
+        return view('orders');
+    })->middleware(['auth'])->name('orders');
     
     require __DIR__ . '/auth.php';
     
@@ -86,6 +93,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
             'mission' => $mission,
         ]);
     });
+
 
     Route::get('/edit_aboutus', function () {
         $about = DB::table('about')->first();
@@ -230,12 +238,14 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
     Route::get('delete_vlog/{id}', [CVlog::class, 'delete_vlog']);
     Route::get('edit_category/{id}', [CCategory::class, 'edit_category']);
+    Route::get('edit_link/{id}', [CSettings::class, 'edit_link']);
     Route::get('edit_variant/{id}', [CVariant::class, 'edit_variant']);
     Route::get('product/{id}', [CHome::class, 'view_product']);
 
     Route::get('edit_blog/{id}', [CBlog::class, 'edit_blog']);
 
     Route::post('/update_category', [CCategory::class, 'update_category']);
+    Route::post('/update_social', [CSettings::class, 'update_social']);
     Route::post('/update_variant', [CVariant::class, 'update_variant']);
     Route::post('/update_vlog', [CVlog::class, 'update_vlog']);
     Route::post('/update_video_url', [CSettings::class, 'update_video']);

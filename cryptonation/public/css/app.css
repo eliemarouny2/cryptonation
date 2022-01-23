@@ -1123,6 +1123,9 @@ select {
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
 }
+.reset-btn{
+  background-color:#010124 !important;
+}
 @media (prefers-color-scheme: dark) {
   .dark\:border-gray-700 {
     --tw-border-opacity: 1;

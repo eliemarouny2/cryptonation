@@ -1012,6 +1012,7 @@ footer {
 .img2-3{
     width:35.1rem;
     max-height: 20rem;
+}
 .title-margin {
     margin-top: 2rem;
 }
@@ -1020,5 +1021,64 @@ footer {
     color:#fff;
 }
 .img-astro{
-    width: 120%;
+    width: 100%;
+}
+.margin-top-large{
+    margin-top: 12rem;
+}
+.loginbtn{
+    color:#fff;
+    background-color:#5aee1a ;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.createbtn{
+        color:#fff;
+    background-color:#08F0FC ;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.phonecode{
+    border:none;
+    border-radius: .25rem;
+}
+.dropdown-toggle::after{
+display:none !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.coming-soon-blogs{
+    padding:10rem;
+    font-size: 7rem;
+    color:#08f0fc;
+}
+.coming-soon-vlogs{
+    padding:10rem;
+    font-size: 7rem;
+    color:#5AEE1A;
+}
+.top-20{
+    margin-top: 20rem;
+}
+.grid-blog{
+      background-image: url("../images/backgrounds/grid-blog.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+.grid-vlog{
+      background-image: url("../images/backgrounds/grid-vlog.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
 }

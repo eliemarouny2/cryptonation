@@ -12,55 +12,60 @@
       </div>
       <div class="col-md-5 col-lg-6">
         <h4 class="mb-3 bluish2">Personal Details</h4>
-        <form class="needs-validation" novalidate>
+        <form method="POST" action="/submit_checkout">
+          @csrf
           <div class="row g-3">
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="firstName" placeholder="First Name" value="" required>
+              <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" value=""
+                required>
             </div>
 
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" required>
+              <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" value=""
+                required>
             </div>
 
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="firstName" placeholder="Email Address" value="" required>
-              <!-- <div class="invalid-feedback">
-                Valid first name is required.
-              </div> -->
+              <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" value=""
+                required>
             </div>
 
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="lastName" placeholder="Phone" value="" required>
+              <div class="input-group">
+                <select name="phonecode" id="phonecode" class="greenish phonecode">
+                  @foreach($countries as $country)
+                  <option value="{{$country->phonecode}}">{{$country->phonecode}}</option>
+                  @endforeach
+                </select>
+                <input type="number" name="phone" id="phone" class="form-control" required>
+              </div>
             </div>
 
             <h4 class="mb-3 greenish">Shipping Address</h4>
 
-
             <div class="col-12">
-              <input type="text" class="form-control" id="address" placeholder="Street Address" required>
+              <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" required>
             </div>
 
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+              <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="ZIP code">
             </div>
 
             <div class="col-sm-6">
-              <select class="form-select" id="country" required>
-                <option value="">Choose...</option>
-                <option>United States</option>
-              </select>
+              <input class="form-control" id="city" name="city" required placeholder="City" />
               <div class="invalid-feedback">
                 Please select a valid country.
               </div>
             </div>
 
             <div class="col-sm-6">
-              <select class="form-select" id="state" required>
-                <option value="">Choose...</option>
-                <option>California</option>
+              <select class="form-select" name="country" id="country" required>
+                @foreach($countries as $country)
+                <option value="{{$country->name}}">{{$country->name}}</option>
+                @endforeach
               </select>
               <div class="invalid-feedback">
-                Please provide a valid state.
+                Please provide a valid country.
               </div>
             </div>
 

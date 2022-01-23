@@ -11,63 +11,95 @@ use Illuminate\Support\Facades\App;
 
 class CSettings extends Controller
 {
-     function edit_settings(){
-        $video_url=DB::table('video_url')->where('id',1)->first();
-        return view('admin/settings/manage_settings',[
-            'video'=>$video_url
+    function edit_settings()
+    {
+        $video_url = DB::table('video_url')->where('id', 1)->first();
+        $links = DB::table('social')->get();
+        return view('admin/settings/manage_settings', [
+            'video' => $video_url,
+            'links' => $links
         ]);
     }
-    function edit_video_url(Request $req){
-        $video=DB::table('video_url')->where('id',1)->first();
-        return view('admin/settings/edit_video_url',[
-            'video'=>$video
+    function edit_video_url(Request $req)
+    {
+        $video = DB::table('video_url')->where('id', 1)->first();
+        return view('admin/settings/edit_video_url', [
+            'video' => $video
         ]);
     }
-    public function update_video(Request $req){
-    
-        $result=DB::table('video_url')->where('id', 1)
-                    ->update([
-                            'video_url'=>$req->video_url
-                            ]);
-    if($result){
-        session(['res' => 'success']);
-        session(['result' => "video URL successfully added"]);
-    }else{
-        session(['res' => 'danger']);
-        session(['result' => "Problem editing video URL"]);
+    function edit_link($id)
+    {
+        $link = DB::table('social')->where('id', $id)->first();
+        return view('admin/settings/edit_link', [
+            'link' => $link
+        ]);
     }
-   return redirect('/manage_settings');
-}
-    function manage_language(){
+    public function update_video(Request $req)
+    {
+
+        $result = DB::table('video_url')->where('id', 1)
+            ->update([
+                'video_url' => $req->video_url
+            ]);
+        if ($result) {
+            session(['res' => 'success']);
+            session(['result' => "video URL successfully added"]);
+        } else {
+            session(['res' => 'danger']);
+            session(['result' => "Problem editing video URL"]);
+        }
+        return redirect('/manage_settings');
+    }
+    public function update_social(Request $req)
+    {
+        $result = DB::table('social')->where('id', $req->id)
+            ->update([
+                'social_url' => $req->url,
+                'status'=>$req->status
+            ]);
+        if ($result) {
+            session(['res' => 'success']);
+            session(['result' => "video URL successfully added"]);
+        } else {
+            session(['res' => 'danger']);
+            session(['result' => "Problem editing video URL"]);
+        }
+        return redirect('/manage_settings');
+    }
+    function manage_language()
+    {
         $lang = Language::first();
         $attributes = array_keys($lang->toArray());
-        return view('admin/language/manage_language',[
-            'languages'=>$attributes
+        return view('admin/language/manage_language', [
+            'languages' => $attributes
         ]);
     }
-    function edit_phrases($lang){
-        $phrases=language::select('id','phrase',"$lang")->get();
-        return view('admin/language/edit_phrases',[
-            'phrases'=>$phrases,
-            'lang'=>$lang
+    function edit_phrases($lang)
+    {
+        $phrases = language::select('id', 'phrase', "$lang")->get();
+        return view('admin/language/edit_phrases', [
+            'phrases' => $phrases,
+            'lang' => $lang
         ]);
     }
-    function update_phrase(Request $req){
-        
-       $result= DB::table('languages')->where('id', $req->id)
-        ->update([
-            $req->language=>$req->value
-                ]);
-                return $result;
+    function update_phrase(Request $req)
+    {
+
+        $result = DB::table('languages')->where('id', $req->id)
+            ->update([
+                $req->language => $req->value
+            ]);
+        return $result;
     }
-    function insert_language(Request $req){
-        $lang=$req->language;
-        try{
-        DB::select("ALTER TABLE languages ADD "  .$lang." TEXT");
-        $code=$lang[0].$lang[1];
-        mkdir("../resources/lang/$code");
-        $myfile = fopen("../resources/lang/$code/msg.php", "w") or die("Unable to open file!");
-        $text="
+    function insert_language(Request $req)
+    {
+        $lang = $req->language;
+        try {
+            DB::select("ALTER TABLE languages ADD "  . $lang . " TEXT");
+            $code = $lang[0] . $lang[1];
+            mkdir("../resources/lang/$code");
+            $myfile = fopen("../resources/lang/$code/msg.php", "w") or die("Unable to open file!");
+            $text = "
         <?php 
 
         use App\Models\language;
@@ -84,42 +116,45 @@ class CSettings extends Controller
         return \$arr;
 
         ?>
-                ";
-        fwrite($myfile,$text);
-        }catch(Exception $ex){
-            return back()->with('res', 'danger')->with('result',"problem adding language");
-        }
-            session(['res' => 'success']);
-            session(['result' => "language successfully added"]);
-        return redirect('manage_language');
-    }
-    function delete_language($lang){
-        try{
-        DB::select("ALTER TABLE languages DROP COLUMN "  .$lang);
-        $code=$lang[0].$lang[1];
-        unlink("../resources/lang/$code/msg.php");
-        rmdir("../resources/lang/$code");
-        }catch(Exception $ex){
-            return back()->with('res', 'danger')->with('result',"problem deleting language");
-        }
-            session(['res' => 'success']);
-            session(['result' => "language successfully deleted"]);
-        return redirect('manage_language');
-    }
-    function lang(Request $req){
-        App::setLocale("$req->lang");
-        $res=App::getLocale();
-        if($res==$req->lang)
-        return 1;
-        else
-        return 2;
-    }
-    function update_status(Request $req){
-        $result=DB::table('order_status')->where('order_id',$req->id)->update([
-            'order_status'=>$req->status
-        ]);
-        session(['res' => 'success']);
-        session(['result' => "order status changed"]);
-        return redirect('manage_orders');
-    }
+";
+fwrite($myfile, $text);
+} catch (Exception $ex) {
+return back()->with('res', 'danger')->with('result', "problem adding language");
+}
+session(['res' => 'success']);
+session(['result' => "language successfully added"]);
+return redirect('manage_language');
+}
+function delete_language($lang)
+{
+try {
+DB::select("ALTER TABLE languages DROP COLUMN " . $lang);
+$code = $lang[0] . $lang[1];
+unlink("../resources/lang/$code/msg.php");
+rmdir("../resources/lang/$code");
+} catch (Exception $ex) {
+return back()->with('res', 'danger')->with('result', "problem deleting language");
+}
+session(['res' => 'success']);
+session(['result' => "language successfully deleted"]);
+return redirect('manage_language');
+}
+function lang(Request $req)
+{
+App::setLocale("$req->lang");
+$res = App::getLocale();
+if ($res == $req->lang)
+return 1;
+else
+return 2;
+}
+function update_status(Request $req)
+{
+$result = DB::table('order_status')->where('order_id', $req->id)->update([
+'order_status' => $req->status
+]);
+session(['res' => 'success']);
+session(['result' => "order status changed"]);
+return redirect('manage_orders');
+}
 }

@@ -18,6 +18,7 @@
 	<body>
 		<?php 
 		$cartitems=Cart::content();
+		$quantity=Cart::count();
 		$total=Cart::total() - Cart::tax();
 		?>
 		<!-- Header bar start -->
@@ -40,12 +41,16 @@
 							</div>
 						</div>
 						@endforeach
+						@if($quantity!=0)
 						<div class="subtotal">
 							<label>Subtotal</label>
 							<label class="subtotal-amount">{{$total}}$</label>
 						</div>
+						@endif
 						<div class="buttons">
+							@if($quantity!=0)
 							<a href="/checkout" class="checkout">Go to Checkout</a>
+							@endif
 							<a href="/merch" class="continue">Continue Shopping</a>
 						</div>
 					</div>
@@ -73,35 +78,9 @@
 								<a class="nav-link lrg white-color" href="/merch">Merch</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link lrg white-color" href="about">About us</a>
+								<a class="nav-link lrg white-color" href="/about">About us</a>
 							</li>
 
-							<!-- <li class="nav-item">
-        							<a
-        								class="nav-link disabled"
-        								href="#"
-        								tabindex="-1"
-        								aria-disabled="true"
-        								>Disabled</a
-        							>
-        							</li> -->
-							<!-- <li class="nav-item dropdown">
-        							<a
-        								class="nav-link dropdown-toggle"
-        								href="#"
-        								id="dropdown03"
-        								data-bs-toggle="dropdown"
-        								aria-expanded="false"
-        								>Dropdown</a
-        							>
-        							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-        								<li><a class="dropdown-item" href="#">Action</a></li>
-        								<li><a class="dropdown-item" href="#">Another action</a></li>
-        								<li>
-        									<a class="dropdown-item" href="#">Something else here</a>
-        								</li>
-        							</ul>
-        							</li> -->
 						</ul>
 						<ul class="navbar-nav me-auto mb-sm-0 centered2">
 							<li class="nav-item">
@@ -112,9 +91,34 @@
 									<img src="/images/icons/cart.png" alt="logo" />
 								</button>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link mdm" href="#"><img src="/images/icons/avatar.png" alt="logo" /></a>
+
+
+
+							@if (Route::has('login'))
+							@auth
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle mdm" href="#" id="dropdown03" data-bs-toggle="dropdown"
+									aria-expanded="false"><img src="/images/icons/avatar.png" alt="logo" /></a>
+
+								<ul class="dropdown-menu" aria-labelledby="dropdown03">
+									<li><a class="dropdown-item" href="{{ url('/dashboard') }}">Dashboard</a></li>
+
+									<li>
+										<form action="{{route('logout')}}" method="POST">
+											@csrf
+											<button class="dropdown-item" type="submit">Sign out</button>
+										</form>
+									</li>
+								</ul>
 							</li>
+							@else
+							<li class="nav-item">
+								<a class="nav-link mdm" href="/login"><img src="/images/icons/avatar.png" alt="logo" /></a>
+							</li>
+							@endauth
+							@endif
+
+
 						</ul>
 					</div>
 				</div>
@@ -178,12 +182,29 @@
 					</div>
 					<div class="col-xl-3 col-md-6 col-12 pad-topper">
 						<div>
+							<?php
+							$instagram = DB::table('social')->where('social_name','instagram')->first();
+							$facebook = DB::table('social')->where('social_name','facebook')->first();
+							$youtube = DB::table('social')->where('social_name','youtube')->first();
+							$mail = DB::table('social')->where('social_name','mail')->first();
+								?>
 							<label>Follow us</label>
 							<div class="socialmedia">
-								<a href=""><img src="/images/icons/youtube.png" alt="youtube icon" /></a>
-								<a href=""><img src="/images/icons/facebook.png" alt="facebook icon" /></a>
-								<a href=""><img src="/images/icons/instagram.png" alt="instagram icon" /></a>
-								<a href=""><img src="/images/icons/mail.png" alt="mail icon" /></a>
+								@if($youtube->status)
+								<a href="{{$youtube->social_url}}"><img src="/images/icons/youtube.png"
+										alt="youtube icon" /></a>
+								@endif
+								@if($facebook->status)
+								<a href="{{$facebook->social_url}}"><img src="/images/icons/facebook.png"
+										alt="facebook icon" /></a>
+								@endif
+								@if($instagram->status)
+								<a href="{{$instagram->social_url}}"><img src="/images/icons/instagram.png"
+										alt="instagram icon" /></a>
+								@endif
+								@if($mail->status)
+								<a href="mailto:{{$mail->social_url}}"><img src="/images/icons/mail.png" alt="mail icon" /></a>
+								@endif
 							</div>
 						</div>
 					</div>
@@ -207,14 +228,14 @@
 			crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-		<script src="js/carouselshome.js"></script>
+		<script src="../js/carouselshome.js"></script>
 
 
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 
-		<script src="js/cart.js"></script>
+		<script src="/js/cart.js"></script>
 		<script>
 			$('body').on('click', '#sub_btn', function () {
 				var email = $('#sub_email').val();
