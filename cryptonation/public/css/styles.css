@@ -990,42 +990,77 @@ footer {
 .img1-1{
     max-width: 29.3rem;
     border: 4px solid rgb(230,230,240,0.5);
-    border-radius: 14px;
-    background: linear-gradient(196deg, #0505056F 0%, #000000FD 100%);
+    background: transparent linear-gradient(196deg, #0505056F 0%, #000000FD 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#cont-1{
+    position: absolute;
+    margin-left: 11rem;
+    margin-top: 7rem;
 }
 .img1-2{
     height: 22rem;
     width: 19rem;
     border: 4px solid rgb(230,230,240,0.5);
-    border-radius: 14px;
-    background: linear-gradient(196deg, #0505056F 0%, #000000FD 100%);
-    margin-bottom: 0.2rem;
+    background: transparent linear-gradient(196deg, #0505056F 0%, #000000FD 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#cont-2{
+    position: absolute;
+    margin-left: 39rem;
+    margin-top: 10rem;
 }
 .img1-3{
     height: 22rem;
     width: 19rem;
     border: 4px solid rgb(230,230,240,0.5);
-    border-radius: 14px;
-    background: linear-gradient(196deg, #0505056F 0%, #000000FD 100%);
+    background: transparent linear-gradient(196deg, #0505056F 0%, #000000FD 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#cont-3{
+    position: absolute;
+    margin-left: 58rem;
+    margin-top: 10rem;
 }
 .img2-1{
     height: 22rem;
     width: 19rem;
     margin-top: -4.5rem;
     border: 4px solid rgb(230,230,240,0.5);
-    border-radius: 14px;
-    background: linear-gradient(196deg, #0505056F 0%, #000000FD 100%);
+    background: transparent linear-gradient(196deg, #0505056F 0%, #000000FD 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#cont-4{
+    margin-left: 1rem;
+    margin-top: 6rem;
+    position: absolute;
 }
 .img2-3{
     width: 30.1rem;
     border: 4px solid rgb(230,230,240,0.5);
-    border-radius: 14px;
-    background: linear-gradient(196deg, #0505056F 0%, #000000FD 100%);
+    background: transparent linear-gradient(196deg, #0505056F 0%, #000000FD 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#cont-5{
+    position: absolute;
+    margin-left: 20rem;
+    margin-top: 6rem;
+}
+#cont-6{
+    position: absolute;
+    margin-left: 41rem;
+    margin-top: 6rem;
 }
 .img-container{
     max-width:19rem;
-    margin-top: -11.4rem;
-    padding-left: 2rem;
+    margin-left: 11rem;
+    margin-top: 7rem;
+    position: absolute;    
 }
 .img-title{
     text-align: left;

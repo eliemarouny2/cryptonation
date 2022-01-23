@@ -19,66 +19,65 @@
 	<div class="row1">
 		<div class="div1-1 album-border">
 			<img class="img1-1" src="images/vlogs/1641127816.png">
-			<div class="img-container">
+		</div>
+		<div id='cont-1'>
 				<p class='img-title'> Lorem ipsum </p>
 				<p class="img-parag"> Lorem ipsum dolor sit amet, 
 					consectetur adipiscing elit. 
 					Integer gravida sapien in iaculis ultricies. </p>
 				<p class='read-more'> Read more </p>
-			</div>
 		</div>
 		<div class="div1-2 album-border">
 			<img class="img1-2" src="images/vlogs/1641127816.png">
-			<div class="img-container">
+		</div>
+		<div id='cont-2'>
 				<p class='img-title'> Lorem ipsum </p>
 				<p class="img-parag"> Lorem ipsum dolor sit amet, 
 					consectetur adipiscing elit. 
 					Integer gravida sapien in iaculis ultricies. </p>
 				<p class='read-more'> Read more </p>
-			</div>
-		</div><div class="div1-3 album-border">
+		</div>
+		<div class="div1-3 album-border">
 			<img class="img1-3" src="images/vlogs/1641127816.png">
-			<div class="img-container">
+		</div>
+		<div id="cont-3">
 				<p class='img-title'> Lorem ipsum </p>
 				<p class="img-parag"> Lorem ipsum dolor sit amet, 
 					consectetur adipiscing elit. 
 					Integer gravida sapien in iaculis ultricies. </p>
 				<p class='read-more'> Read more </p>
-			</div>
 		</div>
 	</div>
 	<div class="row2">
 	<div class="div2-1 album-border">
 			<img class="img2-1" src="images/vlogs/1641127816.png">
-			<div class="img-container">
+		</div>
+		<div id="cont-4">
 				<p class='img-title'> Lorem ipsum </p>
 				<p class="img-parag"> Lorem ipsum dolor sit amet, 
 					consectetur adipiscing elit. 
 					Integer gravida sapien in iaculis ultricies. </p>
 				<p class='read-more'> Read more </p>
 			</div>
-		</div>
 		<div class="div2-1 album-border">
-			<img class="img2-1" src="images/vlogs/1641127816.png">
-			<div class="img-container">
+			<img class="img2-1" src="images/vlogs/1641127816.png">		
+		</div>
+		<div id="cont-5">
 				<p class='img-title'> Lorem ipsum </p>
 				<p class="img-parag"> Lorem ipsum dolor sit amet, 
 					consectetur adipiscing elit. 
 					Integer gravida sapien in iaculis ultricies. </p>
 				<p class='read-more'> Read more </p>
 			</div>
-			</img>
-			
-		</div>
 		<div class="div2-3 album-border">
 			<img class="img1-1" src="images/vlogs/1641127816.png">
-			<div class="img-container">
+		</div>
+		<div id="cont-6">
 				<p class='img-title'> Lorem ipsum </p>
 				<p class="img-parag"> Lorem ipsum dolor sit amet, 
 					consectetur adipiscing elit. 
 					Integer gravida sapien in iaculis ultricies. </p>
 				<p class='read-more'> Read more </p>
-			</div>
 		</div>
 	</div>
 </section>
