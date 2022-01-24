@@ -19,15 +19,19 @@ class CHome extends Controller
     public function homepage()
     {
         $trendings = Product::where('trending', 1)->where('prod_status', 1)->where('fk_cat_id', 1)->get();
-        $blogs = Blog::where('blog_status', 1)->get();
-        $vlogs = Vlog::where('vlog_status', 1)->get();
+        $trendings_caps = Product::where('trending', 1)->where('prod_status', 1)->where('fk_cat_id', 3)->get();
+        $trendings_posters = Product::where('trending', 1)->where('prod_status', 1)->where('fk_cat_id', 2)->get();
+        // $blogs = Blog::where('blog_status', 1)->get();
+        // $vlogs = Vlog::where('vlog_status', 1)->get();
         $video_url = DB::table('video_url')->where('id', 1)->first();
 
 
         return view('home', [
             'trendings' => $trendings,
-            'blogs' => $blogs,
-            'vlogs' => $vlogs,
+            // 'blogs' => $blogs,
+            // 'vlogs' => $vlogs,
+            'trendings_posters'=>$trendings_posters,
+            'trendings_caps'=>$trendings_caps,
             'video' => $video_url
         ]);
     }

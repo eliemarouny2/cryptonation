@@ -125,7 +125,7 @@ header nav ul li a {
 .stocks-betimg{
     height:30rem;
 }
-.hero-banner .slider .slide .image .contenttitle {
+ .contenttitle {
     position: absolute;
     left: 20%;
     right: 0;
@@ -187,9 +187,7 @@ h1 {
     opacity: 1;
 }
 .item {
-    background-image: url(/images/icons/background.png);
-    background-position: center;
-    background-repeat: no-repeat;
+
     background-size: 450px;
     height: 32rem;
     position: relative;
@@ -198,35 +196,18 @@ h1 {
     color:#010124;
 }
 .item2 {
-    background-image: url(/images/icons/background.png);
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: 450px;
     height: 60rem;
     position: relative;
 }
 .item23 {
-    background-image: url(/images/icons/background.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 400px;
-    height: 40rem;
     position: relative;
+    margin-bottom:4rem;
 }
 .item24 {
-    background-image: url(/images/icons/background.png);
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: 400px;
     height: 50rem;
     position: relative;
-}
-.price-name{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top:72%;
-    bottom: 0;
 }
 .price-name2{
     position: absolute;
@@ -235,21 +216,10 @@ h1 {
     top:85%;
     bottom: 0;
 }
-.item .content2 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 20%;
-    bottom: 0;
-    z-index: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-}
 .item .content2 img {
-    max-height: 500px;
-    width: 300px;
+    max-height: 550px;
+    width: auto;
+    max-width: 100%;
 }
 .item .content3 {
     position: absolute;
@@ -259,18 +229,6 @@ h1 {
     width: 280px;
     bottom: 0;
     z-index: 200;
-}
-.item2 .content2 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 20%;
-    bottom: 0;
-    z-index: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
 }
 .item2 .content2 img {
     max-height: 500px;
@@ -307,9 +265,6 @@ h1 {
     max-height: 500px;
     width: 300px;
 }
-.item23 .content23 img {
-    padding-top: 5rem;
-}
 .item23 .content3 {
     position: absolute;
     left: 20%;
@@ -319,18 +274,7 @@ h1 {
     bottom: 0;
     z-index: 200;
 }
-.item24 .content2 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 20%;
-    bottom: 0;
-    z-index: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-}
+
 .item24 .content2 img {
     max-height: 500px;
     width: 300px;
@@ -1157,4 +1101,19 @@ input[type=number] {
 }
 .album{
     margin-top:5rem;
+}
+.centered-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search{
+    width: 20rem;
+}
+.search-form{
+    padding:15px;
+}
+.righty{
+  margin-left:13rem;
+  margin-top: 1rem;
 }
