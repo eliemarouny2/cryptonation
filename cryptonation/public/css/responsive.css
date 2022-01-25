@@ -6,7 +6,10 @@
 @media only screen and (max-width: 1400px) {
     .supreme-title{
         font-size: 4rem;
-        margin-left:20rem;
+        margin-left:31rem;
+    }
+    .element-to-bet{
+        margin-left:8rem;
     }
     .newsletter{
         width:14rem;
@@ -22,9 +25,9 @@
     }
 }
 @media only screen and (max-width: 1300px) {
-            .supreme-title{
-                font-size: 4rem;
-       margin-left: 20rem;
+    .supreme-title{
+       font-size: 4rem;
+       margin-left: 35rem;
        width:20rem;
     }
     .righter {
@@ -32,6 +35,12 @@
     }
     .foot {
         margin-top: 5rem;
+    }
+    .leftDiv{
+        margin-left:0px;
+    }
+    .element-to-bet{
+        margin-left: 3rem;
     }
 }
 @media only screen and (max-width: 992px) {
@@ -42,8 +51,8 @@
     .hero-banner .slider .slide .image .content {
         left: 0%;
     }
-        .supreme-title{
-       margin-left: 10rem;
+    .supreme-title{
+       margin-left: 23rem;
 
     }
     .righter {
@@ -54,6 +63,35 @@
     }
     .foot {
         margin-top: 7rem;
+    }
+    .center-tshirt{
+        width: 13rem;
+    }
+    .stocks-betimg {
+        height: 26rem;
+    }
+    .bet-to-own{
+        font-size:24px;
+    }
+    .bet-now-btn{
+        margin-left:9rem;
+    }
+    .item23 .content23 img {
+        padding-top: 13rem;
+    }
+    .bluish{
+        font-size: 3rem;
+    }
+    .resp-marg{
+        display: inline-block;
+        margin-left: 6rem;
+    }
+    .custom001{
+        width:max-content;
+    }
+    .bet-img{
+        min-height: 26rem;
+        min-width: 33rem;
     }
 }
 @media screen and (max-height: 450px) {
@@ -69,4 +107,137 @@
     .item .content3 {
         right: 12%;
     }
+}
+@media only screen and (min-width:1800px) and (max-width: 2700px) {
+    .supreme-title{
+        margin-left: 61rem;
+ 
+     }
+}
+@media screen and (max-width: 450px) {
+    .supreme-title{
+        margin-left: 0.4rem;
+        font-size: 2rem;
+        max-width: 3rem;
+     }
+     .hero-banner2 .container-fluid h1 {
+         max-width:2rem;
+         margin-top:1rem!important;
+     }
+     .hero-banner2 .container-fluid img {
+        max-height:12rem;
+        width:6rem;
+        margin-right: 8rem;
+     }
+     .item2{
+         background-size:20rem;
+         height:40rem;
+     }
+     .centered2{
+         font-size:1rem;
+         margin-right:4rem;
+     }
+     .price-name2{
+         max-width:5rem;
+         margin-top: 1.2rem;
+         margin-left:-4rem;
+         font-size:1rem;
+     }
+     .left-arrow{
+        margin-top: 3rem;
+        width: 2.8rem;
+        height: 2rem;
+
+     }
+     .right-arrow{
+        margin-top: 3rem;
+        width: 2.8rem;
+        height: 2rem;
+
+     }
+     .center-tshirt{
+        width: 7rem;
+     }
+     .zoomed-tshirts{
+        width: 4.3rem;
+        height: 4.3rem;
+     }
+     .shirt-details-component{
+         display:block;
+     }
+     .custom001{
+         margin-left:0px;
+     }
+     .small-tshirts{
+         display:grid;
+         margin-left:5rem;
+     }
+     .tshirt-title{
+        font-size: 1.7rem;
+        margin-left: 0.5rem;
+     }
+     .tshirt-description{
+        font-size: 1rem;
+        max-width: 9rem;
+        margin-left: 1.4rem;
+     }
+     .price-row{
+         margin-top:2rem;
+     }
+     .td-price{
+        font-size: 1.5rem;
+        margin-left: 1.5rem;
+        max-width: fit-content;
+     }
+     .sizes{
+        padding-left: 1.5rem;
+        min-width: 9rem;
+        margin-top: 0.5rem;
+     }
+     .resp-disp{
+        max-width: fit-content;
+        display:unset;
+     }
+     .buy-now{
+         margin-left:2rem;
+     }
+     .bluish{
+         font-size:1rem;
+     }
+     .bet-to-own{
+        font-size: 1rem;
+        max-width: 10rem;
+     }
+     .resp-marg{
+         margin-left:0px;
+     }
+     .bet-img{
+        min-height: 1rem;
+        min-width: 1rem;
+        padding-left: 0px;
+        max-width: 12rem;
+     }
+     .stocks-betimg{
+        min-height: 1rem;
+        min-width: 1rem;
+        padding-left: 0px;
+        max-width: 12rem;
+        max-height:10rem;
+     }
+     .price-of-bet{
+         font-size:1rem;
+     }
+     .bet-now-btn{
+        margin-left: 1rem;
+        max-width: 6rem;
+        max-height: 2rem;
+     }
+     .element-to-bet{
+        max-width: 9rem;
+        max-height: 10rem;
+        margin-left: 1.3rem;
+     }
+     .hero-banner2 .container-fluid h1 {
+         font-size:1.5rem;
+     }
 }

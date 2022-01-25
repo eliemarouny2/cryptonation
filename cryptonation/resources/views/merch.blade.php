@@ -57,7 +57,7 @@
 			<p class="col-4 nb-price"> 60$ </p>
 			<p class="col-4 td-price"> Color </p>
 		</div>
-		<div class="row">
+		<div class="row resp-disp">
 			<div class="col-4 sizes">
 				<input class="col-3 size-btns" type="radio" name="size" id="tshirt-small" value="small" />
 				<label class="size-letter" for="tshirt-small"> S </label>
@@ -90,7 +90,7 @@
 				<input class="col-3 color-btns" type="radio" name="color" id="tshirt-green" value="green" />
 			</div>
 		</div>
-		<div class="row">
+		<div class="row  resp-disp">
 			<button class="add-to-cart buy-now col-6"> Buy now </button>
 			<p class="hyperlink-addToCart col-6"> Add to cart </p>
 		</div>
@@ -103,8 +103,8 @@
 		<div class="row">
 			<p class="bet-to-own stocks-bet price-row"> Bet on this item to own it </p>
 		</div>
-		<div class="row">
-			<img src="images/icons/aaaaa.png" class="col-7">
+		<div class="row resp-marg">
+			<img src="images/icons/aaaaa.png" class="col-7 bet-img">
 			<div class="col-5">
 				<img src="images/icons/bet.png" class="stocks-betimg">
 				<div class="row">
