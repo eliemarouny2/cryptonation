@@ -4,47 +4,34 @@
 	<div class="slider">
 		<div class="slide">
 			<div class="image">
-				<p class="supreme-title"> Get supreme Shirts </p>
+                <div class="contenttitle">
+				<h1> Get supreme Shirts </h1>
+                </div>
 			</div>
 		</div>
 	</div>
 </section>
 
 @if(count($shirts) > 1)
-<section class="hero-banner2">
-	<div class="container-fluid">
-		<h1>Unique T-shirts</h1>
-		<div id="owl-demo-1" class="owl-carousel owl-theme">
-			@foreach($shirts as $shirt)
-			<div class="card centered2">
-				<div class="item2" id="{{$shirt->prod_id}}">
-					<div class="content2 mt-5">
-						<img src="images/products/{{$shirt->prod_img_url}}" alt="{{$shirt->prod_name}}" />
-					</div>
-					<div class="content3">
-						<img src="images/icons/ellipse.png" alt="ellipse" />
-					</div>
-					<div class="price-name centered2">
-						<p class="tshirt-name centered2">
-							{{$shirt->prod_name}}
-						</p>
-						<p class="price centered2"> {{$shirt->prod_price}} $ </p>
-
-
-					</div>
-
-					</button>
-
-				</div>
-				<button class="add-to-cart price-name2" onclick="add_to_cart('{{$shirt->prod_id}}')"> Add to cart
-			</div>
-
-			@endforeach
-		</div>
-	</div>
+<section class="hero-banner2 mb-5">
+    <div class="container-fluid">
+        <h1>Unique T-shirts</h1>
+        <div id="owl-demo-1" class="owl-carousel owl-theme">
+            @foreach($shirts as $shirt)
+            <a href="/view_product/{{$shirt->prod_id}}">
+                <div class="item" id="{{$shirt->prod_id}}">
+                    <div class="content2 mt-5">
+                        <img src="images/products/{{$shirt->prod_img_url}}" alt="{{$shirt->prod_name}}"  class="centered-image"/>
+                    </div>
+                </div>
+            </a>
+            @endforeach
+        </div>
+    </div>
 </section>
 @endif
-<section class="shirt-details-component">
+
+<section class="shirt-details-component mt-5">
 	<div class="container leftDiv">
 		<div class="row custom001">
 			<img class="col-2 left-arrow" src="images/icons/left.png">
@@ -143,17 +130,15 @@
 			<div class="card">
 				<div class="item23" id="{{$cap->prod_id}}">
 					<div class="content23 mt-5">
+
 						<img class="resp-cap-owel" src="images/products/{{$cap->prod_img_url}}" alt="{{$cap->prod_name}}" />
 					</div>
-					<div class="price-name">
-						<p class="tshirt-name centered2">
+					<div class="centered2">
+						<p class="tshirt-name">
 							{{$cap->prod_name}}
 						</p>
-						<p class="price centered2"> {{$cap->prod_price}} $ </p>
-						<div class="centered2">
+						<p class="price"> {{$cap->prod_price}} $ </p>
 							<button class="add-to-cart "> Add to cart </button>
-
-						</div>
 					</div>
 				</div>
 			</div>
@@ -173,21 +158,17 @@
 			<div class="card">
 				<div class="item24" id="{{$poster->prod_id}}">
 					<div class="content2 mt-5">
-						<img src="images/products/{{$poster->prod_img_url}}" alt="{{$poster->prod_name}}" />
+						<img src="images/products/{{$poster->prod_img_url}}" alt="{{$poster->prod_name}}" class="centered-image" />
 					</div>
-					<div class="price-name">
-						<p class="tshirt-name centered2">
+					<div class="centered2">
+						<p class="tshirt-name">
 							{{$poster->prod_name}}
 						</p>
-						<p class="price centered2"> {{$poster->prod_price}} $ </p>
-						<div class="centered2">
-							<button class="add-to-cart "> Add to cart </button>
-
-						</div>
+						<p class="price"> {{$poster->prod_price}} $ </p>
+                        <button class="add-to-cart "> Add to cart </button>
 					</div>
 				</div>
 			</div>
-			<?php echo Cart::content(); ?>
 			@endforeach
 		</div>
 	</div>

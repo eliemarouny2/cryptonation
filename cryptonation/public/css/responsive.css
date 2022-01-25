@@ -1,3 +1,8 @@
+@media only screen and (max-width: 1500px) {
+    .container{
+        max-width: 1500px;
+    }
+}
 @media only screen and (max-width: 1400px) {
     .supreme-title{
         font-size: 4rem;
@@ -5,6 +10,9 @@
     }
     .element-to-bet{
         margin-left:8rem;
+    }
+    .newsletter{
+        width:14rem;
     }
     .righter {
         margin-right: 5rem;
