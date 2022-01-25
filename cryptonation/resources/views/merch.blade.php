@@ -97,7 +97,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-4 sizes">
+			<div class="col-4 sizes resp-colors">
 				<input class="col-3 color-btns" type="radio" name="color" id="tshirt-white" value="white" />
 				<input class="col-3 color-btns" type="radio" name="color" id="tshirt-red" value="red" />
 				<input class="col-3 color-btns" type="radio" name="color" id="tshirt-green" value="green" />
@@ -143,7 +143,7 @@
 			<div class="card">
 				<div class="item23" id="{{$cap->prod_id}}">
 					<div class="content23 mt-5">
-						<img src="images/products/{{$cap->prod_img_url}}" alt="{{$cap->prod_name}}" />
+						<img class="resp-cap-owel" src="images/products/{{$cap->prod_img_url}}" alt="{{$cap->prod_name}}" />
 					</div>
 					<div class="price-name">
 						<p class="tshirt-name centered2">

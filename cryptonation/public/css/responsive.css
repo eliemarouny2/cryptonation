@@ -85,6 +85,59 @@
         min-height: 26rem;
         min-width: 33rem;
     }
+    .mission-par{
+        margin-left:1rem;
+    }
+    .vision-par{
+        margin-left: 3.5rem;
+    }
+    .withbckreverse{
+        margin-left: 1.3rem;
+    }
+    .contentroad{
+        width:10rem;
+    }
+    .road-par{
+        font: normal normal 900 1rem Acumin Variable Concept;
+        letter-spacing: 0px;
+        color: #010124;
+        opacity: 1;
+        min-width: 6rem;
+        margin-left: 9rem;
+    }
+    .second-roadPar{
+        margin-left: 18rem;
+    }
+    .second-roadmap{
+        margin-top:3.2rem;
+    }
+    .road-par-grey{
+        font: normal normal 900 1rem Acumin Variable Concept;
+        letter-spacing: 0px;
+        color: #ffffff;
+        opacity: 0.3;
+        margin-left: 22rem;
+        min-width: 6rem;
+        margin-top: -0.4rem;
+    }
+    #last-label{
+        margin-left:9rem;
+    }
+    .blogs-title{
+        color: #010124;
+        font-size: 4rem;
+        margin-top: -3.01rem;
+    }
+    .welcome-title{
+        padding-left: 1rem;
+        padding-top: 16rem;
+    }
+    .welcome-to{
+        font-size: 1rem;
+    }
+    .description{
+        width: 30rem;
+    }
 }
 @media screen and (max-height: 450px) {
     .sidenav {
@@ -108,7 +161,7 @@
 }
 @media screen and (max-width: 450px) {
     .supreme-title{
-        margin-left: 0.4rem;
+        margin-left: 2.4rem;
         font-size: 2rem;
         max-width: 3rem;
      }
@@ -119,7 +172,7 @@
      .hero-banner2 .container-fluid img {
         max-height:12rem;
         width:6rem;
-        margin-right: 8rem;
+        margin-right: 2rem;
      }
      .item2{
          background-size:20rem;
@@ -127,12 +180,12 @@
      }
      .centered2{
          font-size:1rem;
-         margin-right:4rem;
+         margin-right:1rem;
      }
      .price-name2{
          max-width:5rem;
          margin-top: 1.2rem;
-         margin-left:-4rem;
+         margin-left:0px;
          font-size:1rem;
      }
      .left-arrow{
@@ -198,7 +251,7 @@
      }
      .bet-to-own{
         font-size: 1rem;
-        max-width: 10rem;
+        width: 10rem;
      }
      .resp-marg{
          margin-left:0px;
@@ -207,7 +260,7 @@
         min-height: 1rem;
         min-width: 1rem;
         padding-left: 0px;
-        max-width: 12rem;
+        width: 14rem;
      }
      .stocks-betimg{
         min-height: 1rem;
@@ -231,5 +284,101 @@
      }
      .hero-banner2 .container-fluid h1 {
          font-size:1.5rem;
+     }
+     .resp-colors{
+        margin-left: 0rem;
+        margin-top: -6rem;
+        padding-bottom: 2.6rem;
+     }
+     .price-row{
+        display: inline;
+     }
+     .nb-price{
+        margin-left: 1rem;
+        font-size: 1.3rem;
+     }
+     .color-btns{
+        width: 1.7rem;
+        height: 1.7rem;
+     }
+     .leftDiv{
+         margin-left:4rem;
+     }
+     .rightDiv{
+        margin-left: 6rem;
+        margin-top:3rem;
+     }
+     .limited{
+         margin-left:5rem;
+     }
+     .resp-cap-owel{
+         width:7rem!important;
+     }
+     .mission-par{
+        font-size: 1rem;
+        margin-left: 0.2rem;
+        max-width: 15rem;
+     }
+     .withbck{
+        height: 8rem;
+        width: 23rem;
+     }
+     .titlem{
+        padding-top: 2.5rem;
+        padding-left: 2rem;
+     }
+     .titlemission{
+         font-size:2rem;
+     }
+     .vision-par{
+        font-size: 1rem;
+        margin-left: 0.2rem;
+        max-width: 15rem;
+     }
+     .withbckreverse{
+        height: 8rem;
+        width: 23rem;
+        margin-left: 7rem;
+     }
+     .titleroadmap {
+        font-size:2rem;
+     }
+     .road-par{
+        font: normal normal 900 0.5rem Acumin Variable Concept;
+        letter-spacing: 0px;
+        color: #010124;
+        opacity: 1;
+        min-width: 6rem;
+        margin-left: 4rem;
+     }
+     .second-roadmap{
+        margin-top: 1.7rem;
+     }
+     .suit{
+        display:none;
+     }
+     .roadmap{
+         margin-top:49rem;
+     }
+     .contentroad{
+         width:29rem;
+     }
+     .second-roadPar{
+         margin-left:8rem;
+     }
+     .thirdrow-roadmap{
+        margin-left: 7rem;
+        margin-top: 0rem;
+     }
+     .road-par-grey{
+         font-size:0.5rem;
+         margin-top: -0.4rem;
+        margin-left: 10rem;
+     }
+     .roadmap-margin{
+         margin-left:12rem;
+     }
+     #last-label{
+         margin-left:5rem;
      }
 }
