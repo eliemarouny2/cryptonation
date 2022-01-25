@@ -572,11 +572,9 @@ color:#fff;
     padding-top: 10rem;
 }
 .suit {
-    margin-left: 61rem;
-    background: url(../images/icons/suit.png);
+    margin-left: 52rem;
     height: 65rem;
-    width: 51.2rem;
-    background-size: 50rem;
+    width: 32.2rem;
 }
 .suitImg {
     height: 200px;
@@ -584,12 +582,12 @@ color:#fff;
     z-index: -1;
 }
 .withbck {
-    background-image: url("../images/icons/title-bck.png");
+    background-image: url(../images/icons/title-bck.png);
     display: inline-block;
     background-position: center;
     background-repeat: no-repeat;
     height: 12rem;
-    width: 57rem;
+    width: 50rem;
     position: relative;
     margin-left: -3em;
 }
@@ -617,8 +615,8 @@ color:#fff;
 }
 .roadmap {
     position: relative;
-    margin-top: -3rem;
     z-index: -1;
+    margin-top: -7rem;
 }
 .titleroadmap {
     color: #010124;
@@ -629,13 +627,13 @@ color:#fff;
     margin-left: 64.2%;
 }
 .withbckreverse {
-    margin-left: 48.3rem;
+    margin-left: 34.3rem;
     background-image: url(../images/icons/bck-title-reverse.png);
     display: inline-block;
     background-position: center;
     background-repeat: no-repeat;
     height: 12rem;
-    width: 57rem;
+    width: 50rem;
     position: relative;
 }
 .withbckreverse:after {
@@ -683,19 +681,18 @@ color:#fff;
     width: 100%;
 }
 .road-par {
-    font: normal normal 900 32px/38px Acumin Variable Concept;
+    font: normal normal 900 32px Acumin Variable Concept;
     letter-spacing: 0px;
     color: #010124;
     opacity: 1;
-    margin-left: 16rem;
-    margin-top: 0.4rem;
+    margin-left: 14rem;
 }
 .second-roadPar {
     margin-left: 34rem;
 }
 .second-roadmap {
     display: flex;
-    margin-top: 5.5rem;
+    margin-top: 5.2rem;
 }
 .thirdrow-roadmap {
     margin-left: 26rem;
@@ -712,10 +709,12 @@ footer {
     margin-left: 27rem;
 }
 .roadmap-margin {
-    margin-left: 41rem;
+    margin-left: 35rem;
+    margin-top: -1rem;
 }
 .roadmap-margin2 {
     margin-left: 19rem;
+    margin-top: -1rem;
 }
 .inside{
     margin-left:-52px;

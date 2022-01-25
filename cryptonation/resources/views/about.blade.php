@@ -1,7 +1,8 @@
 @extends('layouts.base')
 @section('content')
 <div class="mission-vision-container">
-	<section class="suit">
+	<section>
+		<img class="suit" src='images/icons/astro.png'>
 	</section>
 	<section class="mission">
 				<div class="container">
@@ -55,7 +56,7 @@
 							</div>
 							<div class="second-roadmap">
 								<p class="road-par-grey roadmap-margin"> Lorem ipsum </p>
-								<p class="road-par-grey roadmap-margin2"> Lorem ipsum </p>
+								<p class="road-par-grey roadmap-margin2" id="last-label"> Lorem ipsum </p>
 							</div>
 						</div>
 					</div>
