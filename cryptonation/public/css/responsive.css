@@ -94,6 +94,15 @@
         min-width: 33rem;
     }
 }
+@media only screen and (max-width: 750px) {
+    .margin-top-large{
+        margin-top: 0px;
+
+    }
+    .padding-for-sm{
+        padding:70px;
+    }
+}
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
