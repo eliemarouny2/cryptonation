@@ -33,7 +33,7 @@
 
 <section class="shirt-details-component mt-5">
 	<div class="container leftDiv">
-		<div class="row custom001">
+		<div class="row  custom001">
 			<img class="col-2 left-arrow" src="images/icons/left.png">
 			<img class="col-8 center-tshirt" src="images/products/1641123148.png">
 			<img class="col-2 right-arrow" src="images/icons/right.png">
