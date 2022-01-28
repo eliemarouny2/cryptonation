@@ -43,6 +43,11 @@
         margin-left: 3rem;
     }
 }
+@media only screen and (max-width: 1100px) {
+    .margin-top-large{
+        margin-top: 8rem;
+    }
+}
 @media only screen and (max-width: 992px) {
     .ml-2 {
         margin-left: 2rem;
@@ -50,6 +55,9 @@
     }
     .hero-banner .slider .slide .image .content {
         left: 0%;
+    }
+    .margin-top-large{
+        margin-top:4rem;
     }
     .supreme-title{
        margin-left: 23rem;
@@ -155,6 +163,7 @@
     .div1-1{
         margin-left:12rem;
     }
+
     #cont-1{
         position:absolute;
         margin-left: 14rem;
@@ -233,11 +242,16 @@
         margin-top: -11rem;
     }
 }
-}
-@media only screen and (max-width: 750px) {
-    .margin-top-large{
-        margin-top: 0px;
 
+@media only screen and (max-width: 760px) {
+    .margin-top-large{
+        margin-top: 3rem;
+    }
+    .resp-welc{
+        text-align: center;
+    }
+    .img-astro{
+        display: none;
     }
     .padding-for-sm{
         padding:70px;
@@ -260,7 +274,6 @@
 @media only screen and (min-width:1800px) and (max-width: 2700px) {
     .supreme-title{
         margin-left: 61rem;
- 
      }
 }
 @media screen and (max-width: 450px) {
@@ -268,6 +281,10 @@
         margin-left: 2.4rem;
         font-size: 2rem;
         max-width: 3rem;
+     }
+
+     .margin-top-large{
+         margin-top: 1rem;
      }
      .hero-banner2 .container-fluid h1 {
          max-width:2rem;

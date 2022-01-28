@@ -16,16 +16,16 @@
 
 
         <div class="row g-5 mt-3 mb-3">
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-5 col-lg-4">
                 <img src="/images/icons/astro.png" class="img-astro" alt="astraunot image">
             </div>
-            <div class="col-md-2 col-lg-2">
+            <div class="col-md-1 col-lg-2">
             </div>
             <div class="col-md-6 col-lg-6 margin-top-large padding-for-sm">
-                <h1 class="mb-3 greenish mt-5">Welcome back</h1>
+                <h1 class="mb-3 greenish mt-5 resp-welc">Welcome back</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="row g-3 mt-1 mb-2">
+                    <div class="row g-3 mt-1 mb-2 justify-content-sm-center justify-content-md-start">
                         <div class="col-sm-4">
                             <span>Don't have an account?</span>
                         </div>
@@ -33,19 +33,19 @@
                             <a class="bluish2" href="/register">Sign up</a>
                         </div>
                     </div>
-                    <div class="row g-3">
-                        <div class="col-sm-12 col-lg-6 col-md-6">
+                    <div class="row g-3 justify-content-sm-center justify-content-md-start">
+                        <div class="col-sm-6 col-xs-12 col-lg-6">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email"
                                 :value="old('email')" required>
                         </div>
                     </div>
-                    <div class="row g-3 mt-2">
-                        <div class="col-sm-12 col-lg-6 col-md-6">
+                    <div class="row g-3 mt-2 justify-content-sm-center justify-content-md-start">
+                        <div class="col-sm-6 col-xs-12 col-lg-6 col-md-6">
                             <input type="password" class="form-control" id="password" name="password"
                                 placeholder="Password" required autocomplete="current-password">
                         </div>
                     </div>
-                    <div class="row g-3 mt-1 mb-2">
+                    <div class="row g-3 mt-1 mb-2 justify-content-sm-center justify-content-md-start">
                         <div class="col-sm-3">
                             <span>Forgot password?</span>
                         </div>
