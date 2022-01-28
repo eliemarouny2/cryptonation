@@ -146,6 +146,93 @@
     .description{
         width: 30rem;
     }
+    .row1{
+        display:table-row;
+    }
+    .row2{
+        display: table-row;
+    }
+    .div1-1{
+        margin-left:12rem;
+    }
+    #cont-1{
+        position:absolute;
+        margin-left: 14rem;
+        margin-top: -11rem;
+    }
+    #cont-2{
+        position: absolute;
+        margin-left: 14rem;
+        margin-top: -11rem;
+    }
+    #cont-3{
+        position: absolute;
+        margin-left: 14rem;
+        margin-top: -11rem;
+    }
+    .div1-2{
+        margin-left:12rem;
+    }
+    .div2-1{
+        margin-left:12rem;
+    }
+    .img1-1{
+        max-width: 27rem;
+        margin-bottom:0.5rem;
+    }
+    .img1-2{
+        max-height: 17rem;
+        width: 27rem;
+        margin-bottom:0.5rem;
+    }
+    .img1-3{
+        max-height: 17rem;
+        width: 27rem;
+        margin-bottom:0.5rem;
+    }
+    .div1-3{
+        margin-left:12rem;
+    }
+    .img2-1{
+        max-height: 17rem;
+        width: 27rem;
+        margin-top:0px;
+        margin-bottom:0.5rem;
+    }
+    .div2-2{
+        margin-left:12rem;
+    }
+    .div2-3{
+        margin-left:12rem;
+    }
+    .img2-2{
+        max-height: 17rem;
+        width: 27rem;
+        margin-top:0px;
+        margin-bottom:0.5rem;
+    }
+    .img2-3{
+        max-height: 17rem;
+        width: 27rem;
+        margin-top:0px;
+        margin-bottom:0.5rem;
+    }
+    #cont-4{
+        position: absolute;
+        margin-left: 14rem;
+        margin-top: -11rem;
+    }
+    #cont-5{
+        position: absolute;
+        margin-left: 14rem;
+        margin-top: -11rem;
+    }
+    #cont-6{
+        position: absolute;
+        margin-left: 14rem;
+        margin-top: -11rem;
+    }
+}
 }
 @media only screen and (max-width: 750px) {
     .margin-top-large{
@@ -393,4 +480,98 @@
      #last-label{
          margin-left:5rem;
      }
+     .welcome-title{
+         padding-top:19rem;
+     }
+     .description{
+         left:7%;
+         top: 39%;
+         width:21rem;
+     }
+    .row1{
+        display:table-row;
+    }
+    .row2{
+        display: table-row;
+    }
+    .div1-1{
+        margin-left:1rem;
+    }
+    #cont-1{
+        position:absolute;
+        margin-left: 2rem;
+        margin-top: -11rem;
+    }
+    #cont-2{
+        position: absolute;
+        margin-left: 2rem;
+        margin-top: -11rem;
+    }
+    #cont-3{
+        position: absolute;
+        margin-left: 2rem;
+        margin-top: -11rem;
+    }
+    .div1-2{
+        margin-left:1rem;
+    }
+    .div2-1{
+        margin-left:1rem;
+    }
+    .img1-1{
+        max-width: 20rem;
+        margin-bottom:0.5rem;
+    }
+    .img1-2{
+        max-height: 13rem;
+        width: 20rem;
+        margin-bottom:0.5rem;
+    }
+    .img1-3{
+        max-height: 13rem;
+        width: 20rem;
+        margin-bottom:0.5rem;
+    }
+    .div1-3{
+        margin-left:1rem;
+    }
+    .img2-1{
+        max-height: 13rem;
+        width: 20rem;
+        margin-top:0px;
+        margin-bottom:0.5rem;
+    }
+    .div2-2{
+        margin-left:1rem;
+    }
+    .div2-3{
+        margin-left:1rem;
+    }
+    .img2-2{
+        max-height: 13rem;
+        width: 20rem;
+        margin-top:0px;
+        margin-bottom:0.5rem;
+    }
+    .img2-3{
+        max-height: 13rem;
+        width: 20rem;
+        margin-top:0px;
+        margin-bottom:0.5rem;
+    }
+    #cont-4{
+        position: absolute;
+        margin-left: 2rem;
+        margin-top: -11rem;
+    }
+    #cont-5{
+        position: absolute;
+        margin-left: 2rem;
+        margin-top: -11rem;
+    }
+    #cont-6{
+        position: absolute;
+        margin-left: 2rem;
+        margin-top: -11rem;
+    }
 }
