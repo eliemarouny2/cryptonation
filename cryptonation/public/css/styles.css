@@ -105,7 +105,7 @@ header nav ul li a {
 }
 .hero-banner .slider .slide .image {
     flex: 1;
-    background-image: url("../images/backgrounds/supreme2.png");
+    background-image: url("../images/backgrounds/supreme.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -175,6 +175,10 @@ h1 {
     opacity: 1;
     width: 8rem;
     height: 3rem;
+    font-weight: bold;
+    border:1px solid #707070;
+    box-shadow: 2px #000000;
+    
     color: white;
     font-size: 18px;
     z-index: 9999;
@@ -546,8 +550,6 @@ color:#fff;
 }
 .mission-par {
     margin-top: 4rem;
-    margin-left: 9rem;
-    width: 33rem;
     font-size: 23px;
 }
 .vision-par {
@@ -655,15 +657,16 @@ color:#fff;
 .hero-banner {
     margin-bottom: 5rem;
 }
-.hero-banner .slider .slide2 .imageroad {
+.imageroad {
     flex: 1;
     background-image: url("../images/icons/road.png");
     background-size: contain;
     background-repeat: no-repeat;
     position: relative;
-    margin-right: 50px;
+    height: 20rem;
+    
 }
-.hero-banner .slider .slide2 .image .contentroad {
+.contentroad {
     position: absolute;
     left: 60%;
     right: 0;
@@ -1057,6 +1060,7 @@ footer {
 .phonecode{
     border:none;
     border-radius: .25rem;
+    width: 25%;
 }
 .dropdown-toggle::after{
 display:none !important;
@@ -1115,4 +1119,30 @@ input[type=number] {
 .righty{
   margin-left:13rem;
   margin-top: 1rem;
+}
+.ssl{
+height: 100%;
+margin-left:0.5rem;
+vertical-align: bottom;
+color: #707070;
+font-size: smaller;
+}
+.vision-title{
+    max-height: 15rem;
+}
+.img-vis{
+    max-height: 15rem;
+    padding: 0rem;
+    margin: 0rem;
+}
+.round-background{
+    background-image: url("../images/backgrounds/round.png");
+    background-size: cover;
+}
+.accordion-item{
+    background-color: transparent;
+}
+.accordion-button{
+    background-color: transparent;
+    display: contents;
 }

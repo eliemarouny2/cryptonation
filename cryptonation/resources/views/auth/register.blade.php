@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="row g-3 mt-1">
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-5">
                             <input class="form-check-input" type="checkbox" value="terms" id="terms" required>
                             <label class="form-check-label" for="flexCheckDefault">
                                 I accept all terms and conditions

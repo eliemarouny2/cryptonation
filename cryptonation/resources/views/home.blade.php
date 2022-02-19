@@ -20,16 +20,16 @@
     </div>
 </section>
 
-@if(count($trendings) > 1)
+@if(count($trending_shirts) > 1)
 <section class="hero-banner2">
     <div class="container-fluid">
         <h1>Trending now</h1>
         <div id="owl-demo-1" class="owl-carousel owl-theme">
-            @foreach($trendings as $trending)
-            <a href="/view_product/{{$trending->prod_id}}">
-                <div class="item" id="{{$trending->prod_id}}">
+            @foreach($trending_shirts as $trending_shirt)
+            <a href="/view_product/{{$trending_shirt->prod_id}}">
+                <div class="item" id="{{$trending_shirt->prod_id}}">
                     <div class="content2 mt-5">
-                        <img src="images/products/{{$trending->prod_img_url}}" alt="{{$trending->prod_name}}"  class="centered-image"/>
+                        <img src="images/products/{{$trending_shirt->prod_img_url}}" alt="{{$trending_shirt->prod_name}}"  class="centered-image"/>
                     </div>
                 </div>
             </a>
@@ -49,13 +49,13 @@
 @if(count($trendings_caps) > 1)
 <section class="hero-banner2">
     <div class="container-fluid">
-        <h1>Trending now</h1>
+        <h1>Caps</h1>
         <div id="owl-demo-2" class="owl-carousel owl-theme">
-            @foreach($trendings_caps as $trending)
-            <a href="/view_product/{{$trending->prod_id}}">
-                <div class="item" id="{{$trending->prod_id}}">
+            @foreach($trendings_caps as $trending_cap)
+            <a href="/view_product/{{$trending_cap->prod_id}}">
+                <div class="item" id="{{$trending_cap->prod_id}}">
                     <div class="content2 mt-5">
-                        <img src="images/products/{{$trending->prod_img_url}}" alt="{{$trending->prod_name}}"  class="centered-image" />
+                        <img src="images/products/{{$trending_cap->prod_img_url}}" alt="{{$trending_cap->prod_name}}"  class="centered-image" />
                     </div>
                 </div>
             </a>
@@ -78,13 +78,13 @@
 @if(count($trendings_posters) > 1)
 <section class="hero-banner2">
     <div class="container-fluid">
-        <h1>Trending now</h1>
+        <h1>Posters</h1>
         <div id="owl-demo-3" class="owl-carousel owl-theme mb-5">
-            @foreach($trendings_posters as $trending)
-            <a href="/view_product/{{$trending->prod_id}}">
-                <div class="item" id="{{$trending->prod_id}}">
+            @foreach($trendings_posters as $trending_poster)
+            <a href="/view_product/{{$trending_poster->prod_id}}">
+                <div class="item" id="{{$trending_poster->prod_id}}">
                     <div class="content2 mt-5">
-                        <img src="images/products/{{$trending->prod_img_url}}" alt="{{$trending->prod_name}}"  class="centered-image" />
+                        <img src="images/products/{{$trending_poster->prod_img_url}}" alt="{{$trending_poster->prod_name}}"  class="centered-image" />
                     </div>
                 </div>
             </a>

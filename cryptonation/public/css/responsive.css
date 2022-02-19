@@ -102,7 +102,9 @@
         min-width: 33rem;
     }
     .mission-par{
+        margin-top: 3rem;
         margin-left:1rem;
+        font-size: 18px;
     }
     .vision-par{
         margin-left: 3.5rem;
@@ -247,11 +249,31 @@
     .margin-top-large{
         margin-top: 3rem;
     }
+    .coming-soon-vlogs{
+        margin-top:2rem;
+        padding:0rem;
+        font-size: 4rem;
+        text-align: center;
+    }
+    .coming-soon-blogs{
+        margin-top:2rem;
+        padding:0rem;
+        font-size: 4rem;
+        text-align: center;
+    }
+    .mission-par{
+        font-size: 13px;
+        margin-top: 1rem;
+    }
+    .top-20{
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
     .resp-welc{
         text-align: center;
     }
     .img-astro{
-        display: none;
     }
     .padding-for-sm{
         padding:70px;
@@ -282,7 +304,7 @@
         font-size: 2rem;
         max-width: 3rem;
      }
-
+ 
      .margin-top-large{
          margin-top: 1rem;
      }
@@ -431,7 +453,7 @@
          width:7rem!important;
      }
      .mission-par{
-        font-size: 1rem;
+        font-size: 12px;
         margin-left: 0.2rem;
         max-width: 15rem;
      }

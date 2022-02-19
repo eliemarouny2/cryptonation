@@ -47,8 +47,8 @@ Route::group(['middleware' => ['LangCheck']], function () {
     Route::get('/welcome',function(){
         return view('welcome');
     });
-     Route::get('/blogs', [CHome::class, 'blogs']);
-    //Route::get('/blogs', [CHome::class, 'coming_soon_blogs']);
+    //Route::get('/blogs', [CHome::class, 'blogs']);
+    Route::get('/blogs', [CHome::class, 'coming_soon_blogs']);
     Route::get('/vlogs', [CHome::class, 'coming_soon_vlogs']);
     // Route::get('/vlogs', [CHome::class, 'vlogs']);
     Route::get('/about', [CHome::class, 'about']);
