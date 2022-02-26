@@ -228,6 +228,9 @@ $total = Cart::total() - Cart::tax();
 
 	<script src="../js/carouselshome.js"></script>
 
+	<script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
+
+
 
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -266,6 +269,7 @@ $total = Cart::total() - Cart::tax();
 			}
 		});
 	</script>
+
 
 </body>
 

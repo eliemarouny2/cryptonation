@@ -517,6 +517,12 @@ color:#fff;
     background-color: #fff;
     border: #010124 2px solid;
 }
+.checkout-btn{
+    background-color: #08F0FC;
+    color:#fff;
+    padding: 0.5rem 3.5rem;
+    border-radius: 10px;
+}
 .subtotal {
     padding: 1rem;
     color: #010124;
@@ -734,19 +740,20 @@ footer {
     margin-left: 40rem;
 }
 .left-arrow {
-    margin-right: 0.6rem;
-    margin-top: 14rem;
-    width: 4.2rem;
-    height: 6rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 2rem;
+    height: 4rem;
 }
 .right-arrow {
-    margin-left: 0.6rem;
-    margin-top: 14rem;
-    width: 4.2rem;
-    height: 6rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 2rem;
+    height: 4rem;
 }
 .center-tshirt {
-    width: 22rem;
     background-color: #fff;
 }
 .shirt-details-component {
@@ -754,15 +761,12 @@ footer {
     display: inline-flex;
 }
 .zoomed-tshirts {
-    width: 5.3rem;
-    height: 5.3rem;
+    height: 6rem;
     border: 4px solid white;
-    margin-right: 0.3rem;
     background-color: #fff;
 }
 .small-tshirts {
-    margin-left: 8rem;
-    margin-top: 2rem;
+    padding: 1rem;
 }
 .tshirt-title {
     text-align: left;
@@ -797,12 +801,10 @@ footer {
     margin-top: 4rem;
 }
 .nb-price {
-    text-align: center;
     font: normal normal normal 24px Avenir;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
-    padding-right: 9rem;
 }
 .size-btns {
     width: unset;
@@ -874,7 +876,6 @@ footer {
     border-top: 2px white solid;
 }
 .bet-to-own {
-    text-align: left;
     font: normal normal 900 30px Avenir;
     letter-spacing: 0px;
     color: #ffffff;
@@ -896,7 +897,6 @@ footer {
     opacity: 1;
     width: 9rem;
     height: 3rem;
-    margin-left: 14rem;
 }
 .element-to-bet {
     height: 45rem;
@@ -1146,3 +1146,94 @@ font-size: smaller;
     background-color: transparent;
     display: contents;
 }
+.table-cell{
+display: table-cell;
+}
+.v-align{
+    vertical-align: middle;
+}
+.img-small{
+    height: 100%;
+}
+.zoomWrapper{
+    width: 100% !important;
+    height: inherit !important;
+}
+.rel-001{
+    position: relative !important;
+    height: inherit !important;
+    width: 100% !important;
+}
+.wrapper2{
+    display: inline-flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+  }
+  .wrapper2 .option{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 4px solid lightgrey;
+    transition: all 0.3s ease;
+  }
+  .wrapper2 .option .dot{
+    height: 20px;
+    width: 20px;
+    border: 1px solid #000;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+  }
+  .wrapper2 .option .dot::before{
+    position: absolute;
+    content: "";
+    top: 3.5px;
+    left: 3.1px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  #option-1:checked:checked ~ .option-1,
+  #option-2:checked:checked ~ .option-2{
+    border-color: #08f0fc;
+    background: #08f0fc60;
+  }
+  #option-1:checked:checked ~ .option-1 .dot,
+  #option-2:checked:checked ~ .option-2 .dot{
+    background: #08f0fc17;
+    border:1px solid #fff;
+  }
+  #option-1:checked:checked ~ .option-1 .dot::before,
+  #option-2:checked:checked ~ .option-2 .dot::before{
+    opacity: 1;
+    transform: scale(1);
+  }
+  .wrapper2 .option span{
+    font-size: 16px;
+    color: #0F1A21;
+    width: 70%;
+    text-align: center;
+    line-height: 1.2rem;
+
+  }
+  #option-1:checked:checked ~ .option-1 span,
+  #option-2:checked:checked ~ .option-2 span{
+    color: #fff;
+  }

@@ -12,6 +12,7 @@ use App\Models\Mission;
 use App\Models\Vlog;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CHome extends Controller
@@ -28,8 +29,8 @@ class CHome extends Controller
             'trending_shirts' => $trending_shirts,
             // 'blogs' => $blogs,
             // 'vlogs' => $vlogs,
-            'trendings_posters'=>$trendings_posters,
-            'trendings_caps'=>$trendings_caps,
+            'trendings_posters' => $trendings_posters,
+            'trendings_caps' => $trendings_caps,
             'video' => $video_url
         ]);
     }
@@ -85,25 +86,76 @@ class CHome extends Controller
     }
     public function submit_checkout(Request $req)
     {
+        $req->validate([
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'phone' => ['required', 'numeric'],
+            'streetaddress' => ['required', 'string'],
+            'paymethod' => ['same:cash|pallapay']
+        ]);
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $orderid = '';
+        for ($i = 0; $i < 10; $i++) {
+            $orderid .= $characters[rand(0, $charactersLength - 1)];
+        }
         $phone = $req->phonecode . ' ' . $req->phone;
-        $date=date("Y-m-d");
+        $date = date("Y-m-d H:i:s");
 
         $result = DB::table('checkout')->insert([
             'firstname' => $req->firstname,
             'lastname' => $req->lastname,
-            'email'=>$req->email,
-            'phone'=>$phone,
-            'streetaddress'=>$req->address,
-            'zipcode'=>$req->zipcode,
-            'city'=>$req->city,
-            'country'=>$req->country,
-            'paymethod'=>'cash on delivery',
-            'created_at'=>date("Y-m-d H:i:s")
+            'email' => $req->email,
+            'phone' => $phone,
+            'streetaddress' => $req->address,
+            'zipcode' => $req->zipcode,
+            'city' => $req->city,
+            'country' => $req->country,
+            'paymethod' => 'cash on delivery',
+            'created_at' => $date
         ]);
-             return view('order_confirmation',[
-                 'data'=>$req,
-                 'date'=>$date
-             ]);
+
+
+
+
+
+        $cartitems = Cart::content();
+        $total_amount = 0;
+        foreach ($cartitems as $cartitem) {
+            $total_price = $cartitem->qty * $cartitem->price;
+            $total_amount += $total_price;
+            $itemsinsert = DB::table('order_infos')->insert([
+                'ord_id' => $orderid,
+                'product_id' => $cartitem->id,
+                'quantity' => $cartitem->qty,
+                'total_price' => $total_price,
+            ]);
+        }
+        $orderinsert = DB::table('orders')->insert([
+            'order_id' => $orderid,
+            'customer_email' =>  Auth::user()->email,
+            'total_amount' => $total_amount,
+            'date' => $date,
+            'status' => 'pending'
+        ]);
+        return view('order_confirmation', [
+            'data' => $req,
+            'date' => $date
+        ]);
+        // if($req->paymethod=='cash'){
+        //     return view('order_confirmation', [
+        //         'data' => $req,
+        //         'date' => $date
+        //     ]);
+        // }else{
+        //     return view('payment',[
+        //         'order_id'=>$orderid
+        //     ]);
+        // }
+
+
+
     }
     public function view_product(Request $req)
     {

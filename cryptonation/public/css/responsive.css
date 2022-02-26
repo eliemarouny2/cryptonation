@@ -81,9 +81,6 @@
     .bet-to-own{
         font-size:24px;
     }
-    .bet-now-btn{
-        margin-left:9rem;
-    }
     .item23 .content23 img {
         padding-top: 13rem;
     }
@@ -255,6 +252,9 @@
         font-size: 4rem;
         text-align: center;
     }
+    .zoomed-tshirts{
+        height: 4rem;
+    }
     .coming-soon-blogs{
         margin-top:2rem;
         padding:0rem;
@@ -272,8 +272,6 @@
     }
     .resp-welc{
         text-align: center;
-    }
-    .img-astro{
     }
     .padding-for-sm{
         padding:70px;
@@ -304,7 +302,12 @@
         font-size: 2rem;
         max-width: 3rem;
      }
- 
+     .descript{
+         padding-right: 0rem;
+     }
+     .zoomed-tshirts{
+        height: 3rem;
+    }
      .margin-top-large{
          margin-top: 1rem;
      }
@@ -327,33 +330,24 @@
          font-size:1rem;
      }
      .left-arrow{
-        margin-top: 3rem;
-        width: 2.8rem;
+        width: 1.4rem;
         height: 2rem;
 
      }
      .right-arrow{
-        margin-top: 3rem;
-        width: 2.8rem;
+        width: 1.4rem;
         height: 2rem;
 
      }
      .center-tshirt{
         width: 7rem;
      }
-     .zoomed-tshirts{
-        width: 4.3rem;
-        height: 4.3rem;
-     }
+
      .shirt-details-component{
          display:block;
      }
      .custom001{
          margin-left:0px;
-     }
-     .small-tshirts{
-         display:grid;
-         margin-left:5rem;
      }
      .tshirt-title{
         font-size: 1.7rem;
@@ -361,21 +355,11 @@
      }
      .tshirt-description{
         font-size: 1rem;
-        max-width: 9rem;
-        margin-left: 1.4rem;
-     }
-     .price-row{
-         margin-top:2rem;
      }
      .td-price{
         font-size: 1.5rem;
         margin-left: 1.5rem;
         max-width: fit-content;
-     }
-     .sizes{
-        padding-left: 1.5rem;
-        min-width: 9rem;
-        margin-top: 0.5rem;
      }
      .resp-disp{
         max-width: fit-content;
@@ -411,7 +395,6 @@
          font-size:1rem;
      }
      .bet-now-btn{
-        margin-left: 1rem;
         max-width: 6rem;
         max-height: 2rem;
      }
@@ -422,22 +405,6 @@
      }
      .hero-banner2 .container-fluid h1 {
          font-size:1.5rem;
-     }
-     .resp-colors{
-        margin-left: 0rem;
-        margin-top: -6rem;
-        padding-bottom: 2.6rem;
-     }
-     .price-row{
-        display: inline;
-     }
-     .nb-price{
-        margin-left: 1rem;
-        font-size: 1.3rem;
-     }
-     .color-btns{
-        width: 1.7rem;
-        height: 1.7rem;
      }
      .leftDiv{
          margin-left:4rem;

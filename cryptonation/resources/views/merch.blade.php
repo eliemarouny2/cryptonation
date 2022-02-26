@@ -1,5 +1,9 @@
+
+
 @extends('layouts.base')
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
 <section class="hero-banner">
 	<div class="slider">
 		<div class="slide">
@@ -28,15 +32,12 @@
 								<div class="content2 mt-5">
 									<img src="images/products/{{$shirt->prod_img_url}}" alt="{{$shirt->prod_name}}" class="centered-image" />
 								</div>
+							</button>
 						</div>
-						</button>
 
 					</div>
-
-
 				</div>
 				@endforeach
-
 			</div>
 		</div>
 	</section>
@@ -45,60 +46,120 @@
 
 	@if(count($shirts) > 1)
 	@foreach($shirts as $shirt)
+	<script>
+	console.log('helloo');
+    //initiate the plugin and pass the id of the div containing gallery images
+    $("#<?php echo $shirt->prod_id; ?>").ezPlus({
+        constrainType: "height",
+        constrainSize: 274,
+        zoomType: "lens",
+		zoomLens: false,
+		minZoomLevel:10,
+		lenszoom:false,
+        gallery: 'gal<?php echo $shirt->prod_id; ?>',
+        cursor: 'crosshair',
+        galleryActiveClass: "active"
+    });
+
+    //pass the images to Fancybox
+    $("#<?php echo $shirt->prod_id; ?>").bind("click", function (e) {
+        var ez = $('#<?php echo $shirt->prod_id; ?>').data('ezPlus');
+        ez.closeAll();
+        $.fancyboxPlus(ez.getGalleryList());
+
+        return false;
+    });
+
+
+</script>
 	<div id="flush-<?php echo $shirt->prod_id; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $shirt->prod_id; ?>" data-bs-parent="#accordionparent">
 		<div class="accordion-body">
-
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-lg-6">
-						<div class="row custom001">
-							<img class="col-2 left-arrow" src="images/icons/left.png">
-							<img class="col-8 center-tshirt" src="images/products/{{$shirt->prod_img_url}}">
-							<img class="col-2 right-arrow" src="images/icons/right.png">
-						</div>
-						<div class="row small-tshirts">
-							<img class="col-3 zoomed-tshirts" src="images/products/1641123148.png">
-							<img class="col-3 zoomed-tshirts" src="images/products/1641123148.png">
-							<img class="col-3 zoomed-tshirts" src="images/products/1641123148.png">
-							<img class="col-3 zoomed-tshirts" src="images/products/1641123148.png">
-						</div>
-					</div>
-					<div class="col-12 col-lg-6">
-						<h4 class="row tshirt-title">{{$shirt->prod_name}}</h4>
-						<span class="row tshirt-description">
-							{{$shirt->prod_description}}
-						</span>
-						<div class="row price-row mb-4">
-							<span class="col-4 td-price">Price</span>
-							<span class="col-4 nb-price">{{$shirt->prod_price}} $</span>
-							<span class="col-4 td-price">Color</span>
-						</div>
-						<div class="row resp-disp">
-							<div class="col-4 sizes">
-								<input class="col-3 size-btns" type="radio" name="size" id="tshirt-small" value="small" />
-								<label class="size-letter" for="tshirt-small"> S </label>
-								<input class="col-3 size-btns" type="radio" name="size" id="tshirt-medium" value="medium" />
-								<label class="size-letter" for="tshirt-medium"> M </label>
-								<input class="col-3 size-btns" type="radio" name="size" id="tshirt-large" value="large" />
-								<label class="size-letter" for="tshirt-large"> L </label>
+						<div class="row">
+							<div class="col-2 flexer">
+								<img class="left-arrow v-align" src="images/icons/left.png">
+
 							</div>
-							<!-- Maroune check this for the php https://www.phptutorial.net/php-tutorial/php-radio-button/ for the php >-->
-							<div class="col-4">
-								<div class="row">
-									<div class="col-3"><button class="operator">-</button></div>
-									<div class="col-3"><span class="quantity-count">1</span></div>
-									<div class="col-3"><button class="operator">+</button></div>
+							<div class="col-8">
+								<img class="center-tshirt w-100 rel-001" id="<?php echo $shirt->prod_id; ?>" src="images/products/{{$shirt->prod_img_url}}" data-zoom-image="images/products/{{$shirt->prod_img_url}}">
+								<div class="row small-tshirts" id="gal<?php echo $shirt->prod_id; ?>">
+									<div class="col me-2 zoomed-tshirts ">
+										<a href="#" data-image="images/products/1641123148.png" data-zoom-image="images/products/1641123148.png">
+											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/products/1641123148.png">
+										</a>
+									</div>
+									<div class="col me-2 zoomed-tshirts">
+										<a href="#" data-image="images/products/1641123148.png" data-zoom-image="images/products/1641123148.png">
+											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/products/1641123148.png">
+										</a>
+									</div>
+									<div class="col me-2 zoomed-tshirts">
+										<a href="#" data-image="images/icons/facebook.png" data-zoom-image="images/icons/facebook.png">
+											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/icons/facebook.png">
+										</a>
+									</div>
+									<div class="col me-2 zoomed-tshirts">
+										<a href="#" data-image="images/products/1641123148.png" data-zoom-image="images/products/1641123148.png">
+											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/products/1641123148.png">
+										</a>
+									</div>
 								</div>
 							</div>
-							<div class="col-4 sizes resp-colors">
-								<input class="col-3 color-btns" type="radio" name="color" id="tshirt-white" value="white" />
-								<input class="col-3 color-btns" type="radio" name="color" id="tshirt-red" value="red" />
-								<input class="col-3 color-btns" type="radio" name="color" id="tshirt-green" value="green" />
+							<div class="col-2 flexer">
+								<img class="right-arrow v-align" src="images/icons/right.png">
+
 							</div>
 						</div>
-						<div class="row  resp-disp mt-5">
-							<button class="add-to-cart buy-now col-6">Buy now</button>
-							<a href="" class="hyperlink-addToCart col-6">Add to cart</a>
+
+					</div>
+					<div class="col-12 col-lg-6 ps-5 pt-4 descript">
+						<div class="row">
+							<div class="col-12">
+								<h4 class="row tshirt-title">{{$shirt->prod_name}}</h4>
+							</div>
+							<div class="col-12">
+								<span class="row tshirt-description">
+									{{$shirt->prod_description}}
+								</span>
+							</div>
+							<div class="col-12">
+								<div class="row price-row mb-4">
+									<span class="col-4 td-price">Price</span>
+									<span class="col-4 nb-price">{{$shirt->prod_price}} $</span>
+									<span class="col-4 td-price">Color</span>
+								</div>
+							</div>
+							<div class="col-12 resp-disp">
+								<div class="row">
+									<div class="col-4 sizes">
+										<input class="col-3 size-btns" type="radio" name="size" id="tshirt-small" value="small" />
+										<label class="size-letter" for="tshirt-small"> S </label>
+										<input class="col-3 size-btns" type="radio" name="size" id="tshirt-medium" value="medium" />
+										<label class="size-letter" for="tshirt-medium"> M </label>
+										<input class="col-3 size-btns" type="radio" name="size" id="tshirt-large" value="large" />
+										<label class="size-letter" for="tshirt-large"> L </label>
+									</div>
+									<div class="col-4">
+										<div class="row">
+											<div class="col-3"><button class="operator">-</button></div>
+											<div class="col-3"><span class="quantity-count">1</span></div>
+											<div class="col-3"><button class="operator">+</button></div>
+										</div>
+									</div>
+									<div class="col-4 sizes resp-colors">
+										<input class="col-3 color-btns" type="radio" name="color" id="tshirt-white" value="white" />
+										<input class="col-3 color-btns" type="radio" name="color" id="tshirt-red" value="red" />
+										<input class="col-3 color-btns" type="radio" name="color" id="tshirt-green" value="green" />
+									</div>
+								</div>
+
+							</div>
+							<div class="row  resp-disp mt-5">
+								<button class="add-to-cart buy-now col-6">Buy now</button>
+								<a href="" class="hyperlink-addToCart col-6">Add to cart</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -125,12 +186,19 @@
 			</div>
 			<div class="col-5">
 				<img src="images/icons/bet.png" class="stocks-betimg w-100">
-				<div class="row">
-					<p class="bet-to-own col-6 "> Actual price </p>
-					<p class="col-6 price-of-bet"> 300$ </p>
+				<div class="row mt-4">
+					<div class="col-6 centered2">
+						<span class="w-100 bet-to-own">Actual price</span>
+					</div>
+					<div class="col-6 centered2">
+						<span class="price-of-bet w-100">300$</span>
+
+					</div>
 				</div>
-				<div class="row">
-					<button class="bet-now-btn"> Bet now </button>
+				<div class="row mt-4">
+					<div class="centered2">
+						<button class="bet-now-btn"> Bet now </button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -187,7 +255,7 @@
 							{{$poster->prod_name}}
 						</p>
 						<p class="price"> {{$poster->prod_price}} $ </p>
-						<button class="add-to-cart "> Add to cart </button>
+						<button class="add-to-cart" onclick="add_to_cart(<?php echo $poster->prod_id; ?>)"> Add to cart </button>
 					</div>
 				</div>
 			</div>
@@ -206,7 +274,8 @@
 		</section> -->
 
 
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 	var token = document.getElementsByName('_token')[0];
