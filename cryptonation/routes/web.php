@@ -110,7 +110,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/panel', function () {
         $data = ['LoggedUserInfo' => Admin::where('id', '=', session('LoggedAdmin'))->first()];
         $orderstoday= DB::table('orders')
-        ->join('customers', 'orders.customer_id', '=', 'customers.cust_id')
+        ->join('customers', 'orders.customer_email', '=', 'customers.email')
         ->select('customers.firstname', 'customers.lastname','customers.email', 'orders.*')
         ->whereDate('date',today())
         ->orderBy('orders.date')
@@ -171,7 +171,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     });
     Route::get('/manage_orders', function () {
         $orders = DB::table('orders')
-            ->join('customers', 'orders.customer_id', '=', 'customers.cust_id')
+            ->join('customers', 'orders.customer_email', '=', 'customers.email')
             ->join('order_status', 'orders.order_id', '=', 'order_status.order_id')
             ->select('customers.firstname', 'customers.lastname', 'orders.*','order_status.*')
             ->orderBy('orders.date','desc')
