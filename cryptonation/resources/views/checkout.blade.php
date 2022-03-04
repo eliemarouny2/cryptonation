@@ -1,6 +1,16 @@
 @extends('layouts.base')
 @section('content')
 
+@if ($errors->any())
+<div class="alert alert-danger">
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
 <div class="container-fluid">
   <div class="row g-5 mt-3 mb-3">
     <div class="col-md-5 col-lg-4 col-12">
@@ -36,14 +46,15 @@
                   <div class="input-group">
                     <input list="numbers" name="phonecode" id="phonecode" class="greenish phonecode">
                     <datalist id="numbers">
-
-
                       @foreach($countries as $country)
                       <option value="+{{$country->phonecode}}" <?php if ($country->phonecode == "971") echo 'selected'; ?>>+{{$country->phonecode}}</option>
                       @endforeach
                     </datalist>
                     <input type="number" name="phone" id="phone" class="form-control" required>
                   </div>
+                  @error('numbers')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                 </div>
               </div>
             </div>
@@ -62,7 +73,7 @@
               </div>
               <div class="row">
                 <div class="col-12 mb-3">
-                  <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" required>
+                  <input type="text" class="form-control" id="streetaddress" name="streetaddress" placeholder="Street Address" required>
 
                 </div>
                 <div class="col-6 mb-3">

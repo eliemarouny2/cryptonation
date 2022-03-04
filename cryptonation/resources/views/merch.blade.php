@@ -1,5 +1,3 @@
-
-
 @extends('layouts.base')
 @section('content')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
@@ -17,7 +15,11 @@
 </section>
 
 <div class="accordion accordion-flush" id="accordionparent">
-	<?php $i = 0; ?>
+	<?php
+
+	use Illuminate\Support\Facades\DB;
+
+	$i = 0; ?>
 	@if(count($shirts) > 1)
 	<section class="hero-banner2 mb-5">
 		<div class="container-fluid">
@@ -47,31 +49,35 @@
 	@if(count($shirts) > 1)
 	@foreach($shirts as $shirt)
 	<script>
-	console.log('helloo');
-    //initiate the plugin and pass the id of the div containing gallery images
-    $("#<?php echo $shirt->prod_id; ?>").ezPlus({
-        constrainType: "height",
-        constrainSize: 274,
-        zoomType: "lens",
-		zoomLens: false,
-		minZoomLevel:10,
-		lenszoom:false,
-        gallery: 'gal<?php echo $shirt->prod_id; ?>',
-        cursor: 'crosshair',
-        galleryActiveClass: "active"
-    });
+		console.log('helloo');
+		//initiate the plugin and pass the id of the div containing gallery images
+		$("#<?php echo $shirt->prod_id; ?>").ezPlus({
+			constrainType: "height",
+			constrainSize: 274,
+			zoomType: "lens",
+			zoomLens: false,
+			minZoomLevel: 10,
+			lenszoom: false,
+			gallery: 'gal<?php echo $shirt->prod_id; ?>',
+			cursor: 'crosshair',
+			galleryActiveClass: "active"
+		});
 
-    //pass the images to Fancybox
-    $("#<?php echo $shirt->prod_id; ?>").bind("click", function (e) {
-        var ez = $('#<?php echo $shirt->prod_id; ?>').data('ezPlus');
-        ez.closeAll();
-        $.fancyboxPlus(ez.getGalleryList());
+		//pass the images to Fancybox
+		$("#<?php echo $shirt->prod_id; ?>").bind("click", function(e) {
+			var ez = $('#<?php echo $shirt->prod_id; ?>').data('ezPlus');
+			ez.closeAll();
+			$.fancyboxPlus(ez.getGalleryList());
 
-        return false;
-    });
-
-
-</script>
+			return false;
+		});
+	</script>
+	<?php
+	$galleries = DB::table('image_galleries')
+		->select('*')
+		->where('product_id', $shirt->prod_id)
+		->get();
+	?>
 	<div id="flush-<?php echo $shirt->prod_id; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $shirt->prod_id; ?>" data-bs-parent="#accordionparent">
 		<div class="accordion-body">
 			<div class="container">
@@ -85,26 +91,13 @@
 							<div class="col-8">
 								<img class="center-tshirt w-100 rel-001" id="<?php echo $shirt->prod_id; ?>" src="images/products/{{$shirt->prod_img_url}}" data-zoom-image="images/products/{{$shirt->prod_img_url}}">
 								<div class="row small-tshirts" id="gal<?php echo $shirt->prod_id; ?>">
-									<div class="col me-2 zoomed-tshirts ">
-										<a href="#" data-image="images/products/1641123148.png" data-zoom-image="images/products/1641123148.png">
-											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/products/1641123148.png">
-										</a>
-									</div>
+									@foreach($galleries as $gallery)
 									<div class="col me-2 zoomed-tshirts">
-										<a href="#" data-image="images/products/1641123148.png" data-zoom-image="images/products/1641123148.png">
-											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/products/1641123148.png">
+										<a href="#" data-image="" data-zoom-image="">
+											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="image_gallery/{{$gallery->img_url}}">
 										</a>
 									</div>
-									<div class="col me-2 zoomed-tshirts">
-										<a href="#" data-image="images/icons/facebook.png" data-zoom-image="images/icons/facebook.png">
-											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/icons/facebook.png">
-										</a>
-									</div>
-									<div class="col me-2 zoomed-tshirts">
-										<a href="#" data-image="images/products/1641123148.png" data-zoom-image="images/products/1641123148.png">
-											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="images/products/1641123148.png">
-										</a>
-									</div>
+									@endforeach
 								</div>
 							</div>
 							<div class="col-2 flexer">

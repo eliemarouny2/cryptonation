@@ -319,10 +319,7 @@
          background-size:20rem;
          height:40rem;
      }
-     .centered2{
-         font-size:1rem;
-         margin-right:1rem;
-     }
+
      .price-name2{
          max-width:5rem;
          margin-top: 1.2rem;
@@ -414,10 +411,7 @@
         margin-top:3rem;
      }
      .limited{
-         margin-left:5rem;
-     }
-     .resp-cap-owel{
-         width:7rem!important;
+         padding: 1rem;
      }
      .mission-par{
         font-size: 12px;

@@ -89,10 +89,9 @@ class CHome extends Controller
         $req->validate([
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'numeric'],
-            'streetaddress' => ['required', 'string'],
-            'paymethod' => ['same:cash|pallapay']
+            'streetaddress' => ['required', 'string','max:255'],
         ]);
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -115,11 +114,6 @@ class CHome extends Controller
             'paymethod' => 'cash on delivery',
             'created_at' => $date
         ]);
-
-
-
-
-
         $cartitems = Cart::content();
         $total_amount = 0;
         foreach ($cartitems as $cartitem) {
@@ -153,8 +147,6 @@ class CHome extends Controller
         //         'order_id'=>$orderid
         //     ]);
         // }
-
-
 
     }
     public function view_product(Request $req)

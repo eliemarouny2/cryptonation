@@ -761,6 +761,8 @@ footer {
     display: inline-flex;
 }
 .zoomed-tshirts {
+    padding-left: 0rem;
+    padding-right: 0rem;
     height: 6rem;
     border: 4px solid white;
     background-color: #fff;
