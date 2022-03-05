@@ -83,7 +83,7 @@
                                         <select class="choices form-select" multiple="multiple" id="variants"
                                             name="variants[]">
                                             @foreach($variants as $variant)
-                                            <option value="{{$variant->variant_id}}">{{$variant->variant_name}}</option>
+                                            <option value="{{$variant->variant_name}}">{{$variant->variant_name}}</option>
                                             @endforeach
                                         </select>
                                     </div iv>

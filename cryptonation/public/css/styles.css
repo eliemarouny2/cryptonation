@@ -171,17 +171,18 @@ h1 {
 }
 .add-to-cart {
     background: #2de86b 0% 0% no-repeat padding-box;
+    -webkit-box-shadow: 0px -1px 25px -4px rgba(45,232,107,0.53);
+    -moz-box-shadow: 0px -1px 25px -4px rgba(45,232,107,0.53);
+    box-shadow: 0px -1px 25px -4px rgba(45,232,107,0.53);
     border-radius: 10px;
     opacity: 1;
     width: 8rem;
     height: 3rem;
     font-weight: bold;
-    border:1px solid #707070;
+    border:1px solid #fff;
     box-shadow: 2px #000000;
-    
-    color: white;
+    color: #fff;
     font-size: 18px;
-    z-index: 9999;
 }
 .price {
     text-align: center;
@@ -726,7 +727,7 @@ footer {
     margin-top: -1rem;
 }
 .inside{
-    margin-left:-52px;
+    margin-left:-3.3rem;
     margin-bottom: 0.2rem;
 }
 .inside img{
@@ -1209,9 +1210,7 @@ display: table-cell;
     transform: scale(1.5);
     transition: all 0.3s ease;
   }
-  input[type="radio"]{
-    display: none;
-  }
+
   #option-1:checked:checked ~ .option-1,
   #option-2:checked:checked ~ .option-2{
     border-color: #08f0fc;
@@ -1239,3 +1238,36 @@ display: table-cell;
   #option-2:checked:checked ~ .option-2 span{
     color: #fff;
   }
+  .quantity-count{
+      width: 1rem;
+      color: #fff;
+      background-color: transparent;
+      border: none;
+  }
+  .radio input {
+    border: 3px solid #fff;
+	width: auto;
+	height: 100%;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	padding: 2px 6px;
+    margin: 0 .2rem;
+	background: #fff;
+	color: #010124;
+	font-size: 15px;
+	transition: all 100ms linear;
+}
+
+.radio input:checked {
+	color: #fff;
+    background-color: #010124;
+
+}
+
+.radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}

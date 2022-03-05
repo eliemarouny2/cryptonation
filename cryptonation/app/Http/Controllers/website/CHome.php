@@ -91,7 +91,7 @@ class CHome extends Controller
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'numeric'],
-            'streetaddress' => ['required', 'string','max:255'],
+            'address' => ['required', 'string','max:255'],
         ]);
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -116,7 +116,9 @@ class CHome extends Controller
         ]);
         $cartitems = Cart::content();
         $total_amount = 0;
+        $total_qnty=0;
         foreach ($cartitems as $cartitem) {
+            $total_qnty=$total_qnty+$cartitem->qty;
             $total_price = $cartitem->qty * $cartitem->price;
             $total_amount += $total_price;
             $itemsinsert = DB::table('order_infos')->insert([
@@ -128,25 +130,24 @@ class CHome extends Controller
         }
         $orderinsert = DB::table('orders')->insert([
             'order_id' => $orderid,
-            'customer_email' =>  Auth::user()->email,
+            'customer_id' =>  Auth::user()->id,
             'total_amount' => $total_amount,
             'date' => $date,
             'status' => 'pending'
         ]);
-        return view('order_confirmation', [
-            'data' => $req,
-            'date' => $date
-        ]);
-        // if($req->paymethod=='cash'){
-        //     return view('order_confirmation', [
-        //         'data' => $req,
-        //         'date' => $date
-        //     ]);
-        // }else{
-        //     return view('payment',[
-        //         'order_id'=>$orderid
-        //     ]);
-        // }
+        if($req->paymethod=='cash'){
+            return view('order_confirmation', [
+                'data' => $req,
+                'date' => $date
+            ]);
+        }else{
+            return view('payment',[
+                'order_id'=>$orderid,
+                'total_qnty'=>$total_qnty,
+                'cartitems'=>$cartitems,
+                'total_amount'=>$total_amount
+            ]);
+        }
 
     }
     public function view_product(Request $req)
@@ -171,12 +172,12 @@ class CHome extends Controller
     function add_to_cart(Request $req)
     {
         $product = Product::where('prod_id', $req->id)->first();
-        // Cart::add(['id'=>$req->id,'name'=>$product->prod_name,'price'=>$product->prod_price,'qty'=>$req->quantity,'options'=>['variant'=>$req->variant,'color'=>$req->color]]);
         Cart::add(['id' => $req->id, 'name' => $product->prod_name, 'qty' => $req->quantity, 'price' => $product->prod_price, 'weight' => 0, 'options' => ['variant' => $req->variant, 'color' => $req->color, 'image_url' => $product->prod_img_url]]);
         return $product;
     }
     function delete_cart()
     {
         Cart::destroy();
+        return redirect('/merch');
     }
 }

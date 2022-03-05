@@ -48,30 +48,6 @@
 
 	@if(count($shirts) > 1)
 	@foreach($shirts as $shirt)
-	<script>
-		console.log('helloo');
-		//initiate the plugin and pass the id of the div containing gallery images
-		$("#<?php echo $shirt->prod_id; ?>").ezPlus({
-			constrainType: "height",
-			constrainSize: 274,
-			zoomType: "lens",
-			zoomLens: false,
-			minZoomLevel: 10,
-			lenszoom: false,
-			gallery: 'gal<?php echo $shirt->prod_id; ?>',
-			cursor: 'crosshair',
-			galleryActiveClass: "active"
-		});
-
-		//pass the images to Fancybox
-		$("#<?php echo $shirt->prod_id; ?>").bind("click", function(e) {
-			var ez = $('#<?php echo $shirt->prod_id; ?>').data('ezPlus');
-			ez.closeAll();
-			$.fancyboxPlus(ez.getGalleryList());
-
-			return false;
-		});
-	</script>
 	<?php
 	$galleries = DB::table('image_galleries')
 		->select('*')
@@ -124,21 +100,26 @@
 									<span class="col-4 td-price">Color</span>
 								</div>
 							</div>
+							<?php
+							$mm = 3;
+							$variants = explode(',', $shirt->variants) ?>
 							<div class="col-12 resp-disp">
 								<div class="row">
 									<div class="col-4 sizes">
-										<input class="col-3 size-btns" type="radio" name="size" id="tshirt-small" value="small" />
-										<label class="size-letter" for="tshirt-small"> S </label>
-										<input class="col-3 size-btns" type="radio" name="size" id="tshirt-medium" value="medium" />
-										<label class="size-letter" for="tshirt-medium"> M </label>
-										<input class="col-3 size-btns" type="radio" name="size" id="tshirt-large" value="large" />
-										<label class="size-letter" for="tshirt-large"> L </label>
+											@if($shirt->variants)
+											<div class="radio">
+											@foreach($variants as $variant)
+												<input label="{{$variant}}" type="radio" id="sele-{{$shirt->prod_id}}" name="select-{{$shirt->prod_id}}" value="{{$variant}}">
+											<?php $mm++; ?>
+											@endforeach
+											</div>
+											@endif
 									</div>
 									<div class="col-4">
 										<div class="row">
-											<div class="col-3"><button class="operator">-</button></div>
-											<div class="col-3"><span class="quantity-count">1</span></div>
-											<div class="col-3"><button class="operator">+</button></div>
+											<div class="col-3"><button class="operator" onclick="var result<?php echo $shirt->prod_id; ?> = document.getElementById('sst<?php echo $shirt->prod_id; ?>'); var sst<?php echo $shirt->prod_id; ?> = result<?php echo $shirt->prod_id; ?>.value; if(sst<?php echo $shirt->prod_id; ?>>1)result<?php echo $shirt->prod_id; ?>.value--">-</button></div>
+											<div class="col-3"><input class="quantity-count" name="qty" id="sst<?php echo $shirt->prod_id; ?>" value="1" min="1"></div>
+											<div class="col-3"><button class="operator" onclick="var result<?php echo $shirt->prod_id; ?> = document.getElementById('sst<?php echo $shirt->prod_id; ?>'); var sst<?php echo $shirt->prod_id; ?> = result<?php echo $shirt->prod_id; ?>.value;result<?php echo $shirt->prod_id; ?>.value++">+</button></div>
 										</div>
 									</div>
 									<div class="col-4 sizes resp-colors">
@@ -150,8 +131,7 @@
 
 							</div>
 							<div class="row  resp-disp mt-5">
-								<button class="add-to-cart buy-now col-6">Buy now</button>
-								<a href="" class="hyperlink-addToCart col-6">Add to cart</a>
+								<button onclick="add_to_cart(<?php echo $shirt->prod_id; ?>)" class="add-to-cart buy-now col-6">Buy now</button>
 							</div>
 						</div>
 					</div>
@@ -174,10 +154,10 @@
 			<p class="bet-to-own stocks-bet price-row ms-5"> Bet on this item to own it </p>
 		</div>
 		<div class="row">
-			<div class="col-7">
+			<div class="col-12 col-lg-7">
 				<img src="images/backgrounds/hat.png" class="bet-img w-100">
 			</div>
-			<div class="col-5">
+			<div class="col-12 col-lg-5">
 				<img src="images/icons/bet.png" class="stocks-betimg w-100">
 				<div class="row mt-4">
 					<div class="col-6 centered2">
@@ -274,11 +254,9 @@
 	var token = document.getElementsByName('_token')[0];
 
 	function add_to_cart(id) {
-		// var qnty = $('#qnty').val();
-		// var variant = $('#variant').val();
+		var qnty = $('#sst' + id).val();
+		 var variant = $('#sele-' + id).val();
 		// var color = $('#color').val();
-		var qnty = 2;
-		var variant = 'large';
 		var color = 'black';
 		if (id == 0) {
 			swal("Warning!", "Something went wrong", "error");
@@ -291,7 +269,7 @@
 
 			return false;
 		}
-		if (variant != 'undefine') {
+		if (variant != 'undefined') {
 			if (variant <= 0) {
 
 				swal("Warning!", "Please choose a variant", "warning");

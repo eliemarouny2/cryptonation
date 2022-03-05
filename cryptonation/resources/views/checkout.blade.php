@@ -1,6 +1,12 @@
 @extends('layouts.base')
 @section('content')
 
+<style>
+    input[type="radio"]{
+    display: none;
+  }
+</style>
+
 @if ($errors->any())
 <div class="alert alert-danger">
   <ul>
@@ -39,6 +45,7 @@
               </div>
               <div class="row">
                 <div class="col-6 mb-3">
+                <span class="text-danger mb-4">@error('email'){{ $message }} @enderror</span>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" value="" required>
                 </div>
 
@@ -47,14 +54,13 @@
                     <input list="numbers" name="phonecode" id="phonecode" class="greenish phonecode">
                     <datalist id="numbers">
                       @foreach($countries as $country)
-                      <option value="+{{$country->phonecode}}" <?php if ($country->phonecode == "971") echo 'selected'; ?>>+{{$country->phonecode}}</option>
+                      <option value="+{{$country->phonecode}}">+{{$country->phonecode}}</option>
                       @endforeach
                     </datalist>
+                    <span class="text-danger mb-4">@error('phone'){{ $message }} @enderror</span>
                     <input type="number" name="phone" id="phone" class="form-control" required>
                   </div>
-                  @error('numbers')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                  @enderror
+                  
                 </div>
               </div>
             </div>
@@ -73,10 +79,12 @@
               </div>
               <div class="row">
                 <div class="col-12 mb-3">
-                  <input type="text" class="form-control" id="streetaddress" name="streetaddress" placeholder="Street Address" required>
+                <span class="text-danger mb-4">@error('address'){{ $message }} @enderror</span>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" required>
 
                 </div>
                 <div class="col-6 mb-3">
+                <span class="text-danger mb-4">@error('zip'){{ $message }} @enderror</span>
                   <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="ZIP code">
 
                 </div>
@@ -84,9 +92,6 @@
 
                 <div class="col-6 mb-3">
                   <input class="form-control" id="city" name="city" required placeholder="City" />
-                  <div class="invalid-feedback">
-                    Please select a valid city.
-                  </div>
                 </div>
 
                 <div class="col-6 mb-3">
@@ -95,9 +100,6 @@
                     <option value="{{$country->name}}">{{$country->name}}</option>
                     @endforeach
                   </select>
-                  <div class="invalid-feedback">
-                    Please provide a valid country.
-                  </div>
                 </div>
               </div>
             </div>
