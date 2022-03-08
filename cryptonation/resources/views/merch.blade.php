@@ -101,19 +101,21 @@
 								</div>
 							</div>
 							<?php
-							$mm = 3;
-							$variants = explode(',', $shirt->variants) ?>
+							$mm = 0;
+							$mf = 100;
+							$colors = explode(',', $shirt->colors);
+							$variants = explode(',', $shirt->variants); ?>
 							<div class="col-12 resp-disp">
 								<div class="row">
 									<div class="col-4 sizes">
-											@if($shirt->variants)
-											<div class="radio">
+										@if($shirt->variants)
+										<div class="radio">
 											@foreach($variants as $variant)
-												<input label="{{$variant}}" type="radio" id="sele-{{$shirt->prod_id}}" name="select-{{$shirt->prod_id}}" value="{{$variant}}">
+											<input label="{{$variant}}" type="radio" id="sele-{{$mm}}" name="select-{{$shirt->prod_id}}" value="{{$variant}}">
 											<?php $mm++; ?>
 											@endforeach
-											</div>
-											@endif
+										</div>
+										@endif
 									</div>
 									<div class="col-4">
 										<div class="row">
@@ -122,16 +124,21 @@
 											<div class="col-3"><button class="operator" onclick="var result<?php echo $shirt->prod_id; ?> = document.getElementById('sst<?php echo $shirt->prod_id; ?>'); var sst<?php echo $shirt->prod_id; ?> = result<?php echo $shirt->prod_id; ?>.value;result<?php echo $shirt->prod_id; ?>.value++">+</button></div>
 										</div>
 									</div>
-									<div class="col-4 sizes resp-colors">
-										<input class="col-3 color-btns" type="radio" name="color" id="tshirt-white" value="white" />
-										<input class="col-3 color-btns" type="radio" name="color" id="tshirt-red" value="red" />
-										<input class="col-3 color-btns" type="radio" name="color" id="tshirt-green" value="green" />
+									@if($shirt->colors)
+									<div class="col-4 sizes">
+										<div class="radio">
+											@foreach($colors as $color)
+											<input type="radio" value="{{$color}}" class="color-radio" id="color-{{$mf}}" style="background-color:<?php echo $color; ?> !important;color:<?php echo $color; ?> !important;" name="colo-{{$shirt->prod_id}}" value="">
+											<?php $mf++; ?>
+											@endforeach
+										</div>
 									</div>
+									@endif
 								</div>
 
 							</div>
 							<div class="row  resp-disp mt-5">
-								<button onclick="add_to_cart(<?php echo $shirt->prod_id; ?>)" class="add-to-cart buy-now col-6">Buy now</button>
+								<button onclick="add_to_cart(<?php echo $shirt->prod_id; ?>)" class="add-to-cart buy-now col-6">Add to cart</button>
 							</div>
 						</div>
 					</div>
@@ -255,27 +262,24 @@
 
 	function add_to_cart(id) {
 		var qnty = $('#sst' + id).val();
-		 var variant = $('#sele-' + id).val();
-		// var color = $('#color').val();
-		var color = 'black';
+		var variant = $("input[type='radio'][name='select-"+ id + "']:checked").val();
+		var color = $("input[type='radio'][name='colo-"+ id + "']:checked").val();
+		console.log('quantity: ' + qnty+', color: '+color +', variant: ' + variant);
 		if (id == 0) {
 			swal("Warning!", "Something went wrong", "error");
-
 			return false;
 		}
 		if (qnty <= 0) {
-
 			swal("Warning!", "Keep quantity more than 0", "warning");
-
 			return false;
 		}
-		if (variant != 'undefined') {
-			if (variant <= 0) {
-
+		if (variant == undefined) {
 				swal("Warning!", "Please choose a variant", "warning");
-
 				return false;
-			}
+		}
+		if (color == undefined) {
+				swal("Warning!", "Please choose a color", "warning");
+				return false;
 		}
 		$.ajaxSetup({
 			headers: {
@@ -305,5 +309,6 @@
 			}
 		});
 	}
+	
 </script>
 @endsection

@@ -45,6 +45,9 @@ class CHome extends Controller
     {
         return view('coming-soon-blogs');
     }
+    public function remove_from_cart(Request $req){
+        Cart::remove($req->id);
+    }
     public function coming_soon_vlogs()
     {
         return view('coming-soon-vlogs');
@@ -103,6 +106,7 @@ class CHome extends Controller
         $date = date("Y-m-d H:i:s");
 
         $result = DB::table('checkout')->insert([
+            'order_id'=>$orderid,
             'firstname' => $req->firstname,
             'lastname' => $req->lastname,
             'email' => $req->email,
@@ -120,7 +124,7 @@ class CHome extends Controller
         foreach ($cartitems as $cartitem) {
             $total_qnty=$total_qnty+$cartitem->qty;
             $total_price = $cartitem->qty * $cartitem->price;
-            $total_amount += $total_price;
+
             $itemsinsert = DB::table('order_infos')->insert([
                 'ord_id' => $orderid,
                 'product_id' => $cartitem->id,
@@ -131,7 +135,7 @@ class CHome extends Controller
         $orderinsert = DB::table('orders')->insert([
             'order_id' => $orderid,
             'customer_id' =>  Auth::user()->id,
-            'total_amount' => $total_amount,
+            'total_amount' => Cart::total(),
             'date' => $date,
             'status' => 'pending'
         ]);

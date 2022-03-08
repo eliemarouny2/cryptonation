@@ -54,6 +54,7 @@ Route::group(['middleware' => ['LangCheck']], function () {
     Route::get('/about', [CHome::class, 'about']);
     Route::get('/merch', [CHome::class, 'merch']);
     Route::post('/add_to_cart', [CHome::class, 'add_to_cart'])->name('add_to_cart');
+    Route::post('/remove_from_cart', [CHome::class, 'remove_from_cart'])->name('remove_from_cart');
     Route::get('/delete_cart', [CHome::class, 'delete_cart'])->name('delete_cart');
     Route::get('view_product/{id}', [CHome::class, 'view_product']);
     Route::get('/lang', [CSettings::class, 'lang']);
@@ -173,10 +174,9 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/manage_orders', function () {
         $orders = DB::table('orders')
             ->join('customers', 'orders.customer_id', '=', 'customers.cust_id')
-            ->join('order_status', 'orders.order_id', '=', 'order_status.order_id')
-            ->select('customers.firstname', 'customers.lastname', 'orders.*','order_status.*')
+            ->select('customers.firstname', 'customers.lastname', 'orders.*')
             ->orderBy('orders.date','desc')
-            ->get();
+            ->paginate(15);
         return view('admin/orders/manage_orders', [
             'orders' => $orders,
         ]);
@@ -252,14 +252,18 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::post('/update_video_url', [CSettings::class, 'update_video']);
 
     Route::get('/manage_products', function () {
-        $products = DB::select('select categories.*,products.* from categories,products where cat_id=fk_cat_id');
+       
+        $products = DB::table('products')
+        ->join('categories', 'categories.cat_id', '=', 'products.fk_cat_id')
+        ->select('products.*', 'categories.*')
+        ->paginate(15);
         return view('admin/products/manage_products', [
             'products' => $products,
         ]);
     });
 
     Route::get('/manage_blogs', function () {
-        $blogs = Blog::all();
+        $blogs = Blog::pagina();
         return view('admin/blogs/manage_blogs', [
             'blogs' => $blogs,
         ]);

@@ -60,9 +60,11 @@
                                         </td>
                                     </tr>
                                     @endforeach
-
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="pagination mt-4 ms-4">
+                        {{ $orders->links('pagination::bootstrap-4') }}
                         </div>
                     </div>
                 </div>
