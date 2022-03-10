@@ -87,6 +87,28 @@ class CHome extends Controller
             'countries' => $countries
         ]);
     }
+    public function pallapayresponse(Request $req){
+        $total=$req->total;
+        $status=$req->status;
+        $currency=$req->currency;
+        $id=$req->id_transfer;
+
+        $data = DB::table('orders')
+        ->where('order_id',$id)
+        ->get();
+
+        if($total==$data->total_amount){
+            DB::table('orders')->where('order_id',$id)->update([
+                'status'=>'captured'
+            ]);
+        }
+
+        return view('confirm_pallapay',[
+            'total'=>$total,
+            'status'=>$status,
+            'currency'=>$currency,
+        ]);
+    }
     public function submit_checkout(Request $req)
     {
         $req->validate([
@@ -95,6 +117,9 @@ class CHome extends Controller
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'numeric'],
             'address' => ['required', 'string','max:255'],
+            'zipcode' => ['required'],
+            'city' => ['required', 'string','max:255'],
+            'country' => ['required', 'string','max:255'],
         ]);
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -115,7 +140,7 @@ class CHome extends Controller
             'zipcode' => $req->zipcode,
             'city' => $req->city,
             'country' => $req->country,
-            'paymethod' => 'cash on delivery',
+            'paymethod' => $req->paymethod,
             'created_at' => $date
         ]);
         $cartitems = Cart::content();
@@ -135,7 +160,7 @@ class CHome extends Controller
         $orderinsert = DB::table('orders')->insert([
             'order_id' => $orderid,
             'customer_id' =>  Auth::user()->id,
-            'total_amount' => Cart::total(),
+            'total_amount' => Cart::subtotal(),
             'date' => $date,
             'status' => 'pending'
         ]);
@@ -149,7 +174,8 @@ class CHome extends Controller
                 'order_id'=>$orderid,
                 'total_qnty'=>$total_qnty,
                 'cartitems'=>$cartitems,
-                'total_amount'=>$total_amount
+                'total_amount'=>Cart::subtotal(),
+                'checkout_data'=>$req
             ]);
         }
 

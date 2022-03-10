@@ -60,6 +60,7 @@ Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke
     ->name('verification.verify');
 
 Route::get('/checkout', [CHome::class, 'checkout'])->middleware('auth')->name('checkout');
+Route::post('/pallapayresponse', [CHome::class, 'pallapayresponse'])->middleware('auth')->name('pallapayresponse');
 Route::post('/submit_checkout', [CHome::class, 'submit_checkout'])->middleware('auth')->name('submit_checkout');
 
 

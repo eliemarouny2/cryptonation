@@ -72,13 +72,12 @@ Route::group(['middleware' => ['LangCheck']], function () {
     require __DIR__ . '/auth.php';
     
     Route::post('/', [CartController::class, 'store'])->name('cart.store');
-    
-    Route::get('/adminlogin', [AuthController::class, 'login'])->name('adminauth.login');
-    Route::get('/adminregister', [AuthController::class, 'register'])->name('adminauth.register');
-    Route::post('/adminsave', [AuthController::class, 'save'])->name('adminauth.save');
-    Route::post('/admincheck', [AuthController::class, 'check'])->name('adminauth.check');
-    
 });
+
+Route::get('/adminlogin', [AuthController::class, 'login'])->name('adminauth.login');
+Route::get('/adminregister', [AuthController::class, 'register'])->name('adminauth.register');
+Route::post('/adminsave', [AuthController::class, 'save'])->name('adminauth.save');
+Route::post('/admincheck', [AuthController::class, 'check'])->name('adminauth.check');
 
 
 
