@@ -83,16 +83,16 @@ $total = Cart::total() - Cart::tax();
 					<div class="collapse navbar-collapse" id="navbarsExample03">
 						<ul class="navbar-nav me-auto mb-2 mb-sm-0 mrgbg centered2">
 							<li class="nav-item ml-4">
-								<a class="nav-link lrg white-color" href="/vlogs">Vlog</a>
+								<a class="nav-link lrg white-color acumin" href="/vlogs">Vlog</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link lrg white-color" href="/blogs">Blog</a>
+								<a class="nav-link lrg white-color acumin" href="/blogs">Blog</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link lrg white-color" href="/merch">Merch</a>
+								<a class="nav-link lrg white-color acumin" href="/merch">Merch</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link lrg white-color" href="/about">About us</a>
+								<a class="nav-link lrg white-color acumin" href="/about">About us</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav me-auto mb-sm-0 centered2">
@@ -167,7 +167,7 @@ $total = Cart::total() - Cart::tax();
 		<nav class="navbar navig2 navbar-expand-lg navbar-light ">
 			<div class="container-fluid white custom-coin">
 				<div class="coin-data">
-					<?php if ($r->bitcoin->usd < 0) { ?>
+					<?php if ($r->bitcoin->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
@@ -186,7 +186,7 @@ $total = Cart::total() - Cart::tax();
 					<span></span>
 				</div>
 				<div class="coin-data">
-					<?php if ($r->ethereum->usd < 0) { ?>
+					<?php if ($r->ethereum->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
@@ -205,7 +205,7 @@ $total = Cart::total() - Cart::tax();
 					<span></span>
 				</div>
 				<div class="coin-data">
-					<?php if ($r->ripple->usd < 0) { ?>
+					<?php if ($r->ripple->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
@@ -224,7 +224,7 @@ $total = Cart::total() - Cart::tax();
 					<span></span>
 				</div>
 				<div class="coin-data">
-					<?php if ($r->dogecoin->usd < 0) { ?>
+					<?php if ($r->dogecoin->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
@@ -243,7 +243,7 @@ $total = Cart::total() - Cart::tax();
 					<span></span>
 				</div>
 				<div class="coin-data">
-					<?php if ($r->solana->usd < 0) { ?>
+					<?php if ($r->solana->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
@@ -262,7 +262,7 @@ $total = Cart::total() - Cart::tax();
 					<span></span>
 				</div>
 				<div class="coin-data">
-					<?php if ($r->cardano->usd < 0) { ?>
+					<?php if ($r->cardano->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">

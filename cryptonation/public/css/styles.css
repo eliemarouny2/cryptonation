@@ -2,6 +2,13 @@
     font-family: gos;
     src: url(../fonts/gameofsquids.otf);
 }
+@font-face {
+    font-family: acumin;
+    src: url(../fonts/acumin.otf);
+}
+.acumin{
+    font-family: 'acumin';
+}
 
 .righter {
     margin-right: 20rem;
@@ -170,17 +177,18 @@ h1 {
     opacity: 1;
 }
 .add-to-cart {
-    background: #2de86b 0% 0% no-repeat padding-box;
-    box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75);
-    -webkit-box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75);
-    -moz-box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75);
-    border-radius: 10px;
-    opacity: 1;
-    width: 8rem;
-    height: 3rem;
-    font-weight: bold;
-    color: #fff;
-    font-size: 18px;
+    background: #2de86b 0% 0% no-repeat padding-box !important;
+    box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75) !important;
+    -webkit-box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75) !important;
+    -moz-box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75) !important;
+    border-radius: 10px !important;
+    opacity: 1 !important;
+    width: 9rem !important;
+    height: 3rem !important;
+    font-weight: bold !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    z-index: 999 !important;
 }
 .price {
     text-align: center;
@@ -221,8 +229,12 @@ h1 {
 }
 .item .content2 img {
     max-height: 550px;
+    padding: 3rem;
     width: auto;
     max-width: 100%;
+}
+.custom-img-009{
+    padding: 2.3rem;
 }
 .item .content3 {
     position: absolute;
@@ -1145,10 +1157,20 @@ font-size: smaller;
 }
 .accordion-item{
     background-color: transparent;
+   
 }
 .accordion-button{
     background-color: transparent;
-    display: contents;
+    text-align: center;
+}
+.flex-mid{
+    display: flex;
+    justify-content: center;
+}
+.accordion-button::after{
+    background-image: none;
+    width: 0;
+    height: 0;
 }
 .table-cell{
 display: table-cell;
