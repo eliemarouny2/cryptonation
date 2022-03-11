@@ -6,7 +6,31 @@ use Illuminate\Support\Facades\DB;
 $cartitems = Cart::content();
 $quantity = Cart::count();
 $total = Cart::total() - Cart::tax();
+
+$url = 'https://api.coingecko.com/api/v3/simple/price';
+$parameters = [
+	'ids' => 'bitcoin,ethereum,ripple,solana,dogecoin,cardano',
+	'vs_currencies' => 'USD',
+	'include_24hr_change' => 'true'
+];
+$qs = http_build_query($parameters); // query string encode the parameters
+$request = "{$url}?{$qs}"; // create the request URL
+
+
+$curl = curl_init(); // Get cURL resource
+// Set cURL options
+curl_setopt_array($curl, array(
+	CURLOPT_URL => $request,            // set the request URL
+	CURLOPT_SSL_VERIFYPEER => FALSE,
+	CURLOPT_RETURNTRANSFER => 1         // ask for raw response instead of bool
+));
+
+$response = curl_exec($curl); // Send the request, save the response
+$r = json_decode($response);
+curl_close($curl); // Close request
+;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +65,7 @@ $total = Cart::total() - Cart::tax();
 							<div class="col-9">
 								<span class="cartitemtitle">{{$cartitem->name}}</span> <br>
 								<span class="cartitemprice">{{$cartitem->price}}$</span><br>
-								<span class="cartitemvariant">&nbsp;{{$cartitem->options['variant']}}&nbsp;</span><br>
+								<?php if(isset($cartitem->options['variant'])){ ?><span class="cartitemvariant">&nbsp;{{$cartitem->options['variant']}} &nbsp;</span><br> <?php } ?>
 								<span class="cartitemqnty">Qty: {{$cartitem->qty}}</span>
 							</div>
 							<div class="col-3 remove-from-cart">
@@ -72,30 +96,30 @@ $total = Cart::total() - Cart::tax();
 		<!-- Header bar start -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark">
-				<div class="container flexer mb-1">
-					<a class="navbar-brand righter active" aria-current="page" href="/">
+				<div class="container-fluid flexer mb-1">
+					<a class="navbar-brand righter active ms-4" aria-current="page" href="/">
 						<img src="/images/icons/logo.png" alt="logo" class="img-logo" />
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
-					<div class="collapse navbar-collapse" id="navbarsExample03">
-						<ul class="navbar-nav me-auto mb-2 mb-sm-0 mrgbg centered2">
+					<div class="collapse navbar-collapse custom-nav" id="navbarsExample03">
+						<ul class="navbar-nav mb-2  mb-sm-0 centered2">
 							<li class="nav-item ml-4">
-								<a class="nav-link lrg white-color acumin" href="/vlogs">Vlog</a>
+								<a class="lrg white-color <?php if(request()->segment(1)=='vlogs'){ ?>blue-picked <?php } ?>" href="/vlogs">Vlog</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link lrg white-color acumin" href="/blogs">Blog</a>
+								<a class="lrg white-color <?php if(request()->segment(1)=='blogs'){ ?>blue-picked <?php } ?>" href="/blogs">Blog</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link lrg white-color acumin" href="/merch">Merch</a>
+								<a class="lrg white-color <?php if(request()->segment(1)=='merch'){ ?>blue-picked <?php } ?>" href="/merch">Merch</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link lrg white-color acumin" href="/about">About us</a>
+								<a class="lrg white-color <?php if(request()->segment(1)=='about'){ ?>blue-picked <?php } ?>" href="/about">About us</a>
 							</li>
 						</ul>
-						<ul class="navbar-nav me-auto mb-sm-0 centered2">
+						<ul class="navbar-nav mb-sm-0 centered2">
 							<li class="nav-item dropdown">
 								<a class="nav-link mdm mdmone dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false"><img src="/images/icons/searchbtn.png" alt="logo" /></a>
 								<ul class="dropdown-menu search" aria-labelledby="dropdown04">
@@ -140,29 +164,7 @@ $total = Cart::total() - Cart::tax();
 			</nav>
 		</header>
 		<!-- Header bar end -->
-		<?php
-		$url = 'https://api.coingecko.com/api/v3/simple/price';
-		$parameters = [
-			'ids' => 'bitcoin,ethereum,ripple,solana,dogecoin,cardano',
-			'vs_currencies' => 'USD',
-			'include_24hr_change' => 'true'
-		];
-		$qs = http_build_query($parameters); // query string encode the parameters
-		$request = "{$url}?{$qs}"; // create the request URL
 
-
-		$curl = curl_init(); // Get cURL resource
-		// Set cURL options
-		curl_setopt_array($curl, array(
-			CURLOPT_URL => $request,            // set the request URL
-			CURLOPT_SSL_VERIFYPEER => FALSE,
-			CURLOPT_RETURNTRANSFER => 1         // ask for raw response instead of bool
-		));
-
-		$response = curl_exec($curl); // Send the request, save the response
-		$r = json_decode($response);
-		curl_close($curl); // Close request
-		?>
 		<!-- Stocks chart start -->
 		<nav class="navbar navig2 navbar-expand-lg navbar-light ">
 			<div class="container-fluid white custom-coin">
@@ -177,10 +179,10 @@ $total = Cart::total() - Cart::tax();
 							BTC
 						</span>
 						<span>
-							<?php  echo $r->bitcoin->usd; ?>
+							<?php echo number_format($r->bitcoin->usd, 2); ?>
 						</span>
-						<span>
-							<?php echo number_format($r->bitcoin->usd_24h_change ,2); ?>
+						<span class="<?php if ($r->bitcoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+							<?php echo number_format($r->bitcoin->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
@@ -192,14 +194,10 @@ $total = Cart::total() - Cart::tax();
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
 					<?php } ?>
 					<div class="coin-info">
-						<span>
-							ETH
-						</span>
-						<span>
-							<?php  echo $r->ethereum->usd; ?>
-						</span>
-						<span>
-							<?php echo number_format($r->ethereum->usd_24h_change ,2); ?>
+						<span class="coin-symbol">ETH</span>
+						<span class="coin-price"><?php echo number_format($r->ethereum->usd, 2); ?></span>
+						<span class="coin-24h-change <?php if ($r->ethereum->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+							<?php echo number_format($r->ethereum->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
@@ -211,14 +209,10 @@ $total = Cart::total() - Cart::tax();
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
 					<?php } ?>
 					<div class="coin-info">
-						<span>
-							XRP
-						</span>
-						<span>
-							<?php  echo $r->ripple->usd; ?>
-						</span>
-						<span>
-							<?php echo number_format($r->ripple->usd_24h_change ,2); ?>
+						<span class="coin-symbol">XRP</span>
+						<span><?php echo number_format($r->ripple->usd, 2); ?></span>
+						<span class="coin-24h-change <?php if ($r->ripple->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+							<?php echo number_format($r->ripple->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
@@ -230,14 +224,10 @@ $total = Cart::total() - Cart::tax();
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
 					<?php } ?>
 					<div class="coin-info">
-						<span>
-							DOGE
-						</span>
-						<span>
-							<?php  echo $r->dogecoin->usd; ?>
-						</span>
-						<span>
-							<?php echo number_format($r->dogecoin->usd_24h_change ,2); ?>
+						<span class="coin-symbol">DOGE</span>
+						<span class="coin-price"><?php echo number_format($r->dogecoin->usd, 2); ?></span>
+						<span class="coin-24h-change <?php if ($r->dogecoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+							<?php echo number_format($r->dogecoin->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
@@ -249,14 +239,10 @@ $total = Cart::total() - Cart::tax();
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
 					<?php } ?>
 					<div class="coin-info">
-						<span>
-							SOL
-						</span>
-						<span>
-							<?php  echo $r->solana->usd; ?>
-						</span>
-						<span>
-							<?php echo number_format($r->solana->usd_24h_change ,2); ?>
+						<span class="coin-symbol">SOL</span>
+						<span class="coin-price"><?php echo number_format($r->solana->usd, 2); ?></span>
+						<span class="coin-24h-change <?php if ($r->solana->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+							<?php echo number_format($r->solana->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
@@ -268,14 +254,10 @@ $total = Cart::total() - Cart::tax();
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
 					<?php } ?>
 					<div class="coin-info">
-						<span>
-							ADA
-						</span>
-						<span>
-							<?php  echo $r->cardano->usd; ?>
-						</span>
-						<span>
-							<?php echo number_format($r->cardano->usd_24h_change ,2); ?>
+						<span class="coin-symbol">ADA</span>
+						<span class="coin-price"><?php echo number_format($r->cardano->usd, 2); ?></span>
+						<span class="coin-24h-change <?php if ($r->cardano->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+							<?php echo number_format($r->cardano->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>

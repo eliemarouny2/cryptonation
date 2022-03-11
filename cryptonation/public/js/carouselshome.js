@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
                 loop: false,
             },
             992: {
-                items: 3,
+                items: 2,
                 nav: true,
                 loop: false,
             },

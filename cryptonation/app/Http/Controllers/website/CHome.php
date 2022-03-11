@@ -205,6 +205,12 @@ class CHome extends Controller
         Cart::add(['id' => $req->id, 'name' => $product->prod_name, 'qty' => $req->quantity, 'price' => $product->prod_price, 'weight' => 0, 'options' => ['variant' => $req->variant, 'color' => $req->color, 'image_url' => $product->prod_img_url]]);
         return $product;
     }
+    function add_to_cart2(Request $req)
+    {
+        $product = Product::where('prod_id', $req->id)->first();
+        Cart::add(['id' => $req->id, 'name' => $product->prod_name, 'qty' => 1, 'price' => $product->prod_price, 'weight' => 0, 'options' => ['image_url' => $product->prod_img_url]]);
+        return $product;
+    }
     function delete_cart()
     {
         Cart::destroy();

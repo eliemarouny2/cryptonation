@@ -15,7 +15,7 @@ $iii = 0;
 		<div class="slide">
 			<div class="image">
 				<div class="contenttitle">
-					<h1> Get supreme Shirts </h1>
+					<h1 class="supreme-merch-title"> Get supreme Shirts </h1>
 				</div>
 			</div>
 		</div>
@@ -26,7 +26,7 @@ $iii = 0;
 	@if(count($shirts) > 1)
 	<section class="hero-banner2 mb-5">
 		<div class="container-fluid">
-			<h1>Unique T-shirts</h1>
+			<h1 class="width-word2">Unique</br> T-shirts</h1>
 			<div id="owl-demo-1" class="owl-carousel owl-theme">
 				@foreach($shirts as $shirt)
 				<?php $i++; ?>
@@ -48,7 +48,6 @@ $iii = 0;
 										Add to cart
 									</button>
 								</div>
-
 							</div>
 						</div>
 					</div>
@@ -152,7 +151,7 @@ $iii = 0;
 
 							</div>
 							<div class="row  resp-disp mt-5">
-								<button onclick="add_to_cart(<?php echo $shirt->prod_id; ?>)" class="add-to-cart buy-now col-6">Add to cart</button>
+								<button onclick="add_to_cart(<?php echo $shirt->prod_id; ?>)" class="add-to-cart2 buy-now col-6">Add to cart</button>
 							</div>
 						</div>
 					</div>
@@ -170,9 +169,9 @@ $iii = 0;
 
 <section class="limited">
 	<div class="container-fluid sizes">
-		<h1 class="row bluish title-margin ms-4">Limited edition</h1>
+		<h1 class="width-word3">Limited edition</h1>
 		<div class="row">
-			<p class="bet-to-own stocks-bet price-row ms-5"> Bet on this item to own it </p>
+			<p class="bet-to-own stocks-bet"> Bet on this item to own it </p>
 		</div>
 		<div class="row">
 			<div class="col-12 col-lg-7">
@@ -200,7 +199,7 @@ $iii = 0;
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<img class="w-100" src="images/icons/whiteshirt.png">
+				<img class="w-100 padding-10" src="images/icons/whiteshirt.png">
 			</div>
 		</div>
 	</div>
@@ -211,20 +210,30 @@ $iii = 0;
 	@if(count($caps) > 1)
 	<section class="hero-banner2 mb-5">
 		<div class="container-fluid">
-			<h1>Caps collection</h1>
+			<h1 class="bluish width-word3">Caps collection</h1>
 			<div id="owl-demo-caps" class="owl-carousel owl-theme">
 				@foreach($caps as $cap)
-				<?php $i++; ?>
-				<div class="item" id="{{$cap->prod_id}}">
+				<?php $ii++; ?>
+				<div class="card" id="{{$cap->prod_id}}">
 					<div class="accordion-item">
 						<div class="accordion-header" id="flush-heading<?php echo $cap->prod_id; ?>">
-							<button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-<?php echo $cap->prod_id; ?>" aria-expanded="false" aria-controls="flush-<?php echo $cap->prod_id; ?>">
+							<a href="/view_product/{{$cap->prod_id}}">
 								<div class="content2 mt-5">
-									<img src="images/products/{{$cap->prod_img_url}}" alt="{{$cap->prod_name}}" class="centered-image" />
+									<img src="images/products/{{$cap->prod_img_url}}" alt="{{$cap->prod_name}}" class="centered-image custom-img-009" />
 								</div>
-							</button>
+							</a>
+							<div class="centered2">
+								<p class="tshirt-name">
+									{{$cap->prod_name}}
+								</p>
+								<p class="price"> {{$cap->prod_price}}$ </p>
+								<div class="text-center flex-mid mb-2">
+									<button type="button" class="accordion-button collapsed add-to-cart" data-bs-toggle="collapse" data-bs-target="#flush-<?php echo $cap->prod_id; ?>" aria-expanded="false" aria-controls="flush-<?php echo $cap->prod_id; ?>">
+										Add to cart
+									</button>
+								</div>
+							</div>
 						</div>
-
 					</div>
 				</div>
 				@endforeach
@@ -333,20 +342,22 @@ $iii = 0;
 @if(count($posters) >= 1)
 <section class="hero-banner2">
 	<div class="container-fluid">
-		<h1>deSIGNER POSTER</h1>
+		<h1 class="bluish width-word3">designer poster</h1>
 		<div id="owl-demo-posters" class="owl-carousel owl-theme">
 			@foreach($posters as $poster)
 			<div class="card">
 				<div class="item24" id="{{$poster->prod_id}}">
 					<div class="content2 mt-5">
-						<img src="images/products/{{$poster->prod_img_url}}" alt="{{$poster->prod_name}}" class="centered-image" />
+						<a href="/view_product/{{$poster->prod_id}}">
+							<img src="images/products/{{$poster->prod_img_url}}" alt="{{$poster->prod_name}}" class="centered-image" />
+						</a>
 					</div>
 					<div class="centered2">
 						<p class="tshirt-name">
 							{{$poster->prod_name}}
 						</p>
 						<p class="price"> {{$poster->prod_price}} $ </p>
-						<button class="add-to-cart" onclick="add_to_cart(<?php echo $poster->prod_id; ?>)"> Add to cart </button>
+						<button class="add-to-cart" onclick="add_to_cart2(<?php echo $poster->prod_id; ?>)"> Add to cart </button>
 					</div>
 				</div>
 			</div>
@@ -406,6 +417,39 @@ $iii = 0;
 				quantity: qnty,
 				variant: variant,
 				color: color
+			},
+			success: function(data) {
+				console.log(data);
+				$("#tab_up_cart").load(location.href + " #tab_up_cart>*", "");
+				swal("Success!", "Product added to cart", "success");
+
+			},
+			error: function(data) {
+				console.log(data);
+				swal("Error!", "Request failed", "warning");
+
+			}
+		});
+	}
+
+	function add_to_cart2(id) {
+		var qnty = $('#sst' + id).val();
+		if (id == 0) {
+			swal("Warning!", "Something went wrong", "error");
+			return false;
+		}
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': token.value
+			}
+		});
+		$.ajax({
+			type: "post",
+			async: true,
+			url: '/add_to_cart2',
+			data: {
+				id: id,
+				quantity: 1,
 			},
 			success: function(data) {
 				console.log(data);

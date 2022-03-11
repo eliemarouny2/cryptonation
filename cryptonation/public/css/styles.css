@@ -6,9 +6,7 @@
     font-family: acumin;
     src: url(../fonts/acumin.otf);
 }
-.acumin{
-    font-family: 'acumin';
-}
+
 
 .righter {
     margin-right: 20rem;
@@ -23,6 +21,7 @@
 body {
     background-color: #010124;
     color: #ffffff;
+    font-family: 'acumin';
 }
 a {
     color: #ffffff;
@@ -150,14 +149,11 @@ header nav ul li a {
 }
 .hero-banner2 .container-fluid h1 {
     color: #08f0fc;
-    margin-left: 3rem;
-    margin-top: 10rem !important;
+    font-family: "gos";
+    margin-left: 5rem;
 }
 .shadow {
     display: flex;
-}
-h1 {
-    font-family: "gos";
 }
 .mt-big {
     margin-top: 8rem;
@@ -169,8 +165,9 @@ h1 {
     display: block;
 }
 .tshirt-name {
+    font-weight: bold;
+    font-size: 1.5rem;
     padding-top: 3rem;
-    font: normal normal 900 23px Avenir;
     letter-spacing: 0px;
     color: #ffffff;
     margin-bottom: 0;
@@ -192,7 +189,7 @@ h1 {
 }
 .price {
     text-align: center;
-    font: normal normal normal 24px/33px Avenir;
+    font-size: 1rem;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -892,17 +889,15 @@ footer {
     border-top: 2px white solid;
 }
 .bet-to-own {
-    font: normal normal 900 30px Avenir;
+    margin-top: 1rem;
     letter-spacing: 0px;
-    color: #ffffff;
+    color: #fff;
     opacity: 1;
-}
-.stocks-bet {
-    max-width: -webkit-fill-available;
+    margin-left: 5rem;
+    font-size: 1.5rem;
 }
 .price-of-bet {
     text-align: center;
-    font: normal normal 900 30px Avenir;
     letter-spacing: 0px;
     color: #08f0fc;
     opacity: 1;
@@ -922,10 +917,6 @@ footer {
 }
 .merch-titles {
     max-width: 15rem;
-}
-
-.title-margin{
-    margin-top:2rem;
 }
 .welcome-title{
     padding-left: 7rem;
@@ -1332,4 +1323,56 @@ color:#707070;
 }
 .chart-image{
     margin: 1rem 0rem;
+}
+.red-font{
+    color: #FE3B30;
+}
+.green-font{
+    color:#2DE86B;
+}
+.blue-picked{
+    color: #08F0FC !important;
+    font-weight: bold;
+}
+.custom-nav{
+    justify-content: end;
+    margin-right: 7rem;
+}
+.width-word{
+    width: min-content;
+    font-size: 4rem;
+}
+.width-word2{
+    margin-left: 5rem;
+    width: min-content;
+    margin-top: 4rem;
+    font-size: 4rem;
+    font-family: 'gos';
+}
+.width-word3{
+    color: #08F0FC;
+    margin-left: 5rem;
+    width: min-content;
+    margin-top: 4rem;
+    font-size: 4rem;
+    font-family: 'gos';
+}
+.accordion-button:not(.collapsed){
+    background-color: transparent;
+}
+.world-title{
+    font-size: 4rem;
+}
+.supreme-merch-title{
+    font-family: 'gos';
+}
+.add-to-cart2{
+    text-decoration: underline;
+    color: #5AEE1A;
+    opacity: 1;
+    text-align: start;
+    font-size: 1.2rem;
+}
+.padding-10{
+padding: 10rem;
 }
