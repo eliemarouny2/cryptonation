@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/admin/images/favicon.svg" type="image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="/admin/css/backend.css">
@@ -14,7 +15,7 @@
         <link rel="stylesheet" href="/admin/vendors/perfect-scrollbar/perfect-scrollbar.css">
         <link rel="stylesheet" href="/admin/css/app.css">
         <link rel="stylesheet" href="/admin/css/styles.css">
-        <link rel="shortcut icon" href="/admin/images/favicon.svg" type="image/x-icon">
+        
         <link rel="stylesheet" href="/admin/vendors/choices.js/choices.min.css" />
 
 
@@ -59,8 +60,8 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
                                     <span>Orders</span>
                                 </a>
                                 <ul class="submenu ">
-                                    <li><a href="/manage_orders">Manage orders</a></li>
-                                    <li><a href="/add_customer">Add order</a></li>
+                                    <li><a href="/pending_orders">Pending orders</a></li>
+                                    <li><a href="/successful_orders">Successful orders</a></li>
                                 </ul>
                             </li>
                             <li class="sidebar-item  has-sub">

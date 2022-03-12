@@ -41,11 +41,30 @@ class CHome extends Controller
             'blogs' => $blogs
         ]);
     }
+    public function single_order($id)
+    {
+        $order_items = DB::table('order_infos')
+        ->join('products', 'order_infos.product_id', '=', 'products.prod_id')
+        ->select('products.*', 'order_infos.*')
+        ->where('order_infos.ord_id', $id)->get();
+        $order_info = DB::table('orders')
+      ->join('customers', 'orders.customer_id', '=', 'customers.cust_id')
+      ->join('checkout', 'orders.order_id', '=', 'checkout.order_id')
+      ->select('customers.*', 'orders.*','checkout.*')
+      ->where('orders.order_id', $id)
+      ->orderBy('orders.date')
+      ->first();
+        return view('single_order', [
+            'order_info'=>$order_info,
+            'order_items' => $order_items
+        ]);
+    }
     public function coming_soon_blogs()
     {
         return view('coming-soon-blogs');
     }
-    public function remove_from_cart(Request $req){
+    public function remove_from_cart(Request $req)
+    {
         Cart::remove($req->id);
     }
     public function coming_soon_vlogs()
@@ -87,27 +106,35 @@ class CHome extends Controller
             'countries' => $countries
         ]);
     }
-    public function pallapayresponse(Request $req){
-        $total=$req->total;
-        $status=$req->status;
-        $currency=$req->currency;
-        $id=$req->id_transfer;
+    public function pallapayresponse(Request $req)
+    {
+        $order_id = $req->custom;
+        $total = $req->amount;
+        $status = $req->status;
+        $date = $req->date;
 
         $data = DB::table('orders')
-        ->where('order_id',$id)
-        ->get();
+            ->where('order_id', $order_id)
+            ->first();
 
-        if($total==$data->total_amount){
-            DB::table('orders')->where('order_id',$id)->update([
-                'status'=>'captured'
-            ]);
+        if ($req->status == 'Confirmed') {
+            if ($total == $data->total_amount) {
+                DB::table('orders')->where('order_id', $order_id)->update([
+                    'status' => 'paid'
+                ]);
+                return view('confirm_pallapay', [
+                    'total' => $total,
+                    'status' => $status,
+                    'firstname' => $req->firstname,
+                    'date' => $date,
+                    'order_id' => $order_id
+                ]);
+            }else{
+                
+            }
+        } else {
+
         }
-
-        return view('confirm_pallapay',[
-            'total'=>$total,
-            'status'=>$status,
-            'currency'=>$currency,
-        ]);
     }
     public function submit_checkout(Request $req)
     {
@@ -116,10 +143,10 @@ class CHome extends Controller
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['required', 'numeric'],
-            'address' => ['required', 'string','max:255'],
+            'address' => ['required', 'string', 'max:255'],
             'zipcode' => ['required'],
-            'city' => ['required', 'string','max:255'],
-            'country' => ['required', 'string','max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
         ]);
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -131,7 +158,7 @@ class CHome extends Controller
         $date = date("Y-m-d H:i:s");
 
         $result = DB::table('checkout')->insert([
-            'order_id'=>$orderid,
+            'order_id' => $orderid,
             'firstname' => $req->firstname,
             'lastname' => $req->lastname,
             'email' => $req->email,
@@ -144,10 +171,10 @@ class CHome extends Controller
             'created_at' => $date
         ]);
         $cartitems = Cart::content();
-        $total_amount = 0;
-        $total_qnty=0;
+        $total_amount = Cart::subtotal();
+        $total_qnty = 0;
         foreach ($cartitems as $cartitem) {
-            $total_qnty=$total_qnty+$cartitem->qty;
+            $total_qnty = $total_qnty + $cartitem->qty;
             $total_price = $cartitem->qty * $cartitem->price;
 
             $itemsinsert = DB::table('order_infos')->insert([
@@ -160,25 +187,28 @@ class CHome extends Controller
         $orderinsert = DB::table('orders')->insert([
             'order_id' => $orderid,
             'customer_id' =>  Auth::user()->id,
-            'total_amount' => Cart::subtotal(),
+            'total_amount' => $total_amount,
+            'paymethod' => $req->paymethod,
             'date' => $date,
             'status' => 'pending'
         ]);
-        if($req->paymethod=='cash'){
+        Cart::destroy();
+        if ($req->paymethod == 'cash') {
             return view('order_confirmation', [
                 'data' => $req,
-                'date' => $date
+                'date' => $date,
+                'amount' => $total_amount,
+                'order_id' => $orderid
             ]);
-        }else{
-            return view('payment',[
-                'order_id'=>$orderid,
-                'total_qnty'=>$total_qnty,
-                'cartitems'=>$cartitems,
-                'total_amount'=>Cart::subtotal(),
-                'checkout_data'=>$req
+        } else {
+            return view('payment', [
+                'order_id' => $orderid,
+                'total_qnty' => $total_qnty,
+                'cartitems' => $cartitems,
+                'total_amount' => $total_amount,
+                'checkout_data' => $req
             ]);
         }
-
     }
     public function view_product(Request $req)
     {
@@ -187,7 +217,7 @@ class CHome extends Controller
         $similars = Product::where('fk_cat_id', $product->fk_cat_id)->get();
         return view('view_product', [
             'product' => $product,
-            'images' => $images,
+            'galleries' => $images,
             'similars' => $similars
         ]);
     }

@@ -1,6 +1,13 @@
-@extends('admin.base')
-@section('admincontent')
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order data</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/order.css">
+    <style>
     .print-btn{
         background-color: #010124;
         color:#fff;
@@ -13,13 +20,10 @@
         color:#fff;
     }
 </style>
+</head>
+<body>
 <div class="main-content container-fluid">
-    <div class="page-title">
-        <h3>Orders</h3>
-        <p class="text-subtitle text-muted">manage your orders</p>
-    </div>
     <section class="section">
-
         <div class="row mb-4">
             <div class="col-md-12">
                 <div class=" col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 padding">
@@ -30,9 +34,12 @@
                                     <div class="col-2">
                                         <img src="/images/icons/logo2.png" class="admin-logo" alt="" srcset="">
                                     </div>
-                                    <div class="col-9 m-auto">
-                                        <h3 class="mb-0">Order #{{$orderinfo->order_id}}</h3>
-                                        <span>{{$orderinfo->date}}</span>
+                                    <div class="col-7 m-auto">
+                                        <h3 class="mb-0">Order #{{$order_info->order_id}}</h3>
+                                        <span>{{$order_info->date}}</span>
+                                    </div>
+                                    <div class="col-2 custom-01">
+                                        <a href="{{ url('/orders') }}">Go back</a>
                                     </div>
                                 </div>
 
@@ -50,14 +57,14 @@
                                 </div>
                                 <div class="col-6 ">
                                     <h5 class="mb-3">To:</h5>
-                                    <h3 class="text-dark mb-1">{{$orderinfo->firstname}} {{$orderinfo->lastname}}</h3>
-                                    <div>{{$orderinfo->city}},{{$orderinfo->country}}</div>
-                                    <div>{{$orderinfo->streetaddress}}</div>
-                                    <div>Email: {{$orderinfo->email}}</div>
-                                    <div>Phone: {{$orderinfo->phone}}</div>
+                                    <h3 class="text-dark mb-1">{{$order_info->firstname}} {{$order_info->lastname}}</h3>
+                                    <div>{{$order_info->city}},{{$order_info->country}}</div>
+                                    <div>{{$order_info->streetaddress}}</div>
+                                    <div>Email: {{$order_info->email}}</div>
+                                    <div>Phone: {{$order_info->phone}}</div>
                                 </div>
                             </div>
-                            <div class="table-responsive-sm">
+                            <div class="table-responsive-sm mt-5">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -71,23 +78,12 @@
                                     <tbody>
                                         <?php
                                         $count = 1;
-                                        foreach ($orderdata as $data) { ?>
+                                        foreach ($order_items as $order_item) { ?>
                                             <tr>
-                                                <td class="center">
-                                                    <?php echo $count; ?>
-                                                </td>
-                                                <td class="left strong">
-                                                    <?php echo $data->prod_name; ?>
-                                                </td>
-                                                <td class="right">
-                                                    <?php echo $data->prod_price; ?> USD
-                                                </td>
-                                                <td class="center">
-                                                    <?php echo $data->quantity; ?>
-                                                </td>
-                                                <td class="right">
-                                                    <?php echo $data->total_price; ?> USD
-                                                </td>
+                                                <td class="center"><?php echo $count; ?></td>
+                                                <td class="left strong"><?php echo $order_item->prod_name; ?></td>
+                                                <td class="right"><?php echo $order_item->prod_price; ?></td>
+                                                <td class="center"><?php echo $order_item->quantity; ?></td><td class="right"><?php echo $order_item->total_price; ?> USD</td>
                                             </tr>
                                         <?php
                                             $count++;
@@ -107,14 +103,14 @@
                                                 <td class="left">
                                                     <strong class="text-dark">Subtotal</strong>
                                                 </td>
-                                                <td class="right">{{$orderinfo->total_amount}} USD</td>
+                                                <td class="right">{{$order_info->total_amount}} USD</td>
                                             </tr>
                                             <tr>
                                                 <td class="left">
                                                     <strong class="text-dark">Total</strong>
                                                 </td>
                                                 <td class="right">
-                                                    <strong class="text-dark">{{$orderinfo->total_amount}} USD</strong>
+                                                    <strong class="text-dark">{{$order_info->total_amount}} USD</strong>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -126,9 +122,6 @@
                             <p class="mb-0">Invoice data to be put here</p>
                         </div> -->
                     </div>
-                    <div class="buttons text-center">
-                    <a class="print-btn" href="#" onclick="printDiv('printableArea')"><span class="fa fa-print"></span>Print</a>
-                    </div>
 
                 </div>
             </div>
@@ -138,14 +131,11 @@
 </div>
 </div>
 <!-- dashboard end -->
-<script type="text/javascript">
-    function printDiv(divName) {
-        console.log('jee');
-        var printContents = document.getElementById(divName).innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-    }
-</script>
-@endsection
+</body>
+</html>
+
+
+
+
+
+

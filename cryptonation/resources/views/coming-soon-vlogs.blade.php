@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid mt-5">
    <main class="grid-vlog">
       <div class="row g-5">
          <div class="col-md-5 col-12">

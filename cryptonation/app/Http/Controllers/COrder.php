@@ -9,7 +9,22 @@ use Illuminate\Support\Facades\DB;
 
 class COrder extends Controller
 {
-  function delete_order(Request $req)
+  function complete_order(Request $req)
+  {
+    $result = Order::where('order_id', $req->id)
+    ->update([
+      'status'=>'complete'
+    ]);      
+    if ($result == 1) {
+      session(['res' => 'success']);
+      session(['result' => "Order Updated successfully"]);
+    } else {
+      session(['res' => 'danger']);
+      session(['result' => "Problem updating order"]);
+    }
+    return redirect('pending_orders');
+  }
+  function delete_pending_order(Request $req)
   {
     $result = Order::where('order_id', $req->id)->delete();
     if ($result == 1) {
@@ -19,7 +34,19 @@ class COrder extends Controller
       session(['res' => 'danger']);
       session(['result' => "Problem deleting data"]);
     }
-    return redirect('manage_orders');
+    return redirect('/pending_orders');
+  }
+  function delete_successful_order($id)
+  {
+    $result = Order::where('order_id', $id)->delete();
+    if ($result == 1) {
+      session(['res' => 'success']);
+      session(['result' => "Successfully deleted"]);
+    } else {
+      session(['res' => 'danger']);
+      session(['result' => "Problem deleting data"]);
+    }
+    return redirect('/successful_orders');
   }
 
   function view_order($id)

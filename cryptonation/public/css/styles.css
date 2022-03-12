@@ -303,6 +303,9 @@ header nav ul li a {
     bottom: 0;
     z-index: 200;
 }
+.accordion-item{
+    border: none;
+}
 .col ul {
     padding: 0;
     list-style: none;
@@ -377,6 +380,7 @@ footer nav ul a {
     color: #5aee1a;
 }
 .card {
+    border: none;
     background-color: transparent;
     margin-right: 1rem;
 }
@@ -701,7 +705,7 @@ color:#fff;
     width: 100%;
 }
 .road-par {
-    font: normal normal 900 32px Acumin Variable Concept;
+    font: normal normal 900 32px acumin;
     letter-spacing: 0px;
     color: #010124;
     opacity: 1;
@@ -722,7 +726,7 @@ footer {
 }
 .road-par-grey {
     margin-top: 0.4rem;
-    font: normal normal 900 32px/38px Acumin Variable Concept;
+    font: normal normal 900 32px/38px acumin;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 0.3;
@@ -740,13 +744,11 @@ footer {
     margin-left:-3.3rem;
     margin-bottom: 0.2rem;
 }
-.inside img{
-    margin-bottom: 0.2rem;
-}
+
 .supreme-title {
     font-size: 5rem;
     width: 35rem;
-    color: black;
+    color: #000;
     margin-top: 27rem;
     margin-left: 40rem;
 }
@@ -783,7 +785,7 @@ footer {
 }
 .tshirt-title {
     text-align: left;
-    font: normal normal 900 40px/55px Avenir;
+    font: normal normal 900 40px/55px acumin;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -795,7 +797,7 @@ footer {
 }
 .tshirt-description {
     text-align: left;
-    font: normal normal 300 28px Acumin Variable Concept;
+    font: normal normal 300 28px acumin;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -804,7 +806,7 @@ footer {
 }
 .td-price {
     text-align: left;
-    font: normal normal 900 24px Avenir;
+    font: normal normal 900 24px acumin;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -814,7 +816,7 @@ footer {
     margin-top: 4rem;
 }
 .nb-price {
-    font: normal normal normal 24px Avenir;
+    font: normal normal normal 24px acumin;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -878,7 +880,7 @@ footer {
 .hyperlink-addToCart {
     text-align: center;
     text-decoration: underline;
-    font: normal normal 900 19px Avenir;
+    font: normal normal 900 19px acumin;
     letter-spacing: 0px;
     color: #5aee1a;
     opacity: 1;
@@ -1017,14 +1019,14 @@ footer {
 }
 .img-title{
     text-align: left;
-    font: normal normal 900 30px Acumin Variable Concept;
+    font: normal normal 900 30px acumin;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
 .img-parag{
     text-align: left;
-    font: normal normal 300 20px Acumin Variable Concept;
+    font: normal normal 300 20px acumin;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
@@ -1034,7 +1036,7 @@ footer {
 .read-more{
     text-align: left;
     text-decoration: underline;
-    font: normal normal 600 18px Acumin Variable Concept;
+    font: normal normal 600 18px acumin;
     letter-spacing: 0px;
     color: #08F0FC;
     opacity: 1;
@@ -1272,6 +1274,9 @@ display: table-cell;
 	font-size: 15px;
 	transition: all 100ms linear;
 }
+.radio{
+    display: flex;
+}
 
 .radio input:checked {
 	color: #fff;
@@ -1344,7 +1349,6 @@ color:#707070;
 }
 .width-word2{
     margin-left: 5rem;
-    width: min-content;
     margin-top: 4rem;
     font-size: 4rem;
     font-family: 'gos';
@@ -1375,4 +1379,16 @@ color:#707070;
 }
 .padding-10{
 padding: 10rem;
+}
+.coin-symbol{
+    font: normal normal 900 15px/20px acumin;
+    letter-spacing: 0px;
+}
+.coin-price{
+    font: normal normal 900 15px/20px acumin;
+    letter-spacing: 0px;
+}
+.coin-24h-change{
+    font: normal normal 900 17px/23px acumin;
+    letter-spacing: 0px;
 }

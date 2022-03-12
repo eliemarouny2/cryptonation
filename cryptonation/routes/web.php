@@ -29,6 +29,8 @@ use App\Models\Roadmap;
 use App\Models\Subscriber;
 use App\Models\Variant;
 use App\Models\Vlog;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -66,13 +68,25 @@ Route::group(['middleware' => ['LangCheck']], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
+    
+    
         Route::get('/orders', function () {
-        return view('orders');
+            $orders = DB::table('orders')
+            ->select('*')
+            ->orderBy('date','desc')
+            ->where('customer_id',Auth::user()->id)
+            ->paginate(15);
+        return view('orders',[
+            'orders'=>$orders
+        ]);
     })->middleware(['auth'])->name('orders');
+    
     
     require __DIR__ . '/auth.php';
     
     Route::post('/', [CartController::class, 'store'])->name('cart.store');
+    Route::get('single_order/{id}', [CHome::class, 'single_order'])->middleware(['auth']);
+
 });
 
 Route::get('/adminlogin', [AuthController::class, 'login'])->name('adminauth.login');
@@ -171,13 +185,25 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
         return view('admin/reports/sales_report');
     });
-    Route::get('/manage_orders', function () {
+    Route::get('/pending_orders', function () {
         $orders = DB::table('orders')
             ->join('customers', 'orders.customer_id', '=', 'customers.cust_id')
             ->select('customers.firstname', 'customers.lastname', 'orders.*')
             ->orderBy('orders.date','desc')
+            ->where('status','pending')
             ->paginate(15);
-        return view('admin/orders/manage_orders', [
+        return view('admin/orders/pending_orders', [
+            'orders' => $orders,
+        ]);
+    });
+    Route::get('/successful_orders', function () {
+        $orders = DB::table('orders')
+            ->join('customers', 'orders.customer_id', '=', 'customers.cust_id')
+            ->select('customers.firstname', 'customers.lastname', 'orders.*')
+            ->orderBy('orders.date','desc')
+            ->where('status','complete')
+            ->paginate(15);
+        return view('admin/orders/successful_orders', [
             'orders' => $orders,
         ]);
     });
@@ -222,7 +248,9 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::post('/insert_subscriber', [CSubscribers::class, 'insert_subscriber']);
     Route::post('/report', [CReport::class, 'report']);
 
-    Route::get('delete_order/{id}', [COrder::class, 'delete_order']);
+    Route::get('delete_successful_order/{id}', [COrder::class, 'delete_successful_order']);
+    Route::get('delete_pending_order/{id}', [COrder::class, 'delete_pending_order']);
+    Route::get('complete_order/{id}', [COrder::class, 'complete_order']);
     Route::get('delete_language/{id}', [CSettings::class, 'delete_language']);
 
     Route::get('delete_blog/{id}', [CBlog::class, 'delete_blog']);

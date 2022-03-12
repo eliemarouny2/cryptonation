@@ -1,3 +1,8 @@
+<style>
+   .view-btn{
+      background-color: #010124;
+   }
+</style>
 <x-app-layout>
    <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -16,27 +21,25 @@
                         <th scope="col">order ID</th>
                         <th scope="col">Order date</th>
                         <th scope="col">Amount</th>
+                        <th scope="col">Payment method</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                      </tr>
                   </thead>
                   <tbody>
+                     <?php $i=1; ?>
+                     @foreach($orders as $order)
                      <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="row">{{$i}}</th>
+                        <td>{{$order->order_id}}</td>
+                        <td>{{$order->date}}</td>
+                        <td>{{$order->total_amount}}$</td>
+                        <td>{{$order->paymethod}}</td>
+                        <td>{{$order->status}}</td>
+                        <td><a class="badge view-btn" href={{"single_order/".$order->order_id}}>view</a></td>
                      </tr>
-                     <tr>
-                        <th scope="row">2</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                     </tr>
-                     <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2"></td>
-                        <td></td>
-                     </tr>
+                     <?php $i++; ?>
+                     @endforeach
                   </tbody>
                </table>
             </div>

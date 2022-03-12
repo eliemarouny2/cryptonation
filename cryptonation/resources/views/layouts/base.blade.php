@@ -166,6 +166,7 @@ curl_close($curl); // Close request
 		<!-- Header bar end -->
 
 		<!-- Stocks chart start -->
+		@if(isset($r))
 		<nav class="navbar navig2 navbar-expand-lg navbar-light ">
 			<div class="container-fluid white custom-coin">
 				<div class="coin-data">
@@ -175,13 +176,9 @@ curl_close($curl); // Close request
 						<img src="/images/icons/green.png" class="chart-image" alt="red image">
 					<?php } ?>
 					<div class="coin-info">
-						<span>
-							BTC
-						</span>
-						<span>
-							<?php echo number_format($r->bitcoin->usd, 2); ?>
-						</span>
-						<span class="<?php if ($r->bitcoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+						<span class="coin-symbol">BTC</span>
+						<span class="coin-price"><?php echo number_format($r->bitcoin->usd, 2); ?></span>
+						<span class="coin-24h-change <?php if ($r->bitcoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
 							<?php echo number_format($r->bitcoin->usd_24h_change, 2); ?>
 						</span>
 					</div>
@@ -210,7 +207,7 @@ curl_close($curl); // Close request
 					<?php } ?>
 					<div class="coin-info">
 						<span class="coin-symbol">XRP</span>
-						<span><?php echo number_format($r->ripple->usd, 2); ?></span>
+						<span class="coin-price"><?php echo number_format($r->ripple->usd, 2); ?></span>
 						<span class="coin-24h-change <?php if ($r->ripple->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
 							<?php echo number_format($r->ripple->usd_24h_change, 2); ?>
 						</span>
@@ -264,6 +261,7 @@ curl_close($curl); // Close request
 				</div>
 			</div>
 		</nav>
+		@endif
 		<!-- Stocks chart end -->
 
 
@@ -286,7 +284,7 @@ curl_close($curl); // Close request
 								<a href="/about">About us</a>
 							</li>
 							<li class="active">
-								<a href="/contactus">Contact us</a>
+							<a href="/merch">Merch</a>
 							</li>
 						</ul>
 					</div>
@@ -297,9 +295,6 @@ curl_close($curl); // Close request
 							</li>
 							<li class="active">
 								<a href="/blogs">Blog</a>
-							</li>
-							<li class="active">
-								<a href="/merch">Merch</a>
 							</li>
 						</ul>
 					</div>
@@ -321,16 +316,16 @@ curl_close($curl); // Close request
 							<label>Follow us</label>
 							<div class="socialmedia">
 								@if($youtube->status)
-								<a href="{{$youtube->social_url}}" target="_blank"><img src="/images/icons/youtube.png" alt="youtube icon" /></a>
+								<a href="{{$youtube->social_url}}" target="_blank"><img src="/images/icons/youtube.svg" alt="youtube icon" /></a>
 								@endif
 								@if($facebook->status)
-								<a href="{{$facebook->social_url}}" target="_blank"><img src="/images/icons/facebook.png" alt="facebook icon" /></a>
+								<a href="{{$facebook->social_url}}" target="_blank"><img src="/images/icons/facebook.svg" alt="facebook icon" /></a>
 								@endif
 								@if($instagram->status)
-								<a href="{{$instagram->social_url}}" target="_blank"><img src="/images/icons/instagram.png" alt="instagram icon" /></a>
+								<a href="{{$instagram->social_url}}" target="_blank"><img src="/images/icons/instagram.svg" alt="instagram icon" /></a>
 								@endif
 								@if($mail->status)
-								<a href="mailto:{{$mail->social_url}}" target="_blank"><img src="/images/icons/mail.png" alt="mail icon" /></a>
+								<a href="mailto:{{$mail->social_url}}" target="_blank"><img src="/images/icons/mail.svg" alt="mail icon" /></a>
 								@endif
 							</div>
 						</div>

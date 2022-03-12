@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="61" viewBox="0 0 52 61">
+  <defs>
+    <clipPath id="clip-Artboard_2">
+      <rect width="52" height="61"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_2" data-name="Artboard – 2" clip-path="url(#clip-Artboard_2)">
+    <ellipse id="Ellipse_133" data-name="Ellipse 133" cx="21.5" cy="22" rx="21.5" ry="22" transform="translate(5 7)" fill="#08f0fc"/>
+    <path id="Exclusion_1" data-name="Exclusion 1" d="M166,489H151a2,2,0,0,1-2-2v-9a2,2,0,0,1,2-2h15a2,2,0,0,1,2,2v9A2,2,0,0,1,166,489Zm-9.41-9.942h0v7.668L161.427,483Z" transform="translate(-132 -453)" fill="#010124"/>
+  </g>
+</svg>

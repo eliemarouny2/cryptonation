@@ -19,7 +19,7 @@
                <div class="card">
                   <div class="invoice p-5">
                      <h5 class="bluish2">Your order Confirmed!</h5> <span class="font-weight-bold d-block mt-4">Hello,
-                        {{ucfirst($data->firstname)}}</span> <span>You order has been confirmed and will be shipped
+                        {{ucfirst($firstname)}}</span> <span>You order has been confirmed and will be shipped
                         in next
                         two
                         days!</span>
@@ -32,11 +32,11 @@
                                  </td>
                                  <td>
                                     <div class="py-2"> <span class="d-block text-muted">Order No</span>
-                                       <span class="white-color">MT12332345</span>
+                                       <span class="white-color">{{$order_id}}</span>
                                     </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span> </div>
+                                    <div class="py-2"> <span class="d-block text-muted">Payment</span><span class="white-color">Pallapay</span></div>
                                  </td>
                                  <td>
                                     <div class="py-2"> <span class="d-block text-muted">Address</span>

@@ -32,11 +32,11 @@
                                  </td>
                                  <td>
                                     <div class="py-2"> <span class="d-block text-muted">Order No</span>
-                                       <span class="white-color">MT12332345</span>
+                                       <span class="white-color">{{$order_id}}</span>
                                     </div>
                                  </td>
                                  <td>
-                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span> </div>
+                                    <div class="py-2"> <span class="d-block text-muted">Payment</span> <span class="white-color">Cash on delivery</span> </div>
                                  </td>
                                  <td>
                                     <div class="py-2"> <span class="d-block text-muted">Address</span>
@@ -57,24 +57,24 @@
                                        <div class="text-left"> <span class="white-color">Subtotal</span> </div>
                                     </td>
                                     <td>
-                                       <div class="text-right"> <span class="white-color">$168.50</span> </div>
+                                       <div class="text-right"> <span class="white-color">{{$amount}}$</span> </div>
                                     </td>
                                  </tr>
-                                 <tr>
+                                 <!-- <tr>
                                     <td>
                                        <div class="text-left"> <span class="white-color">Shipping Fee</span> </div>
                                     </td>
                                     <td>
                                        <div class="text-right"> <span class="white-color">$22</span> </div>
                                     </td>
-                                 </tr>
+                                 </tr> -->
                                  <tr class="border-top border-bottom">
                                     <td>
                                        <div class="text-left"> <span class="font-weight-bold white-color">Total</span>
                                        </div>
                                     </td>
                                     <td>
-                                       <div class="text-right"> <span class="font-weight-bold bluish2">$238.50</span>
+                                       <div class="text-right"> <span class="font-weight-bold bluish2">{{$amount}}$</span>
                                        </div>
                                     </td>
                                  </tr>

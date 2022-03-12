@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-<section class="video">
+<section class="video ">
 			<iframe class="fullvideo" src="https://www.youtube.com/embed/tgbNymZ7vqY">
 			</iframe>
 			<div class="welometovlogs">

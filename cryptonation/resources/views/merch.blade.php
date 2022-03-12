@@ -170,9 +170,7 @@ $iii = 0;
 <section class="limited">
 	<div class="container-fluid sizes">
 		<h1 class="width-word3">Limited edition</h1>
-		<div class="row">
-			<p class="bet-to-own stocks-bet"> Bet on this item to own it </p>
-		</div>
+			<p class="bet-to-own"> Bet on this item to own it </p>
 		<div class="row">
 			<div class="col-12 col-lg-7">
 				<img src="images/backgrounds/hat.png" class="bet-img w-100">
@@ -266,10 +264,8 @@ $iii = 0;
 							</div>
 							<div class="col-2 flexer">
 								<img class="right-arrow v-align" src="images/icons/right.png">
-
 							</div>
 						</div>
-
 					</div>
 					<div class="col-12 col-lg-6 ps-5 pt-4 descript">
 						<div class="row">

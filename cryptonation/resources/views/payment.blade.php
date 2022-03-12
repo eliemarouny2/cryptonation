@@ -142,7 +142,7 @@
                             <input type="hidden" name="state" value="{{$checkout_data->city}}">
                             <input type="hidden" name="country" value="{{$checkout_data->country}}">
                             <input type="hidden" name="postalcode" value="{{$checkout_data->zipcode}}">
-                            <input type="hidden" name="custom" value="comment">
+                            <input type="hidden" name="custom" value="{{$order_id}}">
                             <div class="text-center">
                                 <button class="btn mariner btn-lg white" type="submit">Pay now!</button>
                             </div>

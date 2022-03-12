@@ -1,0 +1,22 @@
+
+@font-face {
+    font-family: acumin;
+    src: url(../fonts/acumin.otf);
+}
+body{
+font-family: 'acumin';
+}
+.card-header{
+    background-color: #fff;;
+}
+a{
+    background-color: #010124;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+}
+.custom-01{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

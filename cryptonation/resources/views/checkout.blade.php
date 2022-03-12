@@ -51,8 +51,8 @@
 
                 <div class="col-6 mb-3">
                   <div class="input-group">
-                    <input list="numbers" name="phonecode" id="phonecode" class="greenish phonecode" required>
-                    <datalist id="numbers">
+                    <input list="numbers" value="+971" name="phonecode" id="phonecode" class="greenish phonecode" required>
+                    <datalist id="numbers" >
                       @foreach($countries as $country)
                       <option value="+{{$country->phonecode}}">+{{$country->phonecode}}</option>
                       @endforeach
@@ -97,7 +97,7 @@
                 <div class="col-6 mb-3">
                   <select class="form-select" name="country" id="country" required>
                     @foreach($countries as $country)
-                    <option value="{{$country->name}}">{{$country->name}}</option>
+                    <option value="{{$country->name}}" <?php if($country->name=='United Arab Emirates'){ echo 'selected'; } ?>>{{$country->name}}</option>
                     @endforeach
                   </select>
                 </div>
@@ -130,39 +130,8 @@
                 <img src="/images/icons/ssl.png" alt="ssl image">
                 <span class="ssl">Your transaction is secured with SSL encryption</span>
               </div>
-              <!-- <div class="row">
-                <div class="col-12 mb-3">
-                  <input type="text" class="form-control" id="cardnumber" name="cardnumber" placeholder="Card Number" required>
-
-                </div>
-                <div class="col-6 mb-3">
-                  <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="ZIP code">
-
-                </div>
-            
-              
-                <div class="col-6 mb-3">
-                  <input class="form-control" id="city" name="city" required placeholder="City" />
-                  <div class="invalid-feedback">
-                    Please select a valid city.
-                  </div>
-                </div>
-
-                <div class="col-6 mb-3">
-                  <select class="form-select" name="country" id="country" required>
-                    @foreach($countries as $country)
-                    <option value="{{$country->name}}">{{$country->name}}</option>
-                    @endforeach
-                  </select>
-                  <div class="invalid-feedback">
-                    Please provide a valid country.
-                  </div>
-                </div>
-            </div> -->
             </div>
           </div>
-
-
           <div class="centered2">
             <button class="w-40 btn btn-lg checkout-btn" type="submit">checkout</button>
           </div>

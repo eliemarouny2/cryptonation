@@ -270,6 +270,9 @@
         text-align: center;
         margin-left: 0rem;
      }
+     .descript{
+        padding: 4rem;
+     }
      .padding-10{
         padding: 2rem;
      }
@@ -337,7 +340,7 @@
         height: 2rem;
      }
      .descript{
-         padding-right: 0rem;
+        padding: 2rem;
      }
      .zoomed-tshirts{
         height: 3rem;
@@ -390,7 +393,7 @@
         max-width: fit-content;
      }
      .resp-disp{
-        max-width: fit-content;
+        max-width: 100%;
         display:unset;
      }
      .buy-now{

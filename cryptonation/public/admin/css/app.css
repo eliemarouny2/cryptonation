@@ -26,8 +26,12 @@
 .color-link {
     color: #2178d1;
 }
+@font-face {
+    font-family: acumin;
+    src: url(../../fonts/acumin.otf);
+}
 * {
-    font-family: Raleway;
+    font-family: 'acumin';
 }
 #app {
     position: relative;
