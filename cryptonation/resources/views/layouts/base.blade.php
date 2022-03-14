@@ -65,7 +65,7 @@ curl_close($curl); // Close request
 							<div class="col-9">
 								<span class="cartitemtitle">{{$cartitem->name}}</span> <br>
 								<span class="cartitemprice">{{$cartitem->price}}$</span><br>
-								<?php if(isset($cartitem->options['variant'])){ ?><span class="cartitemvariant">&nbsp;{{$cartitem->options['variant']}} &nbsp;</span><br> <?php } ?>
+								<?php if (isset($cartitem->options['variant'])) { ?><span class="cartitemvariant">&nbsp;{{$cartitem->options['variant']}} &nbsp;</span><br> <?php } ?>
 								<span class="cartitemqnty">Qty: {{$cartitem->qty}}</span>
 							</div>
 							<div class="col-3 remove-from-cart">
@@ -107,16 +107,16 @@ curl_close($curl); // Close request
 					<div class="collapse navbar-collapse custom-nav" id="navbarsExample03">
 						<ul class="navbar-nav mb-2  mb-sm-0 centered2">
 							<li class="nav-item ml-4">
-								<a class="lrg white-color <?php if(request()->segment(1)=='vlogs'){ ?>blue-picked <?php } ?>" href="/vlogs">Vlog</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'vlogs') { ?>blue-picked <?php } ?>" href="/vlogs">Vlog</a>
 							</li>
 							<li class="nav-item">
-								<a class="lrg white-color <?php if(request()->segment(1)=='blogs'){ ?>blue-picked <?php } ?>" href="/blogs">Blog</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'blogs') { ?>blue-picked <?php } ?>" href="/blogs">Blog</a>
 							</li>
 							<li class="nav-item">
-								<a class="lrg white-color <?php if(request()->segment(1)=='merch'){ ?>blue-picked <?php } ?>" href="/merch">Merch</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'merch') { ?>blue-picked <?php } ?>" href="/merch">Merch</a>
 							</li>
 							<li class="nav-item">
-								<a class="lrg white-color <?php if(request()->segment(1)=='about'){ ?>blue-picked <?php } ?>" href="/about">About us</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'about') { ?>blue-picked <?php } ?>" href="/about">About us</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav mb-sm-0 centered2">
@@ -165,11 +165,10 @@ curl_close($curl); // Close request
 		</header>
 		<!-- Header bar end -->
 
-		<!-- Stocks chart start -->
-		@if(isset($r))
-		<nav class="navbar navig2 navbar-expand-lg navbar-light ">
-			<div class="container-fluid white custom-coin">
-				<div class="coin-data">
+		<div class="ticker-container">
+			<div class="ticker-wrapper">
+				<div class="ticker-transition">
+					<div class="ticker-item"><div class="coin-data">
 					<?php if ($r->bitcoin->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
@@ -178,13 +177,13 @@ curl_close($curl); // Close request
 					<div class="coin-info">
 						<span class="coin-symbol">BTC</span>
 						<span class="coin-price"><?php echo number_format($r->bitcoin->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->bitcoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+						<span class="coin-24h-change <?php if ($r->bitcoin->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
 							<?php echo number_format($r->bitcoin->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
-				</div>
-				<div class="coin-data">
+				</div></div>
+					<div class="ticker-item"><div class="coin-data">
 					<?php if ($r->ethereum->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
@@ -193,13 +192,13 @@ curl_close($curl); // Close request
 					<div class="coin-info">
 						<span class="coin-symbol">ETH</span>
 						<span class="coin-price"><?php echo number_format($r->ethereum->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->ethereum->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+						<span class="coin-24h-change <?php if ($r->ethereum->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
 							<?php echo number_format($r->ethereum->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
-				</div>
-				<div class="coin-data">
+				</div></div>
+					<div class="ticker-item"><div class="coin-data">
 					<?php if ($r->ripple->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
@@ -208,13 +207,13 @@ curl_close($curl); // Close request
 					<div class="coin-info">
 						<span class="coin-symbol">XRP</span>
 						<span class="coin-price"><?php echo number_format($r->ripple->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->ripple->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+						<span class="coin-24h-change <?php if ($r->ripple->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
 							<?php echo number_format($r->ripple->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
-				</div>
-				<div class="coin-data">
+				</div></div>
+					<div class="ticker-item"><div class="coin-data">
 					<?php if ($r->dogecoin->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
@@ -223,13 +222,13 @@ curl_close($curl); // Close request
 					<div class="coin-info">
 						<span class="coin-symbol">DOGE</span>
 						<span class="coin-price"><?php echo number_format($r->dogecoin->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->dogecoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+						<span class="coin-24h-change <?php if ($r->dogecoin->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
 							<?php echo number_format($r->dogecoin->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
-				</div>
-				<div class="coin-data">
+				</div></div>
+					<div class="ticker-item"><div class="coin-data">
 					<?php if ($r->solana->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
@@ -238,13 +237,13 @@ curl_close($curl); // Close request
 					<div class="coin-info">
 						<span class="coin-symbol">SOL</span>
 						<span class="coin-price"><?php echo number_format($r->solana->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->solana->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+						<span class="coin-24h-change <?php if ($r->solana->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
 							<?php echo number_format($r->solana->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
-				</div>
-				<div class="coin-data">
+				</div></div>
+					<div class="ticker-item"><div class="coin-data">
 					<?php if ($r->cardano->usd_24h_change < 0) { ?>
 						<img src="/images/icons/red.png" class="chart-image" alt="red image">
 					<?php } else { ?>
@@ -253,17 +252,15 @@ curl_close($curl); // Close request
 					<div class="coin-info">
 						<span class="coin-symbol">ADA</span>
 						<span class="coin-price"><?php echo number_format($r->cardano->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->cardano->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
+						<span class="coin-24h-change <?php if ($r->cardano->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
 							<?php echo number_format($r->cardano->usd_24h_change, 2); ?>
 						</span>
 					</div>
 					<span></span>
+				</div></div>
 				</div>
 			</div>
-		</nav>
-		@endif
-		<!-- Stocks chart end -->
-
+		</div>
 
 		<!-- Main page start -->
 		<main>
@@ -284,7 +281,7 @@ curl_close($curl); // Close request
 								<a href="/about">About us</a>
 							</li>
 							<li class="active">
-							<a href="/merch">Merch</a>
+								<a href="/merch">Merch</a>
 							</li>
 						</ul>
 					</div>

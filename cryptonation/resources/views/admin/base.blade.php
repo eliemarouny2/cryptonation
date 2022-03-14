@@ -170,6 +170,7 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
                                 <ul class="submenu ">
                                     <li><a href="/manage_subscribers">Manage Subscribers</a></li>
                                     <li><a href="/add_subscriber">Add Subscriber</a></li>
+                                    <li><a href="/write_email">Send Email</a></li>
                                 </ul>
                             </li>
                             <li class="sidebar-item  ">

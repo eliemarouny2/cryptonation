@@ -20,8 +20,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="basicInput">Product Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" required
-                                            placeholder="name">
+                                        <input type="text" class="form-control" id="name" name="name" required placeholder="name">
                                     </div>
                                 </div>
                             </div>
@@ -30,8 +29,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="basicInput">Product Price</label>
-                                        <input type="number" min="1" class="form-control" id="price" name="price"
-                                            required placeholder="price">
+                                        <input type="number" min="1" class="form-control" id="price" name="price" required placeholder="price">
                                     </div>
                                 </div>
                             </div>
@@ -70,18 +68,17 @@
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                        <textarea class="form-control" id="description" name="description"
-                                            rows="5"></textarea>
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea class="form-control" id="description" name="description" rows="5"></textarea>
                                     </div>
                                 </div>
                             </div>
 
-                           <div class="row mt-3">
+                            <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <select class="choices form-select" multiple="multiple" id="variants"
-                                            name="variants[]">
+                                        <label for="variants" class="form-label">Variants</label>
+                                        <select class="choices form-select" multiple="multiple" id="variants" name="variants[]">
                                             @foreach($variants as $variant)
                                             <option value="{{$variant->variant_name}}">{{$variant->variant_name}}</option>
                                             @endforeach
@@ -93,10 +90,10 @@
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <select class="choices form-select" multiple="multiple" id="colors"
-                                            name="colors[]">
+                                        <label for="colors" class="form-label">Description</label>
+                                        <select class="choices form-select" multiple="multiple" id="colors" name="colors[]">
                                             @foreach($colors as $color)
-                                            <option value="{{$color->color_id}}">{{$color->color}}</option>
+                                            <option value="{{$color->color}}">{{$color->color}}</option>
                                             @endforeach
                                         </select>
                                     </div iv>
