@@ -22,7 +22,10 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $countries = DB::table('countries')->get();
+        return view('auth.register',[
+            'countries'=>$countries
+        ]);
     }
 
     /**

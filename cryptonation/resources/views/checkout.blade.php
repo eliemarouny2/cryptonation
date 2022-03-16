@@ -2,7 +2,7 @@
 @section('content')
 
 <style>
-    input[type="radio"]{
+  input[type="radio"] {
     display: none;
   }
 </style>
@@ -45,22 +45,21 @@
               </div>
               <div class="row">
                 <div class="col-6 mb-3">
-                <span class="text-danger mb-4">@error('email'){{ $message }} @enderror</span>
+                  <span class="text-danger mb-4">@error('email'){{ $message }} @enderror</span>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" value="" required>
                 </div>
 
                 <div class="col-6 mb-3">
                   <div class="input-group">
-                    <input list="numbers" value="+971" name="phonecode" id="phonecode" class="greenish phonecode" required>
-                    <datalist id="numbers" >
+                    <select class="form-select" name="country" id="country" required>
                       @foreach($countries as $country)
-                      <option value="+{{$country->phonecode}}">+{{$country->phonecode}}</option>
+                      <option value="{{$country->name}}" <?php if ($country->phonecode == '971') {
+                                                            echo 'selected';
+                                                          } ?>>+{{$country->phonecode}}</option>
                       @endforeach
-                    </datalist>
-                    <span class="text-danger mb-4">@error('phone'){{ $message }} @enderror</span>
+                    </select>
                     <input type="number" name="phone" id="phone" class="form-control" required>
                   </div>
-                  
                 </div>
               </div>
             </div>
@@ -79,12 +78,12 @@
               </div>
               <div class="row">
                 <div class="col-12 mb-3">
-                <span class="text-danger mb-4">@error('address'){{ $message }} @enderror</span>
+                  <span class="text-danger mb-4">@error('address'){{ $message }} @enderror</span>
                   <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" required>
 
                 </div>
                 <div class="col-6 mb-3">
-                <span class="text-danger mb-4">@error('zip'){{ $message }} @enderror</span>
+                  <span class="text-danger mb-4">@error('zip'){{ $message }} @enderror</span>
                   <input type="text" class="form-control" id="zipcode" name="zipcode" required placeholder="ZIP code">
 
                 </div>
@@ -97,7 +96,9 @@
                 <div class="col-6 mb-3">
                   <select class="form-select" name="country" id="country" required>
                     @foreach($countries as $country)
-                    <option value="{{$country->name}}" <?php if($country->name=='United Arab Emirates'){ echo 'selected'; } ?>>{{$country->name}}</option>
+                    <option value="{{$country->name}}" <?php if ($country->name == 'United Arab Emirates') {
+                                                          echo 'selected';
+                                                        } ?>>{{$country->name}}</option>
                     @endforeach
                   </select>
                 </div>
@@ -113,12 +114,12 @@
                 <div class="col-12">
                   <h4 class="mb-3 bluish2">Payment Method</h4>
                 </div>
-                <div class=" col-8 wrapper2">
+                <div class=" col-12 col-lg-8 wrapper2">
                   <input type="radio" name="paymethod" id="option-1" value="pallapay" checked>
                   <input type="radio" name="paymethod" id="option-2" value="cash">
                   <label for="option-1" class="option option-1">
                     <div class="dot"></div>
-                    <span><img src="/images/icons/paypal.png" alt=""></span>
+                    <span><img src="/images/icons/pallapay.svg" class="custom-check" alt=""></span>
                   </label>
                   <label for="option-2" class="option option-2">
                     <div class="dot"></div>

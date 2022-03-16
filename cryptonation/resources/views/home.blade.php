@@ -4,20 +4,8 @@
 @section('content')
 
 <section class="hero-banner">
-    <div class="slider">
-        <div class="slide">
-            <div class="image">
-                <div class="contenttitle">
-                    <h1>{{ __('msg.get_supreme_shirts')}}</h1>
-                </div>
-                <div class="content">
-                    <div class="shopbtn">
-                        <a href="/merch">{{ __('msg.shop_now')}} > > ></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <img src="/images/backgrounds/banner-home.svg" class="w-100 show-non-resp" alt="">
+    <img src="/images/backgrounds/banner-home2.svg" class="w-100 show-resp" alt="">
 </section>
 
 @if(count($trending_shirts) > 1)
@@ -71,13 +59,13 @@
             <h1 class="world-title">Worldwide</h1>
             <h2 class="world-subtitle">Shipping</h2>
         </div>
-        <div class="worldimage"></div>
+       <img src="/images/icons/world.png" class="w-100 mt-5 mb-5" alt="">
     </div>
 </section>
 
 @if(count($trendings_posters) > 1)
 <section class="hero-banner2">
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
         <h1 class="width-word mt-5">designer poster</h1>
         <div id="owl-demo-3" class="owl-carousel owl-theme mb-5">
             @foreach($trendings_posters as $trending_poster)

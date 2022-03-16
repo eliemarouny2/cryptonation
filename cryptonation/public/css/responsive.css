@@ -247,16 +247,20 @@
         justify-content: end;
         margin-right: 0rem;
     }
-    .width-word2{
-        margin-left: 0rem !important;
-        width: 100%;
-        text-align: center;
+    .world-title{
         font-size: 2.5rem;
     }
     .width-word{
         width: 100%;
         margin-left: 0rem !important;
         text-align: center;
+        font-size: 2.5rem;
+    }
+    .width-word2{
+        margin-left: 0rem !important;
+        width: 100%;
+        text-align: center;
+        font-size: 2.5rem;
     }
     .width-word3{
         margin-left: 0rem !important;
@@ -335,6 +339,12 @@
         margin-left: 2.4rem;
         font-size: 2rem;
         max-width: 3rem;
+     }
+     .show-non-resp{
+        display: none;
+     }
+    .show-resp{
+        display: block;
      }
     .chart-image{
         height: 2rem;

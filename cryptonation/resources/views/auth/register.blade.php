@@ -54,11 +54,14 @@
                 <div class="row g-3 mt-1">
                     <div class="col-md-6 col-lg-4">
                         <div class="input-group">
-                            <select name="phonecode" id="phonecode" class="greenish phonecode">
-                                <option value="+961">+961</option>
-                            </select>
-                            <input type="number" name="number" id="number" class="form-control" required>
-                            <span class="text-danger mb-4">@error('number'){{ $message }} @enderror</span>
+                            <input list="numbers" value="+971" name="phonecode" id="phonecode" class="greenish phonecode" required>
+                            <datalist id="numbers">
+                                @foreach($countries as $country)
+                                <option value="+{{$country->phonecode}}">+{{$country->phonecode}}</option>
+                                @endforeach
+                            </datalist>
+                            <span class="text-danger mb-4">@error('phone'){{ $message }} @enderror</span>
+                            <input type="number" name="phone" id="phone" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">

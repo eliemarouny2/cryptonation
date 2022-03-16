@@ -35,20 +35,20 @@ jQuery(document).ready(function ($) {
         responsive: {
             0: {
                 items: 1,
-                nav: false,
+                nav: true,
             },
             480: {
                 items: 1,
-                nav: false,
+                nav: true,
             },
             768: {
                 items: 2,
-                nav: false,
+                nav: true,
                 loop: false,
             },
             992: {
                 items: 3,
-                nav: false,
+                nav: true,
                 loop: false,
             },
         },
@@ -485,7 +485,7 @@ jQuery(document).ready(function ($) {
             },
             480: {
                 items: 1,
-                nav: false,
+                nav: true,
             },
             768: {
                 items: 2,

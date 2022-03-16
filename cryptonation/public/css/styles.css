@@ -195,9 +195,6 @@ header nav ul li a {
     opacity: 1;
 }
 .item {
-
-    background-size: 450px;
-    height: 32rem;
     position: relative;
 }
 .cartitemname{
@@ -213,8 +210,6 @@ header nav ul li a {
     margin-bottom:4rem;
 }
 .item24 {
-    background-size: 400px;
-    height: 50rem;
     position: relative;
 }
 .price-name2{
@@ -1424,3 +1419,24 @@ padding: 10rem;
     display: inline-block;
     padding: 0 2rem;
     }
+    .custom-check{
+        height: 100%;
+        width: 100%;
+    }
+   .customized-input{
+       width: 65% !important;
+   }
+   .customized-input-2{
+    width: 35% !important;
+   }
+   .floating-wpp-message{
+    color:#000 !important; 
+   }
+   #WAButton{
+    z-index:9999;
+    bottom: 25px;
+    left: 25px;
+   }
+   .show-resp{
+    display: none;
+   }

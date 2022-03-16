@@ -37,7 +37,7 @@
 	</div>
 	<div class="row mt-5 mb-5">
 		<div class="col-12">
-			<img src="images/icons/road.png" class="w-100" alt="">
+			<img src="images/backgrounds/roadmap.svg" class="w-100" alt="">
 		</div>
 	</div>
 </section>
