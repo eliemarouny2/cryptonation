@@ -1,5 +1,10 @@
 @extends('layouts.base')
 @section('content')
+<style>
+	.row{
+		margin-right: 0rem;
+	}
+</style>
 <section class="round-background">
 	<div class="row mt-4">
 		<div class="col-7">
@@ -30,14 +35,10 @@
 			<img src="images/icons/astro2.png" class="w-100">
 		</div>
 	</div>
-	<div class="row justify-content-end">
-		<div class="col-7">
-			<img src="images/backgrounds/roadmap.png" class="w-100 img-vis" alt="">
-		</div>
-	</div>
+	
 	<div class="row mt-5 mb-5">
 		<div class="col-12">
-			<img src="images/backgrounds/roadmap.svg" class="w-100" alt="">
+			<img src="images/backgrounds/roadmap.png" class="w-100" alt="">
 		</div>
 	</div>
 </section>

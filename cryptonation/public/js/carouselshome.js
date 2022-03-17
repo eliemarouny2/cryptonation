@@ -122,11 +122,11 @@ jQuery(document).ready(function ($) {
         responsive: {
             0: {
                 items: 1,
-                nav: false,
+                nav: true,
             },
             480: {
                 items: 1,
-                nav: false,
+                nav: true,
             },
             768: {
                 items: 2,
@@ -210,21 +210,21 @@ jQuery(document).ready(function ($) {
         responsive: {
             0: {
                 items: 1,
-                nav: false,
+                nav: true,
             },
             800: {
                 items: 2,
-                nav: false,
+                nav: true,
                 loop: false,
             },
             992: {
                 items: 2,
-                nav: false,
+                nav: true,
                 loop: false,
             },
             1300: {
                 items: 3,
-                nav: false,
+                nav: true,
                 loop: false,
             },
         },

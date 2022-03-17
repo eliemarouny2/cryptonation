@@ -41,6 +41,12 @@ class CHome extends Controller
             'blogs' => $blogs
         ]);
     }
+    public function search(Request $req){
+        $products=Product::where('prod_status', 1)->where('prod_name','LIKE','%'.$req->searchinput.'%')->get();
+       return view('result',[
+           'products'=>$products
+       ]);
+    }
     public function single_order($id)
     {
         $order_items = DB::table('order_infos')
@@ -214,7 +220,7 @@ class CHome extends Controller
     {
         $product = Product::where('prod_id', $req->id)->first();
         $images = Image_gallery::where('product_id', $req->id)->get();
-        $similars = Product::where('fk_cat_id', $product->fk_cat_id)->get();
+        $similars = Product::where('fk_cat_id', $product->fk_cat_id)->where('prod_status',1)->get();
         return view('view_product', [
             'product' => $product,
             'galleries' => $images,

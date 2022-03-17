@@ -28,7 +28,6 @@
    </div>
 
    <div class="col-12 col-lg-6 pt-4 descript">
-
       <div class="row">
          <div class="col-12">
             <h4 class="row tshirt-title">{{$product->prod_name}}</h4>

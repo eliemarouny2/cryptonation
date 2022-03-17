@@ -55,6 +55,7 @@ Route::group(['middleware' => ['LangCheck']], function () {
     Route::get('/about', [CHome::class, 'about']);
     Route::get('/merch', [CHome::class, 'merch']);
     Route::post('/add_to_cart', [CHome::class, 'add_to_cart'])->name('add_to_cart');
+    Route::post('/search', [CHome::class, 'search'])->name('search');
     Route::post('/add_to_cart2', [CHome::class, 'add_to_cart2'])->name('add_to_cart2');
     Route::post('/remove_from_cart', [CHome::class, 'remove_from_cart'])->name('remove_from_cart');
     Route::get('/delete_cart', [CHome::class, 'delete_cart'])->name('delete_cart');

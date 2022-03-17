@@ -100,9 +100,9 @@ curl_close($curl); // Close request
 		<!-- Header bar start -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark">
-				<div class="container-fluid flexer mb-1">
+				<div class="container-fluid special-001 flexer mb-1">
 					<a class="navbar-brand righter active ms-4" aria-current="page" href="/">
-						<img src="/images/icons/logo.svg" alt="logo" class="img-logo" />
+						<img src="/images/icons/logo.svg" alt="cryptonations-logo" class="img-logo" />
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -129,7 +129,7 @@ curl_close($curl); // Close request
 								<ul class="dropdown-menu search" aria-labelledby="dropdown04">
 									<form action="/search" method="POST" class="search-form">
 										<h5 class="mariner2">Search here</h5>
-										<input type="text" placeholder="enter item here" class="form-control mariner2">
+										<input type="text" placeholder="enter item here" id="searchinput" name="searchinput" class="form-control mariner2">
 										@csrf
 										<button class="btn btn-light mariner2 righty" type="submit">Search</button>
 									</form>
@@ -289,7 +289,7 @@ curl_close($curl); // Close request
 			<div class="container mb-3">
 				<div class="row">
 					<div class="col-xl-2 col-md-4 col-sm-12 col-12 imgtopper">
-						<img src="/images/icons/logo.png" alt="logo" />
+						<img src="/images/icons/logo.svg" alt="cryptonations-logo" />
 					</div>
 					<div class="col-xl-2 col-md-4 col-sm-6 col-6">
 						<ul class="centered">
@@ -315,7 +315,7 @@ curl_close($curl); // Close request
 						<div>
 							<label for="newsletter">Subscribe to our newsletter</label>
 							<input type="email" name="sub_email" id="sub_email" class="mt-2 newsletter" placeholder="Email" />
-							<button id="sub_btn" class="inside"><img src="/images/icons/subscribe.png" alt=""></button>
+							<button id="sub_btn" class="inside"><img src="/images/icons/mailbtn.svg" alt=""></button>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6 col-12 pad-topper">
@@ -436,8 +436,8 @@ curl_close($curl); // Close request
 			});
 		}
 	</script>
-<!--Floating WhatsApp javascript-->
-<script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
+	<!--Floating WhatsApp javascript-->
+	<script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			$('#WAButton').floatingWhatsApp({
@@ -445,7 +445,6 @@ curl_close($curl); // Close request
 				headerTitle: 'Chat with us on WhatsApp!', //Popup Title
 				popupMessage: 'Hello, how can we help you?', //Popup Message
 				showPopup: true, //Enables popup display
-				buttonImage: '<img src="/images/icons/whatsapp.png" />', //Button Image
 				//headerColor: 'crimson', //Custom header color
 				//backgroundColor: 'crimson', //Custom background button color
 				position: "right" //Position: left | right
