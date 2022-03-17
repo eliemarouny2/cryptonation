@@ -18,11 +18,6 @@
 							{{$product->prod_name}}
 						</p>
 						<p class="price"> {{$product->prod_price}}$ </p>
-						<div class="text-center flex-mid mb-2">
-									<button type="button" class="add-to-cart">
-										Add to cart
-									</button>
-								</div>
 					</div>
 				</div>
 				@endforeach
@@ -31,7 +26,7 @@
 		@else
 		<p class="text-center w-100 mt-5">It looks like there are no products that match your search</p>
 		<div class="text-center">
-		<a class="backhome-btn mt-4 mb-5" href="/">Back to home page</a>
+			<a class="backhome-btn mt-4 mb-5" href="/">Back to home page</a>
 		</div>
 		@endif
 	</section>
