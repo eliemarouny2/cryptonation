@@ -28,7 +28,7 @@ a {
 }
 .lrg {
     font-size: 1.5rem;
-    padding-right: 2rem !important;
+    padding:0rem 1rem !important;
     display: inline-block;
     color: #ffffff;
 
@@ -187,6 +187,20 @@ header nav ul li a {
     font-size: 18px !important;
     z-index: 999 !important;
 }
+.backhome-btn{
+    background: #2de86b 0% 0% no-repeat padding-box !important;
+    box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75) !important;
+    -webkit-box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75) !important;
+    -moz-box-shadow: -1px 2px 12px 1px rgba(45,232,107,0.75) !important;
+    border-radius: 10px !important;
+    width: 9rem !important;
+    height: 3rem !important;
+    font-weight: bold !important;
+    padding: 1rem 2rem;
+    color: #fff !important;
+    font-size: 1.4rem !important;
+    z-index: 999 !important;
+}
 .price {
     text-align: center;
     font-size: 1rem;
@@ -195,9 +209,6 @@ header nav ul li a {
     opacity: 1;
 }
 .item {
-
-    background-size: 450px;
-    height: 32rem;
     position: relative;
 }
 .cartitemname{
@@ -213,8 +224,6 @@ header nav ul li a {
     margin-bottom:4rem;
 }
 .item24 {
-    background-size: 400px;
-    height: 50rem;
     position: relative;
 }
 .price-name2{
@@ -226,7 +235,7 @@ header nav ul li a {
 }
 .item .content2 img {
     max-height: 550px;
-    padding: 3rem;
+    padding: 1rem;
     width: auto;
     max-width: 100%;
 }
@@ -285,11 +294,6 @@ header nav ul li a {
     width: 280px;
     bottom: 0;
     z-index: 200;
-}
-
-.item24 .content2 img {
-    max-height: 500px;
-    width: 300px;
 }
 .item24 .content23 img {
     padding-top: 3rem;
@@ -382,7 +386,7 @@ footer nav ul a {
 .card {
     border: none;
     background-color: transparent;
-    margin-right: 1rem;
+    margin:0rem 1.5rem;
 }
 .imgblog {
     max-height: 250px;
@@ -741,7 +745,7 @@ footer {
     margin-top: -1rem;
 }
 .inside{
-    margin-left:-3.3rem;
+    margin-left:-3.5rem;
     margin-bottom: 0.2rem;
 }
 
@@ -1341,7 +1345,7 @@ color:#707070;
 }
 .custom-nav{
     justify-content: end;
-    margin-right: 7rem;
+    margin-right: 5rem;
 }
 .width-word{
     width: min-content;
@@ -1392,3 +1396,67 @@ padding: 10rem;
     font: normal normal 900 17px/23px acumin;
     letter-spacing: 0px;
 }
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    }
+    .ticker-wrapper {
+    width: 100%;
+    background-color: transparent;
+    }
+    @keyframes ticker {
+    0% {
+    transform: translate3d(0, 0, 0);
+    }
+    100% {
+    transform: translate3d(-10%, 0, 0);
+    }
+    }
+    .ticker-transition {
+        display: inline-block;
+        white-space: nowrap;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-name: ticker;
+        animation-duration: 15s;
+    }
+    .ticker-transition:hover {
+        animation-play-state: paused;
+        cursor: pointer;
+    }
+    .ticker-item {
+        display: inline-block;
+        padding: 0 2rem;
+    }
+    .custom-check{
+        height: 100%;
+        width: 100%;
+    }
+   .customized-input{
+       width: 65% !important;
+   }
+   .customized-input-2{
+    width: 35% !important;
+   }
+   .floating-wpp-message{
+        color:#000 !important; 
+   }
+   #WAButton{
+        z-index:9999;
+        bottom: 25px;
+        left: 25px;
+   }
+   .show-resp{
+        display: none;
+   }
+   .custom-search{
+        height: 100%;
+        width: auto !important;
+   }
+   .content-search{
+       height: 30rem;
+   }
+   .special-001{
+       padding-left: 0rem;
+       padding-right: 0rem;
+   }

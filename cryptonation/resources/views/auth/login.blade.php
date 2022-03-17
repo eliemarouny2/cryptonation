@@ -37,7 +37,6 @@
                         <div class="col-sm-6 col-xs-12 col-lg-6">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email"
                                 :value="old('email')" required>
-                                
                         </div>
                     </div>
                     <div class="row g-3 mt-2 justify-content-sm-center justify-content-md-start">
@@ -55,7 +54,8 @@
                             <a class="bluish2" href="/forgot-password">Reset password</a>
                         </div>
                     </div>
-                    <span class="text-danger mb-4">@error('email'){{ $message }} @enderror</span>
+                 
+                    <span class="text-danger mb-4">@error('password'){{ $message }} @enderror</span>
 
                     <div class="centered2 mt-4">
                         <button class="w-40 btn btn-lg loginbtn mt-5" type="submit">Sign in</button>

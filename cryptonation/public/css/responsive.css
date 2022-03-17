@@ -24,6 +24,7 @@
         text-align: center;
     }
 }
+
 @media only screen and (max-width: 1300px) {
     .supreme-title{
        font-size: 4rem;
@@ -48,7 +49,10 @@
         margin-top: 8rem;
     }
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
+    .custom-nav{
+        margin-right: 0rem;
+    }
     .ml-2 {
         margin-left: 2rem;
         margin-right: 2rem;
@@ -247,16 +251,20 @@
         justify-content: end;
         margin-right: 0rem;
     }
-    .width-word2{
-        margin-left: 0rem !important;
-        width: 100%;
-        text-align: center;
+    .world-title{
         font-size: 2.5rem;
     }
     .width-word{
         width: 100%;
         margin-left: 0rem !important;
         text-align: center;
+        font-size: 2.5rem;
+    }
+    .width-word2{
+        margin-left: 0rem !important;
+        width: 100%;
+        text-align: center;
+        font-size: 2.5rem;
     }
     .width-word3{
         margin-left: 0rem !important;
@@ -335,6 +343,12 @@
         margin-left: 2.4rem;
         font-size: 2rem;
         max-width: 3rem;
+     }
+     .show-non-resp{
+        display: none;
+     }
+    .show-resp{
+        display: block;
      }
     .chart-image{
         height: 2rem;

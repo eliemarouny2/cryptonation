@@ -11,15 +11,8 @@ $iii = 0;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
 <section class="hero-banner">
-	<div class="slider">
-		<div class="slide">
-			<div class="image">
-				<div class="contenttitle">
-					<h1 class="supreme-merch-title"> Get supreme Shirts </h1>
-				</div>
-			</div>
-		</div>
-	</div>
+<img src="/images/backgrounds/banner-merch.svg" class="w-100 show-non-resp" alt="">
+    <img src="/images/backgrounds/banner-merch2.svg" class="w-100 show-resp" alt="">
 </section>
 
 <div class="accordion accordion-flush" id="accordionparent">
@@ -164,10 +157,7 @@ $iii = 0;
 	@endif
 </div>
 
-
-
-
-<section class="limited">
+<!-- <section class="limited">
 	<div class="container-fluid sizes">
 		<h1 class="width-word3">Limited edition</h1>
 			<p class="bet-to-own"> Bet on this item to own it </p>
@@ -201,8 +191,7 @@ $iii = 0;
 			</div>
 		</div>
 	</div>
-</section>
-
+</section> -->
 
 <div class="accordion accordion-flush" id="accordionparent2">
 	@if(count($caps) > 1)
@@ -337,7 +326,7 @@ $iii = 0;
 
 @if(count($posters) >= 1)
 <section class="hero-banner2">
-	<div class="container-fluid">
+	<div class="container-fluid mb-5">
 		<h1 class="bluish width-word3">designer poster</h1>
 		<div id="owl-demo-posters" class="owl-carousel owl-theme">
 			@foreach($posters as $poster)

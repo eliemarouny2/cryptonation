@@ -39,12 +39,13 @@ curl_close($curl); // Close request
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 	<link rel="stylesheet" href="/css/styles.css">
 	<link rel="stylesheet" href="/css/responsive.css">
-
+	<link rel="stylesheet" href="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.css">
 	<title>Cryptonations</title>
-	<link rel="icon" href="/images/icons/logo.png" type="image/x-icon">
+	<link rel="icon" href="/images/icons/logo.svg" type="image/x-icon">
 </head>
 
 
@@ -65,7 +66,7 @@ curl_close($curl); // Close request
 							<div class="col-9">
 								<span class="cartitemtitle">{{$cartitem->name}}</span> <br>
 								<span class="cartitemprice">{{$cartitem->price}}$</span><br>
-								<?php if(isset($cartitem->options['variant'])){ ?><span class="cartitemvariant">&nbsp;{{$cartitem->options['variant']}} &nbsp;</span><br> <?php } ?>
+								<?php if (isset($cartitem->options['variant'])) { ?><span class="cartitemvariant">&nbsp;{{$cartitem->options['variant']}} &nbsp;</span><br> <?php } ?>
 								<span class="cartitemqnty">Qty: {{$cartitem->qty}}</span>
 							</div>
 							<div class="col-3 remove-from-cart">
@@ -93,12 +94,15 @@ curl_close($curl); // Close request
 	</div>
 	<!-- cart end -->
 	<div id="main-body">
+
+		<div id="WAButton"></div>
+
 		<!-- Header bar start -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark">
-				<div class="container-fluid flexer mb-1">
+				<div class="container-fluid special-001 flexer mb-1">
 					<a class="navbar-brand righter active ms-4" aria-current="page" href="/">
-						<img src="/images/icons/logo.png" alt="logo" class="img-logo" />
+						<img src="/images/icons/logo.svg" alt="cryptonations-logo" class="img-logo" />
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -107,16 +111,16 @@ curl_close($curl); // Close request
 					<div class="collapse navbar-collapse custom-nav" id="navbarsExample03">
 						<ul class="navbar-nav mb-2  mb-sm-0 centered2">
 							<li class="nav-item ml-4">
-								<a class="lrg white-color <?php if(request()->segment(1)=='vlogs'){ ?>blue-picked <?php } ?>" href="/vlogs">Vlog</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'vlogs') { ?>blue-picked <?php } ?>" href="/vlogs">Vlog</a>
 							</li>
 							<li class="nav-item">
-								<a class="lrg white-color <?php if(request()->segment(1)=='blogs'){ ?>blue-picked <?php } ?>" href="/blogs">Blog</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'blogs') { ?>blue-picked <?php } ?>" href="/blogs">Blog</a>
 							</li>
 							<li class="nav-item">
-								<a class="lrg white-color <?php if(request()->segment(1)=='merch'){ ?>blue-picked <?php } ?>" href="/merch">Merch</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'merch') { ?>blue-picked <?php } ?>" href="/merch">Merch</a>
 							</li>
 							<li class="nav-item">
-								<a class="lrg white-color <?php if(request()->segment(1)=='about'){ ?>blue-picked <?php } ?>" href="/about">About us</a>
+								<a class="lrg white-color <?php if (request()->segment(1) == 'about') { ?>blue-picked <?php } ?>" href="/about">About us</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav mb-sm-0 centered2">
@@ -125,7 +129,7 @@ curl_close($curl); // Close request
 								<ul class="dropdown-menu search" aria-labelledby="dropdown04">
 									<form action="/search" method="POST" class="search-form">
 										<h5 class="mariner2">Search here</h5>
-										<input type="text" placeholder="enter item here" class="form-control mariner2">
+										<input type="text" placeholder="enter item here" id="searchinput" name="searchinput" class="form-control mariner2">
 										@csrf
 										<button class="btn btn-light mariner2 righty" type="submit">Search</button>
 									</form>
@@ -165,105 +169,114 @@ curl_close($curl); // Close request
 		</header>
 		<!-- Header bar end -->
 
-		<!-- Stocks chart start -->
-		@if(isset($r))
-		<nav class="navbar navig2 navbar-expand-lg navbar-light ">
-			<div class="container-fluid white custom-coin">
-				<div class="coin-data">
-					<?php if ($r->bitcoin->usd_24h_change < 0) { ?>
-						<img src="/images/icons/red.png" class="chart-image" alt="red image">
-					<?php } else { ?>
-						<img src="/images/icons/green.png" class="chart-image" alt="red image">
-					<?php } ?>
-					<div class="coin-info">
-						<span class="coin-symbol">BTC</span>
-						<span class="coin-price"><?php echo number_format($r->bitcoin->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->bitcoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
-							<?php echo number_format($r->bitcoin->usd_24h_change, 2); ?>
-						</span>
+		<div class="ticker-container">
+			<div class="ticker-wrapper">
+				<div class="ticker-transition">
+					<div class="ticker-item">
+						<div class="coin-data">
+							<?php if ($r->bitcoin->usd_24h_change < 0) { ?>
+								<img src="/images/icons/red.png" class="chart-image" alt="red image">
+							<?php } else { ?>
+								<img src="/images/icons/green.png" class="chart-image" alt="red image">
+							<?php } ?>
+							<div class="coin-info">
+								<span class="coin-symbol">BTC</span>
+								<span class="coin-price"><?php echo number_format($r->bitcoin->usd, 2); ?></span>
+								<span class="coin-24h-change <?php if ($r->bitcoin->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
+									<?php echo number_format($r->bitcoin->usd_24h_change, 2); ?>
+								</span>
+							</div>
+							<span></span>
+						</div>
 					</div>
-					<span></span>
-				</div>
-				<div class="coin-data">
-					<?php if ($r->ethereum->usd_24h_change < 0) { ?>
-						<img src="/images/icons/red.png" class="chart-image" alt="red image">
-					<?php } else { ?>
-						<img src="/images/icons/green.png" class="chart-image" alt="red image">
-					<?php } ?>
-					<div class="coin-info">
-						<span class="coin-symbol">ETH</span>
-						<span class="coin-price"><?php echo number_format($r->ethereum->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->ethereum->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
-							<?php echo number_format($r->ethereum->usd_24h_change, 2); ?>
-						</span>
+					<div class="ticker-item">
+						<div class="coin-data">
+							<?php if ($r->ethereum->usd_24h_change < 0) { ?>
+								<img src="/images/icons/red.png" class="chart-image" alt="red image">
+							<?php } else { ?>
+								<img src="/images/icons/green.png" class="chart-image" alt="red image">
+							<?php } ?>
+							<div class="coin-info">
+								<span class="coin-symbol">ETH</span>
+								<span class="coin-price"><?php echo number_format($r->ethereum->usd, 2); ?></span>
+								<span class="coin-24h-change <?php if ($r->ethereum->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
+									<?php echo number_format($r->ethereum->usd_24h_change, 2); ?>
+								</span>
+							</div>
+							<span></span>
+						</div>
 					</div>
-					<span></span>
-				</div>
-				<div class="coin-data">
-					<?php if ($r->ripple->usd_24h_change < 0) { ?>
-						<img src="/images/icons/red.png" class="chart-image" alt="red image">
-					<?php } else { ?>
-						<img src="/images/icons/green.png" class="chart-image" alt="red image">
-					<?php } ?>
-					<div class="coin-info">
-						<span class="coin-symbol">XRP</span>
-						<span class="coin-price"><?php echo number_format($r->ripple->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->ripple->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
-							<?php echo number_format($r->ripple->usd_24h_change, 2); ?>
-						</span>
+					<div class="ticker-item">
+						<div class="coin-data">
+							<?php if ($r->ripple->usd_24h_change < 0) { ?>
+								<img src="/images/icons/red.png" class="chart-image" alt="red image">
+							<?php } else { ?>
+								<img src="/images/icons/green.png" class="chart-image" alt="red image">
+							<?php } ?>
+							<div class="coin-info">
+								<span class="coin-symbol">XRP</span>
+								<span class="coin-price"><?php echo number_format($r->ripple->usd, 2); ?></span>
+								<span class="coin-24h-change <?php if ($r->ripple->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
+									<?php echo number_format($r->ripple->usd_24h_change, 2); ?>
+								</span>
+							</div>
+							<span></span>
+						</div>
 					</div>
-					<span></span>
-				</div>
-				<div class="coin-data">
-					<?php if ($r->dogecoin->usd_24h_change < 0) { ?>
-						<img src="/images/icons/red.png" class="chart-image" alt="red image">
-					<?php } else { ?>
-						<img src="/images/icons/green.png" class="chart-image" alt="red image">
-					<?php } ?>
-					<div class="coin-info">
-						<span class="coin-symbol">DOGE</span>
-						<span class="coin-price"><?php echo number_format($r->dogecoin->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->dogecoin->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
-							<?php echo number_format($r->dogecoin->usd_24h_change, 2); ?>
-						</span>
+					<div class="ticker-item">
+						<div class="coin-data">
+							<?php if ($r->dogecoin->usd_24h_change < 0) { ?>
+								<img src="/images/icons/red.png" class="chart-image" alt="red image">
+							<?php } else { ?>
+								<img src="/images/icons/green.png" class="chart-image" alt="red image">
+							<?php } ?>
+							<div class="coin-info">
+								<span class="coin-symbol">DOGE</span>
+								<span class="coin-price"><?php echo number_format($r->dogecoin->usd, 2); ?></span>
+								<span class="coin-24h-change <?php if ($r->dogecoin->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
+									<?php echo number_format($r->dogecoin->usd_24h_change, 2); ?>
+								</span>
+							</div>
+							<span></span>
+						</div>
 					</div>
-					<span></span>
-				</div>
-				<div class="coin-data">
-					<?php if ($r->solana->usd_24h_change < 0) { ?>
-						<img src="/images/icons/red.png" class="chart-image" alt="red image">
-					<?php } else { ?>
-						<img src="/images/icons/green.png" class="chart-image" alt="red image">
-					<?php } ?>
-					<div class="coin-info">
-						<span class="coin-symbol">SOL</span>
-						<span class="coin-price"><?php echo number_format($r->solana->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->solana->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
-							<?php echo number_format($r->solana->usd_24h_change, 2); ?>
-						</span>
+					<div class="ticker-item">
+						<div class="coin-data">
+							<?php if ($r->solana->usd_24h_change < 0) { ?>
+								<img src="/images/icons/red.png" class="chart-image" alt="red image">
+							<?php } else { ?>
+								<img src="/images/icons/green.png" class="chart-image" alt="red image">
+							<?php } ?>
+							<div class="coin-info">
+								<span class="coin-symbol">SOL</span>
+								<span class="coin-price"><?php echo number_format($r->solana->usd, 2); ?></span>
+								<span class="coin-24h-change <?php if ($r->solana->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
+									<?php echo number_format($r->solana->usd_24h_change, 2); ?>
+								</span>
+							</div>
+							<span></span>
+						</div>
 					</div>
-					<span></span>
-				</div>
-				<div class="coin-data">
-					<?php if ($r->cardano->usd_24h_change < 0) { ?>
-						<img src="/images/icons/red.png" class="chart-image" alt="red image">
-					<?php } else { ?>
-						<img src="/images/icons/green.png" class="chart-image" alt="red image">
-					<?php } ?>
-					<div class="coin-info">
-						<span class="coin-symbol">ADA</span>
-						<span class="coin-price"><?php echo number_format($r->cardano->usd, 2); ?></span>
-						<span class="coin-24h-change <?php if ($r->cardano->usd_24h_change < 0) { ?> red-font <?php }else{ ?> green-font <?php } ?>">
-							<?php echo number_format($r->cardano->usd_24h_change, 2); ?>
-						</span>
+					<div class="ticker-item">
+						<div class="coin-data">
+							<?php if ($r->cardano->usd_24h_change < 0) { ?>
+								<img src="/images/icons/red.png" class="chart-image" alt="red image">
+							<?php } else { ?>
+								<img src="/images/icons/green.png" class="chart-image" alt="red image">
+							<?php } ?>
+							<div class="coin-info">
+								<span class="coin-symbol">ADA</span>
+								<span class="coin-price"><?php echo number_format($r->cardano->usd, 2); ?></span>
+								<span class="coin-24h-change <?php if ($r->cardano->usd_24h_change < 0) { ?> red-font <?php } else { ?> green-font <?php } ?>">
+									<?php echo number_format($r->cardano->usd_24h_change, 2); ?>
+								</span>
+							</div>
+							<span></span>
+						</div>
 					</div>
-					<span></span>
 				</div>
 			</div>
-		</nav>
-		@endif
-		<!-- Stocks chart end -->
-
+		</div>
 
 		<!-- Main page start -->
 		<main>
@@ -276,7 +289,7 @@ curl_close($curl); // Close request
 			<div class="container mb-3">
 				<div class="row">
 					<div class="col-xl-2 col-md-4 col-sm-12 col-12 imgtopper">
-						<img src="/images/icons/logo.png" alt="logo" />
+						<img src="/images/icons/logo.svg" alt="cryptonations-logo" />
 					</div>
 					<div class="col-xl-2 col-md-4 col-sm-6 col-6">
 						<ul class="centered">
@@ -284,7 +297,7 @@ curl_close($curl); // Close request
 								<a href="/about">About us</a>
 							</li>
 							<li class="active">
-							<a href="/merch">Merch</a>
+								<a href="/merch">Merch</a>
 							</li>
 						</ul>
 					</div>
@@ -302,7 +315,7 @@ curl_close($curl); // Close request
 						<div>
 							<label for="newsletter">Subscribe to our newsletter</label>
 							<input type="email" name="sub_email" id="sub_email" class="mt-2 newsletter" placeholder="Email" />
-							<button id="sub_btn" class="inside"><img src="/images/icons/subscribe.png" alt=""></button>
+							<button id="sub_btn" class="inside"><img src="/images/icons/mailbtn.svg" alt=""></button>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6 col-12 pad-topper">
@@ -347,7 +360,9 @@ curl_close($curl); // Close request
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	
 
 	<script src="../js/carouselshome.js"></script>
 
@@ -421,7 +436,22 @@ curl_close($curl); // Close request
 			});
 		}
 	</script>
+	<!--Floating WhatsApp javascript-->
+	<script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('#WAButton').floatingWhatsApp({
+				phone: '+971502311157', //WhatsApp Business phone number
+				headerTitle: 'Chat with us on WhatsApp!', //Popup Title
+				popupMessage: 'Hello, how can we help you?', //Popup Message
+				showPopup: true, //Enables popup display
+				//headerColor: 'crimson', //Custom header color
+				//backgroundColor: 'crimson', //Custom background button color
+				position: "right" //Position: left | right
 
+			});
+		});
+	</script>
 
 </body>
 
