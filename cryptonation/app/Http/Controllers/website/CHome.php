@@ -252,4 +252,10 @@ class CHome extends Controller
         Cart::destroy();
         return redirect('/merch');
     }
+    function send_email(Request $req){
+        $subscribers=DB::table('subscribers')->where('active', 1)->get();
+        foreach($subscribers as $subscriber){
+            mail();
+        };
+    }
 }

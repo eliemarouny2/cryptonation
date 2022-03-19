@@ -4,8 +4,8 @@
 @section('content')
 
 <section class="hero-banner">
-    <img src="/images/backgrounds/banner-home.svg" class="w-100 show-non-resp" alt="">
-    <img src="/images/backgrounds/banner-home2.svg" class="w-100 show-resp" alt="">
+    <img src="/images/backgrounds/banner-home.svg" class="w-100 show-non-resp" alt="banner-pc" loading="lazy">
+    <img src="/images/backgrounds/banner-home2.svg" class="w-100 show-resp" alt="banner-mobile" loading="lazy">
 </section>
 
 @if(count($trending_shirts) > 1)
@@ -17,7 +17,7 @@
             <a href="/view_product/{{$trending_shirt->prod_id}}">
                 <div class="item" id="{{$trending_shirt->prod_id}}">
                     <div class="content2 mt-5">
-                        <img src="images/products/{{$trending_shirt->prod_img_url}}" alt="{{$trending_shirt->prod_name}}"  class="centered-image"/>
+                        <img src="images/products/{{$trending_shirt->prod_img_url}}" alt="{{$trending_shirt->prod_name}}" class="centered-image" loading="lazy" />
                     </div>
                 </div>
             </a>
@@ -28,7 +28,7 @@
 @endif
 
 <section class="video mt-big mb-5">
-    <iframe class="fullvideo" src="{{$video->video_url}}">
+    <iframe class="fullvideo" src="{{$video->video_url}}" loading="lazy">
     </iframe>
 </section>
 
@@ -43,7 +43,7 @@
             <a href="/view_product/{{$trending_cap->prod_id}}">
                 <div class="item" id="{{$trending_cap->prod_id}}">
                     <div class="content2 mt-5 ">
-                        <img src="images/products/{{$trending_cap->prod_img_url}}" alt="{{$trending_cap->prod_name}}"  class="centered-image" />
+                        <img src="images/products/{{$trending_cap->prod_img_url}}" alt="{{$trending_cap->prod_name}}" class="centered-image" loading="lazy" />
                     </div>
                 </div>
             </a>
@@ -59,7 +59,7 @@
             <h1 class="world-title">Worldwide</h1>
             <h2 class="world-subtitle">Shipping</h2>
         </div>
-       <img src="/images/icons/world.png" class="w-100 mt-5 mb-5" alt="">
+        <img src="/images/icons/world.png" class="w-100 mt-5 mb-5" alt="world image" loading="lazy">
     </div>
 </section>
 
@@ -72,7 +72,7 @@
             <a href="/view_product/{{$trending_poster->prod_id}}">
                 <div class="item" id="{{$trending_poster->prod_id}}">
                     <div class="content2 mt-5 p-3 mb-4">
-                        <img src="images/products/{{$trending_poster->prod_img_url}}" alt="{{$trending_poster->prod_name}}"  class="centered-image" />
+                        <img src="images/products/{{$trending_poster->prod_img_url}}" alt="{{$trending_poster->prod_name}}" class="centered-image" loading="lazy" />
                     </div>
                 </div>
             </a>
@@ -81,10 +81,5 @@
     </div>
 </section>
 @endif
-
-
-
-
-<!-- Owl Carousel -->
 
 @endsection

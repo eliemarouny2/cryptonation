@@ -17,6 +17,7 @@ use App\Http\Controllers\CSubscribers;
 use App\Http\Controllers\CVariant;
 use App\Http\Controllers\CVlog;
 use App\Http\Controllers\website\CHome;
+use App\Mail\WelcomeMail;
 use App\Models\Admin;
 use App\Models\Blog;
 use App\Models\Category;
@@ -43,6 +44,15 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+//Route for mailing
+
+    Route::get('/email',function(){
+        return new WelcomeMail();
+    });
+
+
+
+
 Route::group(['middleware' => ['LangCheck']], function () {
     Route::get('/', [CHome::class, 'homepage']);
     // Route::get('/welcome', function () {
@@ -62,6 +72,7 @@ Route::group(['middleware' => ['LangCheck']], function () {
     Route::get('view_product/{id}', [CHome::class, 'view_product']);
     Route::get('/lang', [CSettings::class, 'lang']);
     Route::post('/add_new_subscriber', [CHome::class, 'add_new_subscriber'])->name('add_new_subscriber');
+    Route::post('/send_email', [CHome::class, 'send_email'])->name('send_email');
     Route::post('/update_phrase', [CSettings::class, 'update_phrase'])->name('update_phrase');
     Route::get('/dashboard', function () {
         return view('dashboard');

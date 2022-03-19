@@ -8,6 +8,8 @@
         <link rel="shortcut icon" href="/admin/images/favicon.svg" type="image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ 
+            <link rel="stylesheet" href="/admin/css/backend.css">
         <link rel="stylesheet" href="/admin/css/backend.css">
         <link rel="stylesheet" href="/admin/css/bootstrap.css">
         <link rel="stylesheet" href="/admin/vendors/chartjs/Chart.min.css">
@@ -249,6 +251,7 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
                 </div>
             </footer>
         </div>
+    
         <script src="/admin/js/feather-icons/feather.min.js"></script>
         <script src="/admin/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script src="/admin/js/app.js"></script>
@@ -259,7 +262,6 @@ $data = ['LoggedUserInfo'=>Admin::where('id','=', session('LoggedAdmin'))->first
         <script src="/admin/js/main.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="/admin/vendors/choices.js/choices.min.js"></script>
-
 
 
 

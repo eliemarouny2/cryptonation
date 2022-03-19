@@ -28,7 +28,7 @@ $iii = 0;
 						<div class="accordion-header" id="flush-heading<?php echo $shirt->prod_id; ?>">
 							<a href="/view_product/{{$shirt->prod_id}}">
 								<div class="content2 mt-5">
-									<img src="images/products/{{$shirt->prod_img_url}}" alt="{{$shirt->prod_name}}" class="centered-image custom-img-009" />
+									<img src="images/products/{{$shirt->prod_img_url}}" alt="{{$shirt->prod_name}}" class="centered-image custom-img-009" loading="lazy"/>
 								</div>
 							</a>
 							<div class="centered2">
@@ -67,7 +67,7 @@ $iii = 0;
 					<div class="col-12 col-lg-6">
 						<div class="row">
 							<div class="col-2 flexer">
-								<img class="left-arrow v-align" src="images/icons/left.png">
+								<img class="left-arrow v-align" src="images/icons/left.png" loading="lazy">
 
 							</div>
 							<div class="col-8">
@@ -76,14 +76,14 @@ $iii = 0;
 									@foreach($galleries as $gallery)
 									<div class="col me-2 zoomed-tshirts">
 										<a href="#" data-image="" data-zoom-image="">
-											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="image_gallery/{{$gallery->img_url}}">
+											<img class="w-100 img-small" id="<?php echo $shirt->prod_id; ?>" src="image_gallery/{{$gallery->img_url}}" loading="lazy">
 										</a>
 									</div>
 									@endforeach
 								</div>
 							</div>
 							<div class="col-2 flexer">
-								<img class="right-arrow v-align" src="images/icons/right.png">
+								<img class="right-arrow v-align" src="images/icons/right.png" loading="lazy">
 
 							</div>
 						</div>
@@ -206,7 +206,7 @@ $iii = 0;
 						<div class="accordion-header" id="flush-heading<?php echo $cap->prod_id; ?>">
 							<a href="/view_product/{{$cap->prod_id}}">
 								<div class="content2 mt-5">
-									<img src="images/products/{{$cap->prod_img_url}}" alt="{{$cap->prod_name}}" class="centered-image custom-img-009" />
+									<img src="images/products/{{$cap->prod_img_url}}" alt="{{$cap->prod_name}}" class="centered-image custom-img-009" loading="lazy"/>
 								</div>
 							</a>
 							<div class="centered2">
@@ -249,10 +249,10 @@ $iii = 0;
 
 							</div>
 							<div class="col-8">
-								<img class="center-tshirt w-100 rel-001" id="<?php echo $cap->prod_id; ?>" src="images/products/{{$cap->prod_img_url}}" data-zoom-image="images/products/{{$cap->prod_img_url}}">
+								<img class="center-tshirt w-100 rel-001" id="<?php echo $cap->prod_id; ?>" src="images/products/{{$cap->prod_img_url}}" data-zoom-image="images/products/{{$cap->prod_img_url}}" loading="lazy">
 							</div>
 							<div class="col-2 flexer">
-								<img class="right-arrow v-align" src="images/icons/right.png">
+								<img class="right-arrow v-align" src="images/icons/right.png" loading="lazy">
 							</div>
 						</div>
 					</div>
@@ -334,7 +334,7 @@ $iii = 0;
 				<div class="item24" id="{{$poster->prod_id}}">
 					<div class="content2 mt-5">
 						<a href="/view_product/{{$poster->prod_id}}">
-							<img src="images/products/{{$poster->prod_img_url}}" alt="{{$poster->prod_name}}" class="centered-image" />
+							<img src="images/products/{{$poster->prod_img_url}}" alt="{{$poster->prod_name}}" class="centered-image" loading="lazy"/>
 						</a>
 					</div>
 					<div class="centered2">
